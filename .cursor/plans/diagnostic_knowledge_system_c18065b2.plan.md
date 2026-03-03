@@ -651,23 +651,57 @@ The customer walks through this interactively. The LLM helps interpret natural l
 
 ## PDF Manual Ingestion Pipeline
 
-Ingestion now writes to both databases:
+The pipeline runs in two phases: first extract all diagnoses (structure), then resolve all steps and references (including diagrams). This ensures the skeleton is complete before filling in diagram content, cross-references, and step-level detail.
+
+### Phase 1: Extract Diagnoses
+
+Parse the PDF, chunk by section, and extract the diagnostic structure. The LLM identifies Problem → Symptom → Test → Result → Solution chains and **captures all references** (figure numbers, diagram refs, page cross-refs) without resolving them yet.
 
 ```mermaid
 flowchart LR
-    PDF["PDF Service Manual"]
-    Parse["1. Parse PDF"]
-    Chunk["2. Chunk by Section"]
-    Extract["3. LLM Extraction"]
-    Neo["4a. Neo4j: Create Nodes + Edges"]
-    PG["4b. PostgreSQL: Store Chunks"]
-    Link["5a. Link Vehicle via APPLIES_TO"]
-    Embed["5b. Generate Embeddings"]
+    subgraph phase1 ["Phase 1: Extract Diagnoses"]
+        PDF["PDF Service Manual"]
+        Parse["1. Parse PDF"]
+        Chunk["2. Chunk by Section"]
+        Extract["3. LLM Extraction structure and refs"]
+        Skeleton["4. Skeleton Graph unresolved refs"]
+    end
 
-    PDF --> Parse --> Chunk --> Extract
-    Extract --> Neo --> Link
-    Extract --> PG --> Embed
+    PDF --> Parse --> Chunk --> Extract --> Skeleton
 ```
+
+**Output of Phase 1:** Diagnostic structure with unresolved references (e.g. "See Figure 12-34", "Wiring diagram p.412", "Component locations below").
+
+### Phase 2: Resolve Steps and References
+
+Resolve all references, extract and process diagrams, fill in step details, then write to both databases.
+
+```mermaid
+flowchart LR
+    subgraph phase2 ["Phase 2: Resolve Steps and References"]
+        Skeleton["Skeleton from Phase 1"]
+        Resolve["1. Resolve Refs figure to page to image"]
+        ExtractImg["2. Extract Images from PDF"]
+        Vision["3. Vision Process Diagrams"]
+        Detail["4. Fill Step Details"]
+        Neo["5a. Neo4j Create Nodes and Edges"]
+        PG["5b. PostgreSQL Store Chunks"]
+        Link["6a. Link Vehicle via APPLIES_TO"]
+        Embed["6b. Generate Embeddings"]
+    end
+
+    Skeleton --> Resolve --> ExtractImg --> Vision --> Detail
+    Detail --> Neo
+    Detail --> PG
+    Neo --> Link
+    PG --> Embed
+```
+
+**Reference resolution:** Map "Figure 12-34", "page 412", "diagram below" to actual image locations in the PDF. Heuristics or a lightweight LLM pass handle inconsistent numbering.
+
+**Diagram processing:** Part diagrams (callouts, exploded views), wiring diagrams (wire colors, pinouts), schematics (symbols, connections). Vision extracts structured data; images are stored in S3 and linked via `media_refs` on Step/Test nodes.
+
+**Final output:** Full graph in Neo4j, chunks with embeddings in PostgreSQL, all references resolved and diagram content attached.
 
 
 
@@ -681,7 +715,7 @@ The LLM (Claude API) is used in three fundamentally different ways. Each has dif
 
 Runs once per service manual. Not user-facing. Can be slow, can retry, cost is fixed.
 
-**What it does:** Reads chunks of PDF text and extracts structured diagnostic data -- node types, relationships, conditions, tools required. Turns prose like "If the battery reads below 12V, replacement is necessary" into a Problem->Test->Result->Solution graph path.
+**What it does (Phase 1):** Reads chunks of PDF text and extracts the diagnostic structure -- node types, relationships, conditions, tools required. Turns prose like "If the battery reads below 12V, replacement is necessary" into a Problem->Test->Result->Solution graph path. **Captures all references** (figure numbers, diagram refs, page cross-refs) for Phase 2 resolution.
 
 **When it runs:** During PDF ingestion only. Never on a user request.
 
@@ -1450,7 +1484,7 @@ Persistent state lives in the normalized PostgreSQL tables. On reconnection, the
 - **Cache**: Redis (session state, vote aggregation buffer, parts price cache with 1-4hr TTL)
 - **Object Storage**: S3 or MinIO (PDFs, images, schematics)
 - **AI - LLM**: Claude API (Anthropic)
-- **AI - Vision**: Claude Vision (DTC code extraction from scan tool photos, ~$0.01-0.03 per image)
+- **AI - Vision**: Claude Vision (DTC code extraction from scan tool photos, ~$0.01-0.03 per image; diagram processing during ingestion, ~$0.01-0.03 per diagram)
 - **AI - Embeddings**: OpenAI text-embedding-3-small (1536 dims)
 - **Parts - Phase 1 Marketplace**: Amazon PA-API 5.0 (free via Associates), eBay Browse API (free tier)
 - **Parts - Phase 1 Internal**: Catalog from ingested service manuals (fitment, specs, baseline price)
