@@ -3,10 +3,10 @@ name: Diagnostic Knowledge System
 overview: "Design and build Connected Diagnostics -- a diagnostic knowledge base starting with automotive repair. Neo4j is the primary store for the diagnostic graph (nodes, edges, cross-car relationships). PostgreSQL + pgvector handles relational data (users, sessions, pricing) and semantic search. Technicians contribute knowledge through a trust-gated system. Multi-modal DTC input (text, image, PDF) with correlation. Full session lifecycle tracking with linked sessions for cascading problems."
 todos:
   - id: setup-neo4j
-    content: "Set up Neo4j with APOC plugin. Define node labels (Problem, Symptom, Test, Result, Solution, Step, Vehicle, System, Component) and relationship types. Seed with initial schema constraints and indexes. Include dtc_codes property and index on Problem nodes."
+    content: "Set up Neo4j with APOC plugin. Define node labels (Problem, Symptom, Test, Result, Solution, Step, Part, Tool, Vehicle, System, Component) and relationship types. Seed with initial schema constraints and indexes. Include dtc_codes property and index on Problem nodes."
     status: pending
   - id: setup-postgres
-    content: "Set up PostgreSQL with pgvector extension. Create relational schema: users, manual_chunks, diagnostic_sessions (with phase lifecycle), session_steps, session_estimates, session_decisions, session_repair_steps, session_links, contributions, votes, brand_allowlist, brand_blocklist, shop_settings. Run Alembic migrations."
+    content: "Set up PostgreSQL with pgvector extension. Create relational schema: users, manual_chunks, diagnostic_sessions (with phase lifecycle), session_steps, session_estimates, session_decisions, session_repair_steps, session_links, session_messages, contributions, contribution_reviews, votes, cross_car_candidates, brand_allowlist, brand_blocklist, shop_settings. Run Alembic migrations."
     status: pending
   - id: setup-backend
     content: "Scaffold FastAPI backend with dual-DB architecture: neomodel or neo4j-driver for graph ops, SQLAlchemy + asyncpg for relational/vector ops. Set up the graph_service and search_service abstraction layers."
@@ -27,7 +27,7 @@ todos:
     content: "Build technician contribution system: bootstrap trust model, contribution types (new nodes, alternative paths, annotations, attachments), review queue, voting, auto-promotion logic."
     status: pending
   - id: parts-pricing
-    content: "Build parts provider system: Amazon PA-API + eBay Browse API integration, 4-tier quality ranking, brand allowlist/blocklist, tier-based estimate pricing, Redis caching."
+    content: "Build parts provider system: Amazon PA-API + eBay Browse API integration, 4-tier quality ranking, brand allowlist/blocklist, tier-based estimate pricing."
     status: pending
   - id: estimate-generation
     content: "Build estimate generation: Solution -> Steps -> parallel parts lookup -> quality ranking -> labor calc -> RepairEstimate snapshot into session_estimates. PDF export."
@@ -36,12 +36,12 @@ todos:
     content: "Build Next.js app: customer diagnostic chat (with DTC upload), technician contribution interface, estimate display, session lifecycle tracking."
     status: pending
   - id: docker-compose
-    content: "Create Docker Compose: Neo4j, PostgreSQL + pgvector, Redis, FastAPI backend, Next.js frontend."
+    content: "Create Docker Compose: Neo4j, PostgreSQL + pgvector, FastAPI backend, Next.js frontend."
     status: pending
 isProject: false
 ---
 
-# Connected Diagnostics: System Architecture (v2)
+# Connected Diagnostics: System Architecture (v3)
 
 ## Revision Notes
 
@@ -77,7 +77,7 @@ Each database does what it's best at:
 - Users, authentication, reputation scores
 - Manual chunks with vector embeddings (for semantic search / RAG)
 - Diagnostic session logs (relational with JSONB)
-- Pricing data (parts costs, labor rates, regional data)
+- Saved estimates (frozen price snapshots), shop settings (labor rates, markup config)
 - Contribution audit trail
 - Vote records
 
@@ -108,15 +108,15 @@ graph LR
         R2["CONFIRMS<br/>{condition}"]
         R3["ALTERNATIVE<br/>{contributor_id, vote_score}"]
         R4["REQUIRES_PART<br/>{quantity, optional}"]
-        R5["APPLIES_TO<br/>{year_start, year_end, trim}"]
-        R6["SIMILAR_TO<br/>{similarity_score, contributor_id}"]
+        R5["APPLIES_TO<br/>{trim}"]
+        R6["SIMILAR_TO<br/>{similarity_score, contributor_id, source, status}"]
         R7["SHARED_PROCEDURE<br/>{verified}"]
         R8["BELONGS_TO<br/>{}"]
         R9["HAS_COMPONENT<br/>{}"]
         R10["REQUIRES_TOOL<br/>{optional}"]
         R11["NEXT_STEP<br/>{step_order}"]
         R12["RESOLVES<br/>{}"]
-        R13["FITS<br/>{year_start, year_end, trim, notes}"]
+        R13["FITS<br/>{trim, notes}"]
         R14["SUBSTITUTES<br/>{direction, notes}"]
     end
 ```
@@ -137,23 +137,21 @@ CREATE (p:Problem {
   vote_score: 0
 })
 
-// Link it to a vehicle
+// Link it to multiple vehicle year-nodes (one APPLIES_TO per year)
 MATCH (p:Problem {title: "Engine Won't Start"})
-MATCH (v:Vehicle {make: "Honda", model: "Civic", year: 2019})
-CREATE (p)-[:APPLIES_TO {year_start: 2016, year_end: 2021}]->(v)
+MATCH (v:Vehicle) WHERE v.make = "Honda" AND v.model = "Civic" AND v.year IN range(2016, 2021)
+CREATE (p)-[:APPLIES_TO]->(v)
 
 // Link a shared procedure across cars
 MATCH (sol1:Solution {title: "Replace Battery"})
 MATCH (sol2:Solution {title: "Replace Battery - Accord"})
 CREATE (sol1)-[:SHARED_PROCEDURE {verified: true}]->(sol2)
 
-// Traversal: walk a diagnostic path
-MATCH path = (p:Problem {title: "Engine Won't Start"})
-  -[:LEADS_TO*1..6]->(sol:Solution)
-WHERE ALL(r IN relationships(path) WHERE r.vehicle_id IS NULL
-  OR r.vehicle_id = $vehicleId)
+// Traversal: walk a diagnostic path for a specific vehicle
+MATCH (p:Problem {title: "Engine Won't Start"})-[:APPLIES_TO]->(v:Vehicle {make: "Honda", model: "Civic", year: 2019})
+MATCH path = (p)-[:LEADS_TO*1..6]->(sol:Solution)
 RETURN path
-ORDER BY reduce(s = 0, r IN relationships(path) | s + coalesce(r.vote_score, 0)) DESC
+ORDER BY reduce(s = 0, n IN nodes(path) | s + coalesce(n.vote_score, 0)) DESC
 ```
 
 **Key graph design decisions:**
@@ -162,6 +160,94 @@ ORDER BY reduce(s = 0, r IN relationships(path) | s + coalesce(r.vote_score, 0))
 - **System and Component are separate node types.** A Vehicle HAS_COMPONENT Battery. Battery BELONGS_TO Electrical System. This creates a taxonomy you can traverse: "show me all electrical problems for this car."
 - **ALTERNATIVE edges are the contribution mechanism.** When a tech says "there's a better way to do this step," that creates an ALTERNATIVE edge from the existing node to a new node. The original manual path stays intact; the community path lives alongside it.
 - **SIMILAR_TO and SHARED_PROCEDURE** are the cross-car magic. SIMILAR_TO is soft ("these are related"), SHARED_PROCEDURE is hard ("these are literally the same procedure").
+
+---
+
+## Cross-Car Relationship Discovery
+
+SIMILAR_TO and SHARED_PROCEDURE edges are the core value of the product. A diagnostic knowledge base for one car is useful; a knowledge base that knows "this exact procedure works on 14 different vehicles" is a moat. These relationships must be discovered and built continuously through every channel available.
+
+### Discovery Channel 1: Ingestion-Time Comparison
+
+When a new service manual is ingested, every extracted Solution and Step node gets an embedding (already stored in pgvector via `manual_chunks`). Immediately after ingestion completes:
+
+1. For each new Solution/Step node, query pgvector for existing nodes with cosine similarity > 0.90
+2. Filter to nodes belonging to *different* vehicles (same-vehicle matches are just duplicates, not cross-car links)
+3. Generate candidate links with similarity scores
+4. High-confidence matches (> 0.95) are auto-created as `SIMILAR_TO {similarity_score, source: "ingestion", status: "pending_review"}`
+5. All candidates are queued for human review -- a reviewer can upgrade SIMILAR_TO to SHARED_PROCEDURE if the procedures are truly identical
+
+```
+Example: Ingest 2015 Honda Civic service manual.
+  -> Solution "EEPROM flash to set odometer" embeds at vector V1
+  -> pgvector finds 2007 Lexus IS350 Solution "EEPROM flash for odometer calibration" at 0.97 similarity
+  -> Auto-creates SIMILAR_TO edge, queued for review
+  -> Reviewer confirms: upgraded to SHARED_PROCEDURE
+```
+
+This is the highest-leverage channel -- every new manual automatically enriches every existing manual.
+
+### Discovery Channel 2: Session-Driven Detection
+
+When a diagnostic session completes (reaches a Solution), compare the session's path against completed sessions for different vehicles:
+
+1. After session completion, embed the full diagnostic path (problem description + solution title + key steps)
+2. Query for completed sessions on *different* vehicles that reached solutions with high embedding similarity
+3. If the same Problem->Solution pattern appears across vehicles and no cross-car link exists yet, generate a candidate
+4. Candidates are queued for review with session context: "Users diagnosed 'Engine Won't Start' on both 2019 Civic and 2020 Accord and reached 'Replace Starter Motor' via similar paths"
+
+This catches cross-car similarities that manuals don't make explicit -- real-world usage patterns revealing shared problems.
+
+### Discovery Channel 3: Technician Contributions
+
+Already designed in the contribution system (type: `cross_car_link`). A technician who works on multiple makes/models is the best source of "this is literally the same procedure." When a tech creates a cross-car link:
+
+- In bootstrap mode: published directly (trusted users)
+- In hybrid/reputation mode: requires review for standard/trusted users (cross-car links are high-value, worth the review overhead). Expert/admin bypass review for grey-area cases where their domain expertise qualifies them to judge cross-car similarity directly.
+- The tech earns +25 reputation if the link is verified
+
+### Discovery Channel 4: Batch Embedding Sweep
+
+A periodic background job (daily or weekly) that systematically compares nodes that haven't been checked yet:
+
+1. Select Solution and Step nodes that have no SIMILAR_TO or SHARED_PROCEDURE edges to other vehicles
+2. For each, query pgvector for cross-vehicle matches above the similarity threshold
+3. Generate candidates, deduplicate against existing edges and pending reviews
+4. Queue for review
+
+This catches anything the other channels missed -- especially nodes from older ingestions that predate newer manuals.
+
+### Candidate Review Queue
+
+All four channels feed into a unified review queue for cross-car link candidates:
+
+```
+Table: cross_car_candidates (PostgreSQL)
+  id UUID
+  source_neo4j_node_id TEXT        -- the node that triggered the match
+  target_neo4j_node_id TEXT        -- the matched node on a different vehicle
+  source_vehicle_neo4j_id TEXT
+  target_vehicle_neo4j_id TEXT
+  similarity_score FLOAT
+  discovery_channel TEXT            -- "ingestion", "session", "technician", "batch"
+  discovery_context JSONB           -- channel-specific metadata (session IDs, ingestion job ID, etc.)
+  suggested_relationship TEXT       -- "similar_to" or "shared_procedure"
+  status TEXT DEFAULT 'pending'     -- pending, approved_similar, approved_shared, rejected, duplicate
+  reviewed_by UUID REFERENCES users(id)
+  reviewed_at TIMESTAMPTZ
+  created_at TIMESTAMPTZ DEFAULT now()
+```
+
+Reviewers see the two nodes side by side (title, instruction text, steps, vehicle context) and choose: SIMILAR_TO, SHARED_PROCEDURE, or reject. Approved candidates create the corresponding Neo4j edge.
+
+### Metrics
+
+Track cross-car link growth as a key product metric:
+
+- Total SIMILAR_TO and SHARED_PROCEDURE edges (overall and per-vehicle)
+- Links created per channel per week (which discovery method is most productive?)
+- Review queue depth and throughput
+- "Coverage ratio" -- what percentage of Solution nodes have at least one cross-car link?
 
 ---
 
@@ -245,8 +331,8 @@ flowchart TD
     AltPath --> Direct
     Annotate --> Direct2{"Direct Publish - trusted+"}
     Attach --> Direct2
-    CrossCar --> ReviewQ2{"Review Queue - standard/trusted"}
-    CrossCar --> Direct3{"Direct Publish - expert/admin"}
+    CrossCar --> ReviewQ2{"Review Queue - standard/trusted (hybrid/reputation mode)"}
+    CrossCar --> Direct3{"Direct Publish - trusted/expert/admin (bootstrap) or expert/admin (hybrid/reputation)"}
     CostUpdate --> Direct2
 ```
 
@@ -310,7 +396,7 @@ flowchart LR
     R1["RESULT: Below 13.5V"]
     SOL["SOLUTION: Replace alternator"]
 
-    T1 -->|"LEADS_TO, source: manual"| R1
+    T1 -->|"LEADS_TO"| R1
     R1 -->|"LEADS_TO"| SOL
 ```
 
@@ -324,7 +410,7 @@ flowchart LR
     R2["RESULT: Engine dies or RPM drops"]
     SOL["SOLUTION: Replace alternator"]
 
-    T1 -->|"LEADS_TO, source: manual"| R1
+    T1 -->|"LEADS_TO"| R1
     T2 -->|"ALTERNATIVE, vote_score: 14"| T1
     T2 -->|"LEADS_TO"| R2
     R1 -->|"LEADS_TO"| SOL
@@ -334,6 +420,55 @@ flowchart LR
 
 
 The ALTERNATIVE edge connects the community-contributed test to the original manual test. Users see both options, ranked by vote score. The manual path is always preserved as the "official" baseline.
+
+### Contribution Approval Pipeline
+
+When a contribution reaches the required approval threshold (per trust mode), the system executes the following steps in order:
+
+```
+On approval threshold met:
+
+1. UPDATE Neo4j: Set draft node/edge status from "draft" to "published"
+   - The community path is now visible to all users navigating the tree
+   - ALTERNATIVE edges become active in traversal queries
+
+2. UPDATE PostgreSQL: Set contributions.status = "published"
+
+3. AWARD reputation: +10 to the contributor
+
+4. GENERATE embeddings: If the contribution added a new node with text content
+   (title, instruction, description), embed it and INSERT into manual_chunks
+   so it becomes searchable via pgvector
+
+5. TRIGGER cross-car discovery: If the new node is a Solution or Step,
+   run Discovery Channel 1 (embedding comparison against existing nodes
+   on other vehicles). A new contribution is a new opportunity to find
+   cross-car links. Any matches create cross_car_candidates rows.
+```
+
+```
+On rejection (any reviewer rejects):
+
+1. UPDATE Neo4j: Delete or mark draft node/edge as "rejected"
+   - Node is no longer reachable in traversal
+
+2. UPDATE PostgreSQL: Set contributions.status = "rejected"
+
+3. DEDUCT reputation: -10 from the contributor
+
+4. NOTIFY contributor: Include reviewer notes explaining why
+   so the contributor can revise and resubmit
+```
+
+```
+On flag (reviewer flags as questionable):
+
+1. Contribution stays in draft -- not published, not rejected
+
+2. Admin is notified with flag reason
+
+3. Admin can approve (overriding the flag) or reject
+```
 
 ---
 
@@ -346,6 +481,7 @@ PostgreSQL handles everything that isn't the diagnostic graph itself:
 CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     email TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
     display_name TEXT NOT NULL,
     user_type TEXT NOT NULL CHECK (user_type IN ('customer', 'technician', 'admin')),
     reputation INT DEFAULT 0,
@@ -353,6 +489,10 @@ CREATE TABLE users (
         CHECK (trust_level IN ('standard', 'trusted', 'expert', 'admin')),
     trust_source TEXT NOT NULL DEFAULT 'earned'
         CHECK (trust_source IN ('invited', 'earned', 'admin_granted')),
+    subscription_tier TEXT NOT NULL DEFAULT 'free'
+        CHECK (subscription_tier IN ('free', 'contributor', 'pro')),
+    quota_contributions_this_month INT DEFAULT 0,  -- tracks active contributions (reviews, write-ups) toward monthly quota; resets monthly
+    quota_reset_at TIMESTAMPTZ,                    -- when the current quota period started
     specializations JSONB DEFAULT '[]',
     created_at TIMESTAMPTZ DEFAULT now()
 );
@@ -361,6 +501,7 @@ CREATE TABLE users (
 CREATE TABLE manual_chunks (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     vehicle_neo4j_id TEXT NOT NULL,       -- references Neo4j Vehicle node
+    neo4j_node_id TEXT,                   -- references the specific Neo4j node (Problem, Solution, Step, etc.) this chunk maps to; enables pgvector search -> graph traversal
     source_file TEXT NOT NULL,
     page_number INT,
     chunk_text TEXT NOT NULL,
@@ -369,7 +510,7 @@ CREATE TABLE manual_chunks (
     metadata JSONB DEFAULT '{}',
     created_at TIMESTAMPTZ DEFAULT now()
 );
-CREATE INDEX ON manual_chunks USING ivfflat (embedding vector_cosine_ops) WITH (lists = 100);
+CREATE INDEX ON manual_chunks USING hnsw (embedding vector_cosine_ops);
 
 -- Contributions audit trail
 CREATE TABLE contributions (
@@ -380,10 +521,18 @@ CREATE TABLE contributions (
     created_neo4j_node_id TEXT,           -- the new node created (if any)
     content JSONB NOT NULL,               -- full contribution payload
     status TEXT DEFAULT 'pending_review',  -- pending_review, published, rejected, superseded
-    reviewed_by UUID REFERENCES users(id),
-    reviewed_at TIMESTAMPTZ,
-    review_notes TEXT,
     created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Review actions on contributions (supports multiple reviewers for hybrid mode)
+CREATE TABLE contribution_reviews (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    contribution_id UUID NOT NULL REFERENCES contributions(id) ON DELETE CASCADE,
+    reviewer_id UUID NOT NULL REFERENCES users(id),
+    action TEXT NOT NULL CHECK (action IN ('approve', 'reject', 'flag')),
+    notes TEXT,
+    reviewed_at TIMESTAMPTZ DEFAULT now(),
+    UNIQUE(contribution_id, reviewer_id)
 );
 
 -- Votes on Neo4j nodes (referenced by neo4j ID)
@@ -406,15 +555,13 @@ CREATE TABLE diagnostic_sessions (
     final_solution_neo4j_id TEXT,
     phase TEXT NOT NULL DEFAULT 'diagnosis'
         CHECK (phase IN ('diagnosis', 'estimate', 'decision', 'repair', 'verification', 'completed', 'abandoned')),
-    parent_session_id UUID REFERENCES diagnostic_sessions(id),
-    parent_link_reason TEXT
-        CHECK (parent_link_reason IN ('discovered_during_diagnosis', 'discovered_during_repair', 'related_dtc')),
-    chosen_path_neo4j_ids TEXT[],
+    -- Parent/child linking is handled by session_links table (supports querying in both directions + discovered_at_step)
+    -- Diagnostic path is reconstructed from session_steps (ordered by step_order), not stored redundantly here
     -- DTC input metadata (populated when session starts from DTC input)
     extracted_dtcs JSONB,                 -- [{code, description, source}] from text/image/PDF extraction
     dtc_clusters JSONB,                   -- [{root_cause, codes[], severity, problem_neo4j_id}]
     input_type TEXT CHECK (input_type IN ('text', 'image', 'pdf', 'conversation', 'linked')),
-    source_file_urls TEXT[],              -- S3 URLs for uploaded images/PDFs
+    -- Customer-uploaded images/PDFs are processed ephemerally (extract DTCs, then discard). No S3 storage.
     created_at TIMESTAMPTZ DEFAULT now(),
     completed_at TIMESTAMPTZ
 );
@@ -437,12 +584,14 @@ CREATE TABLE session_steps (
 CREATE TABLE session_estimates (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     session_id UUID NOT NULL REFERENCES diagnostic_sessions(id) ON DELETE CASCADE,
+    labor_rate_used DECIMAL NOT NULL,     -- per-hour rate applied (tech-set or regional estimate); currency in separate column
     estimate_snapshot JSONB NOT NULL,      -- frozen RepairEstimate (parts, labor, totals)
     total_parts_low DECIMAL,
     total_parts_high DECIMAL,
     total_labor_low DECIMAL,
     total_labor_high DECIMAL,
-    currency TEXT DEFAULT 'USD',
+    solution_neo4j_id TEXT NOT NULL,     -- which Solution node this estimate is for; enables relational queries across sessions
+    currency TEXT NOT NULL,              -- derived from user locale or shop_settings at estimate time
     generated_at TIMESTAMPTZ DEFAULT now()
 );
 
@@ -485,20 +634,34 @@ CREATE TABLE session_links (
     UNIQUE(parent_session_id, child_session_id)
 );
 
--- Pricing data (crowdsourced + manual)
-CREATE TABLE pricing_data (
+-- Conversation history for LLM context window
+CREATE TABLE session_messages (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-    neo4j_solution_id TEXT NOT NULL,
-    vehicle_neo4j_id TEXT,
-    region TEXT,                           -- zip code prefix or metro area
-    parts_cost_low DECIMAL,
-    parts_cost_high DECIMAL,
-    labor_cost_low DECIMAL,
-    labor_cost_high DECIMAL,
-    labor_hours_est DECIMAL,
-    source TEXT NOT NULL,                  -- manual, technician, aggregated
-    reported_by UUID REFERENCES users(id),
-    reported_at TIMESTAMPTZ DEFAULT now()
+    session_id UUID NOT NULL REFERENCES diagnostic_sessions(id) ON DELETE CASCADE,
+    role TEXT NOT NULL CHECK (role IN ('user', 'assistant', 'system')),
+    content TEXT NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT now()
+);
+
+-- Cross-car relationship candidates from all discovery channels
+CREATE TABLE cross_car_candidates (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    source_neo4j_node_id TEXT NOT NULL,
+    target_neo4j_node_id TEXT NOT NULL,
+    source_vehicle_neo4j_id TEXT NOT NULL,
+    target_vehicle_neo4j_id TEXT NOT NULL,
+    similarity_score FLOAT NOT NULL,
+    discovery_channel TEXT NOT NULL
+        CHECK (discovery_channel IN ('ingestion', 'session', 'technician', 'batch')),
+    discovery_context JSONB DEFAULT '{}',
+    suggested_relationship TEXT NOT NULL
+        CHECK (suggested_relationship IN ('similar_to', 'shared_procedure')),
+    status TEXT NOT NULL DEFAULT 'pending'
+        CHECK (status IN ('pending', 'approved_similar', 'approved_shared', 'rejected', 'duplicate')),
+    reviewed_by UUID REFERENCES users(id),
+    reviewed_at TIMESTAMPTZ,
+    created_at TIMESTAMPTZ DEFAULT now(),
+    UNIQUE(source_neo4j_node_id, target_neo4j_node_id)
 );
 ```
 
@@ -553,6 +716,7 @@ flowchart TB
         ContribSvc["Contribution Service<br/>(review, reputation, sync)"]
         IngestionSvc["Manual Ingestion<br/>Pipeline"]
         PricingSvc["Repair Pricing<br/>Engine"]
+        CrossCarSvc["Cross-Car Discovery<br/>(ingestion, session, batch)"]
     end
 
     subgraph ai [AI Layer]
@@ -563,8 +727,7 @@ flowchart TB
     subgraph data [Data Layer]
         Neo["Neo4j<br/>Diagnostic Graph"]
         PG["PostgreSQL + pgvector<br/>Users, Search, Sessions"]
-        S3["Object Storage<br/>PDFs, images"]
-        Cache["Redis<br/>Sessions, vote aggregation"]
+        S3["Object Storage<br/>Ingested PDFs, schematics"]
     end
 
     CustWeb --> Gateway
@@ -583,13 +746,16 @@ flowchart TB
     SearchSvc --> PG
     ContribSvc --> Neo
     ContribSvc --> PG
-    ContribSvc --> Cache
     IngestionSvc --> LLM
     IngestionSvc --> Embeddings
     IngestionSvc --> Neo
     IngestionSvc --> PG
     IngestionSvc --> S3
     PricingSvc --> PG
+    PricingSvc --> Neo
+    CrossCarSvc --> Neo
+    CrossCarSvc --> PG
+    CrossCarSvc --> LLM
 ```
 
 
@@ -699,7 +865,7 @@ flowchart LR
 
 **Reference resolution:** Map "Figure 12-34", "page 412", "diagram below" to actual image locations in the PDF. Heuristics or a lightweight LLM pass handle inconsistent numbering.
 
-**Diagram processing:** Part diagrams (callouts, exploded views), wiring diagrams (wire colors, pinouts), schematics (symbols, connections). Vision extracts structured data; images are stored in S3 and linked via `media_refs` on Step/Test nodes.
+**Diagram processing:** Part diagrams (callouts, exploded views), wiring diagrams (wire colors, pinouts), schematics (symbols, connections). Vision extracts structured data; extracted diagram images from ingested manuals are stored in S3 and linked via `media_refs` on Step/Test nodes.
 
 **Final output:** Full graph in Neo4j, chunks with embeddings in PostgreSQL, all references resolved and diagram content attached.
 
@@ -753,7 +919,7 @@ Turn 3 (Test Result):
   Input:  "it says 11.2"
   LLM:    Map "11.2" -> Result node "Below 12V"
           -> Neo4j traverse to Solution node
-          -> LLM pulls pricing data from PostgreSQL
+          -> Live parts lookup from providers (Amazon, eBay)
           -> LLM generates diagnosis with cost estimate
   Output: "Your battery is dead -- 11.2V is well below the 12.6V a
            healthy battery should read. You'll need a replacement.
@@ -799,8 +965,6 @@ Not critical for MVP. When a technician submits a contribution in free text, the
 
 ## Multi-Modal DTC Input and Correlation
 
-> Detailed sub-plan: [dtc_input_architecture_f4496677.plan.md](/home/varjitt/.cursor/plans/dtc_input_architecture_f4496677.plan.md)
-
 Users rarely type DTC codes manually in a chat. They read them off a scan tool, photograph the scan tool screen, or have a PDF diagnostic report from a shop. All three entry methods produce a standardized extraction result.
 
 ### Input Preprocessors
@@ -827,7 +991,6 @@ class DTCExtractionResult:
     codes: list[ExtractedDTC]
     vehicle_info: dict | None  # VIN, make/model/year if found in report
     raw_text: str | None       # OCR'd or extracted text for audit trail
-    source_file_url: str | None  # S3 link to uploaded image/PDF
 ```
 
 ### DTC Correlation Engine
@@ -901,7 +1064,7 @@ flowchart TD
     Confirm --> StartDiag
 ```
 
-DTC data is stored on `diagnostic_sessions`: `extracted_dtcs`, `dtc_clusters`, `input_type`, and `source_file_urls` (see PostgreSQL schema above).
+DTC data is stored on `diagnostic_sessions`: `extracted_dtcs`, `dtc_clusters`, and `input_type` (see PostgreSQL schema above). Customer-uploaded images/PDFs are processed in-memory and discarded after extraction -- only the structured DTC data is persisted.
 
 ---
 
@@ -917,9 +1080,8 @@ sequenceDiagram
     participant LLM as Claude API
     participant PG as PostgreSQL + pgvector
     participant Neo as Neo4j
-    participant Cache as Redis
 
-    Note over C,Cache: TURN 1: Session Start
+    Note over C,Neo: TURN 1: Session Start
 
     C->>App: "My 2019 Honda Civic won't start"
     App->>API: POST /diagnose {text: "My 2019 Civic won't start"}
@@ -937,15 +1099,14 @@ sequenceDiagram
     LLM-->>API: {chosen_node: "engine-wont-start", response_text: "When you turn the key..."}
 
     API->>PG: Create diagnostic_session record
-    API->>Cache: Store session state {current_node, path, vehicle}
     API-->>App: {session_id, message: "When you turn the key...", options: [...]}
 
-    Note over C,Cache: TURN 2+: Each Follow-Up
+    Note over C,Neo: TURN 2+: Each Follow-Up
 
     C->>App: "yeah it clicks"
     App->>API: POST /diagnose/session/{id}/answer {text: "yeah it clicks"}
 
-    API->>Cache: Load session state
+    API->>PG: Load session state (latest session_step = current node)
     API->>Neo: Fetch current node's children (Symptom/Test/Result nodes)
     Neo-->>API: Child nodes with edge conditions
 
@@ -958,14 +1119,15 @@ sequenceDiagram
     API->>LLM: Format test instruction conversationally
     LLM-->>API: {response_text: "That clicking usually points to..."}
 
-    API->>Cache: Update session state {current_node, path}
     API->>PG: INSERT INTO session_steps (session_id, step_order, neo4j_node_id, node_type, user_answer)
     API-->>App: {message: "That clicking usually points to...", options: [...]}
 
-    Note over C,Cache: FINAL TURN: Diagnosis Reached
+    Note over C,Neo: FINAL TURN: Diagnosis Reached
 
     API->>Neo: Solution node reached
-    API->>PG: Fetch pricing_data for this solution + vehicle
+    API->>Parts: Live parts lookup (Amazon, eBay, internal catalog) for solution's required parts
+    Parts-->>API: PartResults with pricing
+    API->>API: Quality ranking (Tier 1-4), select best price per part
     API->>LLM: Format final diagnosis with cost estimate
     LLM-->>API: {response_text: "Your battery is dead..."}
     API->>PG: Update session status to completed
@@ -1041,18 +1203,18 @@ graph TD
     Sol -->|REQUIRES_TOOL| T3
     Sol -->|REQUIRES_TOOL optional:true| T2
 
-    P1 -->|FITS 2016-2021| V1["Vehicle<br/>Honda Civic"]
+    P1 -->|FITS| V1["Vehicle<br/>Honda Civic 2019"]
     P1 -->|SUBSTITUTES| P3["Part<br/>name: Duralast Gold 51R-DLG<br/>aftermarket: true"]
 ```
 
 **Key properties on each node type:**
 
-- **Problem**: `title`, `description`, `dtc_codes` (string array -- e.g. `["P0300", "P0301", "P0302"]`, enables DTC-to-Problem lookup)
+- **Problem**: `title`, `description`, `dtc_codes` (string array -- e.g. `["P0300", "P0301", "P0302"]`, enables DTC-to-Problem lookup), `vote_score` (synced from PostgreSQL votes), `source_type` (manual/technician)
 - **Symptom**: `title`, `description`, `question_text` (what to ask the user)
-- **Test**: `title`, `instruction`, `expected_result`, `tool_required`
+- **Test**: `title`, `instruction`, `expected_result`, `tool_required`, `media_refs` (links to diagrams/images in S3, e.g. wiring diagrams for electrical tests)
 - **Result**: `title`, `value_type` (boolean, range, text), `interpretation`
-- **Solution**: `title`, `total_labor_minutes`, `difficulty` (beginner/intermediate/advanced), `source_type` (manual/technician), `precautions` (safety notes)
-- **Step**: `order`, `title`, `instruction` (detailed text), `est_minutes`, `warning` (optional safety callout), `media_refs` (links to images/diagrams in S3)
+- **Solution**: `title`, `total_labor_minutes`, `difficulty` (beginner/intermediate/advanced), `source_type` (manual/technician), `precautions` (safety notes), `vote_score`
+- **Step**: `order`, `title`, `instruction` (detailed text), `est_minutes`, `warning` (optional safety callout), `media_refs` (links to images/diagrams in S3), `vote_score`
 - **Part**: `name`, `category`, `oem_part_number`, `generic_spec` (human-readable spec like "Group 51R, 500 CCA"), `aftermarket` (bool), `estimated_retail_price` (optional, from manual or technician input -- used as OEM price baseline when no marketplace Tier 1 result exists)
 - **Tool**: `name`, `category` (hand_tool, power_tool, specialty_tool, diagnostic_tool), `common` (bool -- most shops have this)
 - **Vehicle**: `make`, `model`, `year`, `engine`, `trim`
@@ -1080,7 +1242,7 @@ ORDER BY size([c IN p.dtc_codes WHERE c IN ["P0300", "P0301", "P0302"]]) DESC
 - `NEXT_STEP {step_order}` -- Ordered chain from Solution through Steps
 - `REQUIRES_PART {quantity, optional}` -- Links Solution or Step to Part nodes
 - `REQUIRES_TOOL {optional}` -- Links Solution or Step to Tool nodes
-- `FITS {year_start, year_end, trim, notes}` -- Links Part to Vehicle (fitment)
+- `FITS {trim, notes}` -- Links Part to individual Vehicle year-nodes (one edge per year, consistent with APPLIES_TO)
 - `SUBSTITUTES {direction, notes}` -- Links OEM Part to aftermarket/compatible Parts
 
 ### Parts Provider Architecture (Plugin System)
@@ -1258,10 +1420,10 @@ These tables are seeded with an initial set of known OEM and quality aftermarket
 
 Instead:
 
-1. **Live lookup at query time** -- when a user views parts for a solution, we query enabled providers in real-time.
-2. **Redis cache (1-4hr TTL)** -- responses are cached by `provider:part_number:vehicle:location` so repeated lookups in the same session (or by other users searching the same part nearby) don't re-hit the API.
-3. **Freeze into estimate on save** -- when an estimate is generated, the prices seen at that moment are snapshot into the `estimate` record in PostgreSQL. That record is immutable. If the user re-generates later, they get fresh prices and a new estimate record.
-4. **Price history is deferred** -- no dedicated tracking table in Phase 1. If needed later, we can mine saved estimates or add a table in Phase 2+.
+1. **Live lookup at query time** -- when a user views parts for a solution, we query enabled providers in real-time. No caching layer at current scale; provider responses are used directly.
+2. **Freeze into estimate on save** -- when an estimate is generated, the prices seen at that moment are snapshot into the `estimate` record in PostgreSQL. That record is immutable. If the user re-generates later, they get fresh prices and a new estimate record.
+3. **Price history is deferred** -- no dedicated tracking table in Phase 1. If needed later, we can mine saved estimates or add a table in Phase 2+.
+4. **Caching is a later concern** -- when traffic justifies it, add a cache layer (Redis or similar) keyed by `provider:part_number:vehicle:location` with short TTL.
 
 ### Pricing Logic: Tier-Based Selection
 
@@ -1307,17 +1469,20 @@ CREATE TABLE shop_settings (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID NOT NULL REFERENCES users(id),
     shop_name TEXT NOT NULL,
-    location_lat DECIMAL,
-    location_lng DECIMAL,
-    address TEXT,
+    location_lat DECIMAL(5,2),            -- ~1km precision (2 decimal places); for regional/proximity lookups
+    location_lng DECIMAL(5,2),            -- precise geolocation via browser at query time, not stored
     default_markup_pct DECIMAL DEFAULT 0.40,
     category_markups JSONB DEFAULT '{}',
     labor_rate_per_hour DECIMAL,
+    consent_share_labor_rate BOOLEAN DEFAULT false,  -- opt-in to anonymized rate aggregation for customer-facing regional estimates
     enabled_providers TEXT[] DEFAULT '["amazon", "ebay"]',
     enabled_wholesale_providers TEXT[] DEFAULT '{}',
-    wholesale_credentials JSONB DEFAULT '{}',
+    -- Wholesale API credentials stored in external secrets manager (AWS Secrets Manager / Vault), not in this table.
+    -- This field holds a reference key, not the credentials themselves.
+    wholesale_credentials_ref TEXT,
     show_tier4 BOOLEAN DEFAULT false,
-    created_at TIMESTAMPTZ DEFAULT now()
+    created_at TIMESTAMPTZ DEFAULT now(),
+    updated_at TIMESTAMPTZ DEFAULT now()
 );
 ```
 
@@ -1388,15 +1553,13 @@ This is what gets displayed in the app and what gets persisted to `session_estim
 Both customers and techs have location context:
 
 - **Customers**: Browser geolocation (with permission) or manually entered zip/postal code. Used to find nearest retail parts sources.
-- **Techs**: Shop address from `shop_settings`. Used to query B2B warehouse availability and delivery times.
+- **Techs**: Browser geolocation at query time for precise lookups, `shop_settings.location_lat/lng` (~1km precision) as fallback. Used to query B2B warehouse availability and delivery times.
 
 The Parts Service passes `GeoLocation(lat, lng)` to each provider. Amazon and eBay use this for shipping estimates and regional availability. For the internal catalog (no live inventory), location is not applicable. In Phase 2, TecDoc supports regional queries natively and WorldPac returns warehouse locations with distance.
 
 ---
 
 ## Session Lifecycle
-
-> Detailed sub-plan: [session_model_redesign_0fef93df.plan.md](/home/varjitt/.cursor/plans/session_model_redesign_0fef93df.plan.md)
 
 Every diagnostic session follows a strict phase lifecycle. The `phase` column on `diagnostic_sessions` governs what actions are valid at any point. Phase transitions are explicit -- a session cannot jump from `diagnosis` to `completed`.
 
@@ -1456,22 +1619,15 @@ Session A: "Engine Knock" (root)
   -> Spawns Session B (child of A)
 
 Session B: "Oil Pump Failure" (child of A)
-  -> parent_session_id = Session A
-  -> parent_link_reason = "discovered_during_repair"
+  -> Linked via session_links: parent=A, child=B, reason="discovered_during_repair", discovered_at_step="step-12"
   -> Its own diagnosis, estimate, decision, repair tracking
 ```
 
 The frontend displays the full chain: "This vehicle has 2 linked issues." Session A cannot complete until Session B is resolved.
 
-### Redis Session State
+### Session State
 
-Redis still holds the hot path for active sessions:
-
-- Current graph node position
-- Current phase
-- Conversation history (recent turns for LLM context window)
-
-Persistent state lives in the normalized PostgreSQL tables. On reconnection, the API hydrates Redis from PostgreSQL if the cache has expired.
+All session state lives in PostgreSQL. The `diagnostic_sessions` table tracks phase, and `session_steps` tracks the current graph position (latest step = current node). Conversation history for the LLM context window is stored in a `session_messages` table (session_id, role, content, created_at). No caching layer is needed at current scale — this can be revisited when traffic justifies it.
 
 ---
 
@@ -1481,8 +1637,7 @@ Persistent state lives in the normalized PostgreSQL tables. On reconnection, the
 - **Backend**: Python + FastAPI
 - **Graph Database**: Neo4j 5 (diagnostic tree, cross-car relationships)
 - **Relational + Vector DB**: PostgreSQL 16 + pgvector (users, sessions, search, estimates, brand lists, shop settings)
-- **Cache**: Redis (session state, vote aggregation buffer, parts price cache with 1-4hr TTL)
-- **Object Storage**: S3 or MinIO (PDFs, images, schematics)
+- **Object Storage**: S3 or MinIO (ingested PDFs, schematics -- NOT customer uploads, which are processed ephemerally)
 - **AI - LLM**: Claude API (Anthropic)
 - **AI - Vision**: Claude Vision (DTC code extraction from scan tool photos, ~$0.01-0.03 per image; diagram processing during ingestion, ~$0.01-0.03 per diagram)
 - **AI - Embeddings**: OpenAI text-embedding-3-small (1536 dims)
@@ -1520,7 +1675,7 @@ connected-diagnostics/
 │   │   ├── db/
 │   │   │   ├── neo4j_client.py      # Neo4j connection + helpers
 │   │   │   ├── postgres.py          # SQLAlchemy async engine
-│   │   │   └── redis_client.py      # Redis connection
+│   │   │   └── secrets.py           # External secrets manager client (wholesale API creds)
 │   │   ├── models/                  # SQLAlchemy models (PostgreSQL)
 │   │   │   ├── user.py
 │   │   │   ├── manual_chunk.py
@@ -1533,7 +1688,9 @@ connected-diagnostics/
 │   │   │   ├── session_repair_steps.py # session_repair_steps table (granular repair tracking)
 │   │   │   ├── session_links.py        # session_links table (parent/child cascading problems)
 │   │   │   ├── shop_settings.py     # Shop location, markup rules, labor rate, provider config
-│   │   │   ├── estimate.py          # Saved estimates with frozen prices at time of generation
+│   │   │   ├── session_messages.py   # session_messages table (conversation history for LLM context)
+│   │   │   ├── contribution_review.py # contribution_reviews table (multi-reviewer support)
+│   │   │   ├── cross_car_candidate.py # cross_car_candidates table (discovery pipeline)
 │   │   │   ├── brand_allowlist.py   # Curated list of trusted aftermarket brands
 │   │   │   └── brand_blocklist.py   # List of known unreliable brands
 │   │   ├── graph/                   # Neo4j graph operations
@@ -1553,6 +1710,7 @@ connected-diagnostics/
 │   │   │   │   ├── text_parser.py      # Regex + LLM extraction of DTC codes from free text
 │   │   │   │   ├── image_extractor.py  # Claude Vision OCR for scan tool photos
 │   │   │   │   └── report_parser.py    # PDF report parsing (PyMuPDF + regex/LLM)
+│   │   │   ├── cross_car_discovery.py  # Cross-car link discovery (ingestion, session, batch channels)
 │   │   │   ├── dtc_correlator.py       # Groups related DTCs into root-cause clusters
 │   │   │   ├── parts/
 │   │   │   │   ├── base.py             # PartsProvider ABC + PartResult dataclass
@@ -1594,7 +1752,7 @@ connected-diagnostics/
 │   │   ├── PartCard.tsx             # Part details: source, price, availability, substitutes
 │   │   └── ShopSettingsForm.tsx     # Configure markup, labor rate, wholesale credentials
 │   └── package.json
-├── docker-compose.yml               # Neo4j + PostgreSQL + Redis + apps
+├── docker-compose.yml               # Neo4j + PostgreSQL + apps
 └── README.md
 ```
 
@@ -1604,7 +1762,7 @@ connected-diagnostics/
 
 ### Phase 1: Foundation + Dual MVP (Weeks 1-8)
 
-- Set up Neo4j + PostgreSQL + pgvector + Redis via Docker Compose
+- Set up Neo4j + PostgreSQL + pgvector via Docker Compose
 - Build PDF ingestion pipeline (your car's service manual)
 - Create diagnostic graph from extracted content (including enriched Solution/Step/Part/Tool nodes)
 - Build customer web app (diagnostic chat flow)
@@ -1620,11 +1778,11 @@ connected-diagnostics/
 - **Estimate generation** from Solution -> Steps -> parts lookup + quality ranking + labor calc -> RepairEstimate snapshot into session_estimates
 - **Shop settings** for technician-specific provider config, labor rate, and location
 - **Tier-based pricing** (default: cheapest OEM, fallback: trusted aftermarket, flag: unverified)
+- **Cross-car relationship discovery**: All 4 channels active from day one (ingestion-time embedding comparison, session-driven detection, technician contributions, batch embedding sweep). Unified candidate review queue.
 
 ### Phase 2: Growth + Multi-Car + Wholesale (Weeks 9-14)
 
 - Ingest additional vehicle manuals
-- Cross-car linking (SIMILAR_TO, SHARED_PROCEDURE)
 - **Curated DTC database** (OBD-II standard codes + manufacturer-specific codes seeded into Neo4j Problem nodes with severity metadata)
 - Enhanced technician dashboard (stats, contribution history, session analytics)
 - **TecDoc API integration** (global aftermarket catalog, ~$4K/yr) -- replaces Amazon/eBay for formal fitment data
@@ -1644,11 +1802,167 @@ connected-diagnostics/
 
 ### Phase 4: Scale + Intelligence (Weeks 21+)
 
-- Auto-suggest cross-car links from embedding similarity
 - ML-based path ranking (which diagnostic path resolves fastest)
 - Mobile app for in-shop use
 - API for third-party integrations (shop management software)
-- PDF export for estimates (simple formatting of RepairEstimate data model)
+- **Shop-branded estimate PDF**: Formal, branded estimate documents for shops to present to customers (logo, shop info, terms). Distinct from Phase 1's basic customer-facing PDF export.
+
+---
+
+## Data Boundaries and Privacy
+
+This section defines what data we collect, who can see it, what requires consent, and what we never store.
+
+### Data We Always Collect (Disclosed to All Users)
+
+All users (customers and technicians) are informed that the following data is collected and used to improve the diagnostic knowledge base:
+
+- **Diagnostic session data**: Path taken through the graph, answers given, outcome reached, session phase transitions
+- **DTC codes submitted**: Extracted codes and metadata from text, image, or PDF input (structured data only -- see "ephemeral" below)
+- **Vehicle information**: Make, model, year, engine, trim
+- **Session metadata**: Timestamps, duration, completion status
+- **Votes on diagnostic nodes**: Used for ranking and quality signals
+- **Aggregate path analytics**: "80% of users who hit this node ended up at Solution X" -- derived from session data to improve graph ranking over time
+
+### Data Collected from Technicians
+
+- **Contributions**: New nodes, alternatives, annotations, cross-car links, cost/time updates
+- **Reputation and trust activity**: Votes received, review actions, promotion history
+- **Shop settings**: Shop name, coarse lat/long (~1km), markup percentages, labor rate, enabled providers, display preferences
+- **Labor rates on estimates**: Captured per-estimate via `session_estimates.labor_rate_used`
+
+**Consent-gated**: Technician labor rates are only included in anonymized regional aggregation for customer-facing estimates if `shop_settings.consent_share_labor_rate` is true. Without consent, the rate is used only within that technician's own estimates.
+
+### Data Collected from Customers
+
+- **Location**: Browser geolocation (with permission) or manually entered zip/postal code -- used for parts availability and shipping estimates, never persisted beyond the session
+- **Estimate decisions**: Approve, decline, defer, or request alternative
+- **Conversation messages**: Stored in `session_messages` for LLM context within the session
+
+### Data We Never Store
+
+- **Customer-uploaded images and PDFs**: Processed in-memory during DTC extraction, then discarded. Only the structured `extracted_dtcs` JSON is persisted on the session. No S3 storage for customer uploads.
+- **Full shop addresses**: Only coarse lat/long (~1km precision, 2 decimal places) is stored for proximity lookups. Precise geolocation is provided by the browser at query time and not persisted.
+- **Wholesale API credentials**: Stored in external secrets manager (AWS Secrets Manager / Vault). The application database holds only a reference key, never the credentials.
+
+### Visibility Boundaries
+
+| Data | Customers | Technicians | Admins |
+|------|-----------|-------------|--------|
+| Diagnostic graph (problems, solutions, steps) | Yes | Yes | Yes |
+| Community contributions and vote scores | Yes | Yes | Yes |
+| Marketplace parts pricing (Amazon, eBay) | Yes | Yes | Yes |
+| B2B wholesale pricing (WorldPac, etc.) | **Never** | Yes (if enabled) | Yes |
+| Wholesale markup configuration | **Never** | Own shop only | Yes |
+| Other shops' labor rates | Regional range only (if consented) | Own rate only | Aggregated |
+| Shop settings (name, markup, providers) | **Never** | Own shop only | Yes |
+| Raw session conversation history | Own sessions only | Own sessions only | Yes |
+| Aggregate diagnostic path analytics | Indirectly (via ranking) | Indirectly (via ranking) | Yes |
+
+### Consent Gates
+
+| Action | Requires Consent | Default |
+|--------|-----------------|---------|
+| Collect diagnostic session data | No (disclosed in ToS) | Always on |
+| Collect DTC codes from uploads | No (disclosed in ToS) | Always on |
+| Aggregate session paths for graph ranking | No (disclosed in ToS) | Always on |
+| Include labor rate in regional anonymized aggregation | **Yes** (`consent_share_labor_rate`) | Off |
+| Browser geolocation for parts lookup | **Yes** (browser permission prompt) | Off (fallback to zip) |
+| Store conversation history for LLM context | No (disclosed in ToS, scoped to session) | Always on |
+
+---
+
+## Contributor Incentive Model
+
+Reputation points without tangible value don't motivate. The incentive system must make contributing directly beneficial to the contributor's own work, not just to the platform. The core tension: Contributors pay with time, Pro shops pay with money. Both get the same diagnostic experience. The platform grows from both.
+
+### Access Tiers
+
+| Tier | Diagnostic access | Obligation | Price |
+|------|-------------------|------------|-------|
+| Free (customers + DIYers) | Manual-only paths, limited sessions/month, basic estimates | None | Free |
+| Contributor (technicians) | Full access: community paths, cross-car links, unlimited sessions, regional pricing | Mandatory contribution quota per month | Free |
+| Pro (technicians) | Full access: identical to Contributor | None -- diagnostic session data still feeds into graph passively (path analytics, session-driven cross-car detection), but no active contribution required | $49-99/month per shop |
+
+**The diagnostic experience is identical for Contributor and Pro.** The only thing Pro buys is freedom from the contribution obligation. No business tooling differentiator, no feature gating, no knowledge privacy carve-outs -- just time vs. money. All session data from all tiers feeds into the graph equally.
+
+**All tiers generate passive data.** Every diagnostic session -- Free, Contributor, or Pro -- feeds into path analytics and session-driven cross-car detection (Discovery Channel 2). This is disclosed in ToS. The difference is that Contributors owe *active* work on top of passive usage: reviews, write-ups, cross-car verifications.
+
+### Contribution Quota
+
+The quota must be high enough that it represents real work, not something a shop clears passively:
+
+- **Minimum per month (example, tune as needed):** 5 cross-car link reviews OR 3 new contributions (alternative procedures, annotations, cost updates) OR a mix
+- Reviews mean actually evaluating two procedures side-by-side and making a judgment call -- not rubber-stamping
+- Contributions mean writing up real diagnostic knowledge from experience -- not copy-pasting
+- Quality enforcement: contributions that are rejected or flagged as low-effort don't count toward the quota
+- Quota resets monthly. Missing the quota for a month degrades to Free access until the next month's quota is met
+
+A busy shop running 20+ jobs/day might prefer paying $49-99/month rather than spending 2-3 hours on reviews and write-ups. That's the intended tradeoff.
+
+### Pro vs. Contributor Data Flow
+
+All tiers -- Free, Contributor, and Pro -- generate the same passive data: diagnostic session paths, outcomes, and session-driven cross-car detection. No tier gets knowledge privacy. The only difference is that Contributors owe active work (reviews, write-ups, cross-car verifications) on top of passive usage. Pro shops don't owe that active work, but their session data feeds the graph identically.
+
+### Additional Incentives (All Contributing Shops)
+
+- **Shop visibility**: Contributing shops appear in a customer-facing directory. Customers completing a diagnosis see "3 verified technicians near you can perform this repair." Pro shops can opt into this directory too, but Contributors get it automatically.
+- **Cross-car intelligence**: When a new cross-car link is discovered, contributing techs see it first -- "You contributed to 'Replace Starter Motor' on Civics -- we just discovered the same procedure works on Accords."
+- **Estimate accuracy**: Shops that share labor rate data (with consent) get access to anonymized regional pricing aggregations. You give data, you get data back.
+- **Expertise credentials**: Top contributors earn visible credentials per system (engine, electrical, transmission). "Top Electrical Contributor -- 47 verified contributions." A trust signal for customers choosing a shop.
+
+---
+
+## Monetization and Cost Control
+
+Revenue must cover LLM API costs from day one. The cost structure and pricing need to be aligned so that every tier is sustainable.
+
+### Cost Drivers
+
+| Activity | Cost per unit | Frequency | Notes |
+|----------|--------------|-----------|-------|
+| Diagnostic session (5 turns) | ~$0.02-0.04 | Every session | 2 LLM calls per turn (Sonnet) |
+| DTC image extraction | ~$0.01-0.03 | Per image upload | Claude Vision |
+| DTC PDF extraction | ~$0.05-0.15 | Per PDF upload | Multi-page Vision |
+| Manual ingestion | ~$2-5 | One-time per manual | Batch, not user-facing |
+| Cross-car candidate LLM review | ~$0.01-0.02 | Per candidate | Automated similarity assessment |
+| Embedding generation | ~$0.001 | Per chunk | Cheap, negligible |
+
+The dominant cost is diagnostic sessions. At $0.03 average per session, 1,000 sessions/day = ~$900/month in LLM costs.
+
+### Revenue Model
+
+| Tier | Price | What it covers |
+|------|-------|----------------|
+| Free (customers + DIYers) | Free | Limited sessions/month, manual-only diagnostic paths, basic estimates |
+| Contributor (technicians) | Free (contribution-gated) | Full diagnostic access in exchange for mandatory contribution quota per month |
+| Pro (technicians) | $49-99/month per shop | Full diagnostic access, no contribution requirement |
+| Enterprise (deferred) | Custom | Multi-location shops, custom integrations, dedicated support, SLA |
+
+### Cost Control Strategies
+
+1. **Model tiering by task** -- not every LLM call needs Sonnet. Use Haiku for simple node-mapping ("yeah it clicks" -> "clicking sound" symptom) where the graph context makes the answer obvious. Reserve Sonnet for ambiguous inputs, first-turn problem matching, and estimate summaries. This could cut per-session cost by 40-60%.
+
+2. **Prompt caching** -- the system prompt and graph context are largely identical across turns in the same session and across sessions hitting the same graph region. Anthropic's prompt caching reduces input token costs for repeated prefixes.
+
+3. **Session turn limits** -- free tier gets a max of N turns per session. Most diagnoses resolve in 4-6 turns. A 10-turn cap is generous and prevents runaway costs from users who chat aimlessly.
+
+4. **Image/PDF limits** -- free tier gets N image/PDF extractions per month. This is the second-highest per-unit cost and the easiest to abuse.
+
+5. **Batch over real-time where possible** -- cross-car candidate LLM review, vote score sync, and path analytics can all run as batch jobs during off-peak hours, which is cheaper than real-time for providers that offer batch pricing.
+
+6. **Graph-first, LLM-second** -- the architecture already enforces this: the graph is authoritative, the LLM is a translator. As graph coverage improves, some turns can skip the LLM entirely and present the next node directly (e.g., binary test results where the user picks from 2-3 buttons instead of typing free text). Every skipped LLM call is pure cost savings.
+
+### Unit Economics Target
+
+For sustainability, the per-shop revenue must exceed the per-shop LLM cost with margin:
+
+- A Pro shop at $49/month running 20 sessions/day = ~600 sessions/month = ~$18-24/month in LLM costs
+- Gross margin: ~50-65% before infrastructure costs
+- A Contributor shop at $0/month running the same volume costs the same in LLM but pays nothing -- covered by the value of their active contributions (reviews, write-ups, cross-car verifications) which grow the knowledge base and attract paying Pro shops
+- Pro shops still generate passive value: their session data feeds path analytics and cross-car detection, even without active contributions
+
+The free customer tier is a funnel: customers complete a diagnosis, get an estimate, and see "3 verified technicians near you." That's the lead generation that makes both Pro subscriptions and Contributor visibility valuable to shops.
 
 ---
 
