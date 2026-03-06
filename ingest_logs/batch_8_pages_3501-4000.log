@@ -1,0 +1,98 @@
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 488 pages with text.
+
+Created 61 chunks.
+
+61 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/61] chunk 2: 0 nodes, 0 rels
+  [2/61] chunk 5: 0 nodes, 0 rels
+  [3/61] chunk 7: 0 nodes, 0 rels
+  [4/61] chunk 1: 0 nodes, 0 rels
+  [5/61] chunk 6: 0 nodes, 0 rels
+  [6/61] chunk 8: 0 nodes, 0 rels
+  [7/61] chunk 4: 0 nodes, 0 rels
+  [8/61] chunk 3: 0 nodes, 0 rels
+  [9/61] chunk 9: 0 nodes, 0 rels
+  [10/61] chunk 11: 0 nodes, 0 rels
+  [11/61] chunk 13: 0 nodes, 0 rels
+  [12/61] chunk 17: 0 nodes, 0 rels
+  [13/61] chunk 18: 0 nodes, 0 rels
+  [14/61] chunk 15: 0 nodes, 0 rels
+  [15/61] chunk 14: 0 nodes, 0 rels
+  [16/61] chunk 16: 0 nodes, 0 rels
+  [17/61] chunk 19: 0 nodes, 0 rels
+  [18/61] chunk 12: 0 nodes, 0 rels
+  [19/61] chunk 10: 0 nodes, 0 rels
+  [20/61] chunk 20: 0 nodes, 0 rels
+  [21/61] chunk 22: 0 nodes, 0 rels
+  [22/61] chunk 23: 0 nodes, 0 rels
+  [23/61] chunk 21: 0 nodes, 0 rels
+  [24/61] chunk 26: 0 nodes, 0 rels
+  [25/61] chunk 24: 0 nodes, 0 rels
+  [26/61] chunk 28: 0 nodes, 0 rels
+  [27/61] chunk 29: 0 nodes, 0 rels
+  [28/61] chunk 30: 0 nodes, 0 rels
+  [29/61] chunk 25: 0 nodes, 0 rels
+  [30/61] chunk 32: 0 nodes, 0 rels
+  [31/61] chunk 33: 0 nodes, 0 rels
+  [32/61] chunk 31: 0 nodes, 0 rels
+  [33/61] chunk 34: 0 nodes, 0 rels
+  [34/61] chunk 35: 0 nodes, 0 rels
+  [35/61] chunk 37: 0 nodes, 0 rels
+  [36/61] chunk 38: 0 nodes, 0 rels
+  [37/61] chunk 36: 0 nodes, 0 rels
+  [38/61] chunk 40: 0 nodes, 0 rels
+  [39/61] chunk 41: 0 nodes, 0 rels
+  [40/61] chunk 42: 0 nodes, 0 rels
+  [41/61] chunk 39: 0 nodes, 0 rels
+  [42/61] chunk 44: 0 nodes, 0 rels
+  [43/61] chunk 43: 0 nodes, 0 rels
+  [44/61] chunk 45: 0 nodes, 0 rels
+  [45/61] chunk 27: 0 nodes, 0 rels
+  [46/61] chunk 46: 0 nodes, 0 rels
+  [47/61] chunk 47: 0 nodes, 0 rels
+  [48/61] chunk 48: 0 nodes, 0 rels
+  [49/61] chunk 50: 0 nodes, 0 rels
+  [50/61] chunk 49: 0 nodes, 0 rels
+  [51/61] chunk 53: 0 nodes, 0 rels
+  [52/61] chunk 52: 0 nodes, 0 rels
+  [53/61] chunk 54: 0 nodes, 0 rels
+  [54/61] chunk 55: 0 nodes, 0 rels
+  [55/61] chunk 57: 0 nodes, 0 rels
+  [56/61] chunk 56: 0 nodes, 0 rels
+  [57/61] chunk 51: 0 nodes, 0 rels
+  [58/61] chunk 59: 0 nodes, 0 rels
+  [59/61] chunk 58: 0 nodes, 0 rels
+  [60/61] chunk 60: 0 nodes, 0 rels
+  [61/61] chunk 61: 0 nodes, 0 rels
+  61/61 done (chunk 61: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 61 chunks.
+
+Generating embeddings for 61 chunks...
+Generated 61 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 61 chunks.
+
+Ingestion complete!

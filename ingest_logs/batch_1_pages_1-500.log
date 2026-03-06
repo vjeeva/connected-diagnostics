@@ -1,0 +1,16 @@
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 495 pages with text.
+
+Created 88 chunks.
+
+All chunks already ingested. Nothing to do.
+

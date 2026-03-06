@@ -1,0 +1,39 @@
+{
+  "gemini-2.5-flash": [
+    {
+      "chunk_hash": "a20cff5b14e20e0b26c1c00c9cd11155f8c2971c3c2640ed08c16b2c4508d1ac",
+      "page": 2400,
+      "nodes": 0,
+      "rels": 0,
+      "time": 232.39275002479553
+    },
+    {
+      "chunk_hash": "83eeeea604942e6c31e9f73c1fe2a37e49f2b77e4468da90c865aeb00253779f",
+      "page": 2403,
+      "nodes": 95,
+      "rels": 110,
+      "time": 78.54685974121094
+    },
+    {
+      "chunk_hash": "fd1c5962ce1af212ff9de02af3c46c3b49970e3b0ca3fa793a8b4d9c282f0927",
+      "page": 2407,
+      "nodes": 114,
+      "rels": 138,
+      "time": 103.01033020019531
+    },
+    {
+      "chunk_hash": "2c316dfe218b8b6c0996cdcb8f30ed65452d7bf0a23867099262df65033ca864",
+      "page": 2412,
+      "nodes": 76,
+      "rels": 86,
+      "time": 86.01584792137146
+    },
+    {
+      "chunk_hash": "d268e905edb15a82ea382cb0197a4f1de7b4afbd16bdd742e8d712a0604dbf74",
+      "page": 2415,
+      "nodes": 48,
+      "rels": 59,
+      "time": 78.74350571632385
+    }
+  ]
+}

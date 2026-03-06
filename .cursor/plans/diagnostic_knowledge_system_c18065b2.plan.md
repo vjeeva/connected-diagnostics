@@ -43,6 +43,8 @@ isProject: false
 
 # Connected Diagnostics: System Architecture (v3)
 
+> **Companion document**: [Workflows Reference](./workflows.md) — high-level components and workflows extracted from this plan.
+
 ## Revision Notes
 
 v3 changes from v2:
@@ -105,19 +107,17 @@ graph LR
 
     subgraph relTypes [Relationship Types]
         R1["LEADS_TO<br/>{condition, confidence, display_order}"]
-        R2["CONFIRMS<br/>{condition}"]
-        R3["ALTERNATIVE<br/>{contributor_id, vote_score}"]
-        R4["REQUIRES_PART<br/>{quantity, optional}"]
-        R5["APPLIES_TO<br/>{trim}"]
-        R6["SIMILAR_TO<br/>{similarity_score, contributor_id, source, status}"]
-        R7["SHARED_PROCEDURE<br/>{verified}"]
-        R8["BELONGS_TO<br/>{}"]
-        R9["HAS_COMPONENT<br/>{}"]
-        R10["REQUIRES_TOOL<br/>{optional}"]
-        R11["NEXT_STEP<br/>{step_order}"]
-        R12["RESOLVES<br/>{}"]
-        R13["FITS<br/>{trim, notes}"]
-        R14["SUBSTITUTES<br/>{direction, notes}"]
+        R2["ALTERNATIVE<br/>{contributor_id, vote_score}"]
+        R3["REQUIRES_PART<br/>{quantity, optional}"]
+        R4["APPLIES_TO<br/>{trim}"]
+        R5["SIMILAR_TO<br/>{similarity_score, contributor_id, source, status}"]
+        R6["SHARED_PROCEDURE<br/>{verified}"]
+        R7["BELONGS_TO<br/>{}"]
+        R8["HAS_COMPONENT<br/>{}"]
+        R9["REQUIRES_TOOL<br/>{optional}"]
+        R10["NEXT_STEP<br/>{step_order}"]
+        R11["FITS<br/>{trim, notes}"]
+        R12["SUBSTITUTES<br/>{direction, notes}"]
     end
 ```
 
@@ -198,15 +198,7 @@ When a diagnostic session completes (reaches a Solution), compare the session's 
 
 This catches cross-car similarities that manuals don't make explicit -- real-world usage patterns revealing shared problems.
 
-### Discovery Channel 3: Technician Contributions
-
-Already designed in the contribution system (type: `cross_car_link`). A technician who works on multiple makes/models is the best source of "this is literally the same procedure." When a tech creates a cross-car link:
-
-- In bootstrap mode: published directly (trusted users)
-- In hybrid/reputation mode: requires review for standard/trusted users (cross-car links are high-value, worth the review overhead). Expert/admin bypass review for grey-area cases where their domain expertise qualifies them to judge cross-car similarity directly.
-- The tech earns +25 reputation if the link is verified
-
-### Discovery Channel 4: Batch Embedding Sweep
+### Discovery Channel 3: Batch Embedding Sweep
 
 A periodic background job (daily or weekly) that systematically compares nodes that haven't been checked yet:
 
@@ -219,7 +211,7 @@ This catches anything the other channels missed -- especially nodes from older i
 
 ### Candidate Review Queue
 
-All four channels feed into a unified review queue for cross-car link candidates:
+All three channels are system-driven — the system discovers correlations, humans validate them. All candidates feed into a unified review queue:
 
 ```
 Table: cross_car_candidates (PostgreSQL)
@@ -229,7 +221,7 @@ Table: cross_car_candidates (PostgreSQL)
   source_vehicle_neo4j_id TEXT
   target_vehicle_neo4j_id TEXT
   similarity_score FLOAT
-  discovery_channel TEXT            -- "ingestion", "session", "technician", "batch"
+  discovery_channel TEXT            -- "ingestion", "session", "batch"
   discovery_context JSONB           -- channel-specific metadata (session IDs, ingestion job ID, etc.)
   suggested_relationship TEXT       -- "similar_to" or "shared_procedure"
   status TEXT DEFAULT 'pending'     -- pending, approved_similar, approved_shared, rejected, duplicate
@@ -298,7 +290,7 @@ Reputation is earned:
   +10  Contribution approved by reviewer
   +5   Contribution upvoted
   +15  Your alternative path is chosen by a user completing diagnosis
-  +25  You create a cross-car link that gets verified
+  +25  You validate a cross-car correlation that gets confirmed
   -2   Contribution downvoted
   -10  Contribution rejected by reviewer
 ```
@@ -322,7 +314,6 @@ flowchart TD
     Tech --> AltPath["Add Alternative Path"]
     Tech --> Annotate["Annotate Existing Node"]
     Tech --> Attach["Attach Media"]
-    Tech --> CrossCar["Link Across Cars"]
     Tech --> CostUpdate["Update Cost/Time"]
 
     NewNode --> ReviewQ{"Review Queue - standard users"}
@@ -331,8 +322,6 @@ flowchart TD
     AltPath --> Direct
     Annotate --> Direct2{"Direct Publish - trusted+"}
     Attach --> Direct2
-    CrossCar --> ReviewQ2{"Review Queue - standard/trusted (hybrid/reputation mode)"}
-    CrossCar --> Direct3{"Direct Publish - trusted/expert/admin (bootstrap) or expert/admin (hybrid/reputation)"}
     CostUpdate --> Direct2
 ```
 
@@ -516,7 +505,7 @@ CREATE INDEX ON manual_chunks USING hnsw (embedding vector_cosine_ops);
 CREATE TABLE contributions (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID REFERENCES users(id),
-    contribution_type TEXT NOT NULL,       -- new_node, alternative, annotation, attachment, cross_car_link, cost_update
+    contribution_type TEXT NOT NULL,       -- new_node, alternative, annotation, attachment, cost_update
     target_neo4j_node_id TEXT,            -- the node being modified/extended
     created_neo4j_node_id TEXT,           -- the new node created (if any)
     content JSONB NOT NULL,               -- full contribution payload
@@ -652,7 +641,7 @@ CREATE TABLE cross_car_candidates (
     target_vehicle_neo4j_id TEXT NOT NULL,
     similarity_score FLOAT NOT NULL,
     discovery_channel TEXT NOT NULL
-        CHECK (discovery_channel IN ('ingestion', 'session', 'technician', 'batch')),
+        CHECK (discovery_channel IN ('ingestion', 'session', 'batch')),
     discovery_context JSONB DEFAULT '{}',
     suggested_relationship TEXT NOT NULL
         CHECK (suggested_relationship IN ('similar_to', 'shared_procedure')),
@@ -837,6 +826,8 @@ flowchart LR
 ```
 
 **Output of Phase 1:** Diagnostic structure with unresolved references (e.g. "See Figure 12-34", "Wiring diagram p.412", "Component locations below").
+
+**Hardware note:** pdfplumber loads the entire PDF into memory during parsing. A ~2000-page service manual consumes ~2.5GB+ RSS. The ingestion pipeline should run on machines with at least 8GB available RAM. This is an offline batch process — it does not run during user requests.
 
 ### Phase 2: Resolve Steps and References
 
@@ -1130,7 +1121,7 @@ sequenceDiagram
     API->>API: Quality ranking (Tier 1-4), select best price per part
     API->>LLM: Format final diagnosis with cost estimate
     LLM-->>API: {response_text: "Your battery is dead..."}
-    API->>PG: Update session status to completed
+    API->>PG: INSERT INTO session_estimates, UPDATE diagnostic_sessions SET phase = 'estimate'
     API-->>App: {message: "Your battery is dead...", diagnosis: {...}, pricing: {...}}
 ```
 
@@ -1778,7 +1769,7 @@ connected-diagnostics/
 - **Estimate generation** from Solution -> Steps -> parts lookup + quality ranking + labor calc -> RepairEstimate snapshot into session_estimates
 - **Shop settings** for technician-specific provider config, labor rate, and location
 - **Tier-based pricing** (default: cheapest OEM, fallback: trusted aftermarket, flag: unverified)
-- **Cross-car relationship discovery**: All 4 channels active from day one (ingestion-time embedding comparison, session-driven detection, technician contributions, batch embedding sweep). Unified candidate review queue.
+- **Cross-car correlation engine**: All 3 automated discovery channels active from day one (ingestion-time embedding comparison, session-driven detection, batch embedding sweep). System discovers, humans validate via unified review queue.
 
 ### Phase 2: Growth + Multi-Car + Wholesale (Weeks 9-14)
 
@@ -1826,7 +1817,7 @@ All users (customers and technicians) are informed that the following data is co
 
 ### Data Collected from Technicians
 
-- **Contributions**: New nodes, alternatives, annotations, cross-car links, cost/time updates
+- **Contributions**: New nodes, alternatives, annotations, cost/time updates
 - **Reputation and trust activity**: Votes received, review actions, promotion history
 - **Shop settings**: Shop name, coarse lat/long (~1km), markup percentages, labor rate, enabled providers, display preferences
 - **Labor rates on estimates**: Captured per-estimate via `session_estimates.labor_rate_used`
@@ -1886,13 +1877,13 @@ Reputation points without tangible value don't motivate. The incentive system mu
 
 **The diagnostic experience is identical for Contributor and Pro.** The only thing Pro buys is freedom from the contribution obligation. No business tooling differentiator, no feature gating, no knowledge privacy carve-outs -- just time vs. money. All session data from all tiers feeds into the graph equally.
 
-**All tiers generate passive data.** Every diagnostic session -- Free, Contributor, or Pro -- feeds into path analytics and session-driven cross-car detection (Discovery Channel 2). This is disclosed in ToS. The difference is that Contributors owe *active* work on top of passive usage: reviews, write-ups, cross-car verifications.
+**All tiers generate passive data.** Every diagnostic session -- Free, Contributor, or Pro -- feeds into path analytics and session-driven cross-car detection (Discovery Channel 2). This is disclosed in ToS. The difference is that Contributors owe *active* work on top of passive usage: reviews, write-ups, cross-car correlation validations.
 
 ### Contribution Quota
 
 The quota must be high enough that it represents real work, not something a shop clears passively:
 
-- **Minimum per month (example, tune as needed):** 5 cross-car link reviews OR 3 new contributions (alternative procedures, annotations, cost updates) OR a mix
+- **Minimum per month (example, tune as needed):** 5 cross-car correlation validations OR 3 new contributions (alternative procedures, annotations, cost updates) OR a mix
 - Reviews mean actually evaluating two procedures side-by-side and making a judgment call -- not rubber-stamping
 - Contributions mean writing up real diagnostic knowledge from experience -- not copy-pasting
 - Quality enforcement: contributions that are rejected or flagged as low-effort don't count toward the quota
@@ -1902,7 +1893,7 @@ A busy shop running 20+ jobs/day might prefer paying $49-99/month rather than sp
 
 ### Pro vs. Contributor Data Flow
 
-All tiers -- Free, Contributor, and Pro -- generate the same passive data: diagnostic session paths, outcomes, and session-driven cross-car detection. No tier gets knowledge privacy. The only difference is that Contributors owe active work (reviews, write-ups, cross-car verifications) on top of passive usage. Pro shops don't owe that active work, but their session data feeds the graph identically.
+All tiers -- Free, Contributor, and Pro -- generate the same passive data: diagnostic session paths, outcomes, and session-driven cross-car detection. No tier gets knowledge privacy. The only difference is that Contributors owe active work (reviews, write-ups, cross-car correlation validations) on top of passive usage. Pro shops don't owe that active work, but their session data feeds the graph identically.
 
 ### Additional Incentives (All Contributing Shops)
 
@@ -1959,7 +1950,7 @@ For sustainability, the per-shop revenue must exceed the per-shop LLM cost with 
 
 - A Pro shop at $49/month running 20 sessions/day = ~600 sessions/month = ~$18-24/month in LLM costs
 - Gross margin: ~50-65% before infrastructure costs
-- A Contributor shop at $0/month running the same volume costs the same in LLM but pays nothing -- covered by the value of their active contributions (reviews, write-ups, cross-car verifications) which grow the knowledge base and attract paying Pro shops
+- A Contributor shop at $0/month running the same volume costs the same in LLM but pays nothing -- covered by the value of their active contributions (reviews, write-ups, cross-car correlation validations) which grow the knowledge base and attract paying Pro shops
 - Pro shops still generate passive value: their session data feeds path analytics and cross-car detection, even without active contributions
 
 The free customer tier is a funnel: customers complete a diagnosis, get an estimate, and see "3 verified technicians near you." That's the lead generation that makes both Pro subscriptions and Contributor visibility valuable to shops.

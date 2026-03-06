@@ -1,0 +1,164 @@
+{
+  "haiku_baseline": {
+    "a20cff5b14e20e0b26c1c00c9cd11155f8c2971c3c2640ed08c16b2c4508d1ac": {
+      "nodes": {
+        "Problem": 1,
+        "Symptom": 8,
+        "Test": 6,
+        "Solution": 7,
+        "Result": 12,
+        "Step": 3,
+        "Part": 1,
+        "Tool": 1
+      },
+      "total_nodes": 39,
+      "rels": {
+        "APPLIES_TO": 66,
+        "LEADS_TO": 55,
+        "NEXT_STEP": 6,
+        "REQUIRES_TOOL": 1
+      },
+      "total_rels": 128
+    },
+    "40d4445b051df7205ba37028c12ccebf475ab82226d2b49efb8cccbd40faba4f": {
+      "nodes": {},
+      "total_nodes": 0,
+      "rels": {},
+      "total_rels": 0
+    },
+    "83eeeea604942e6c31e9f73c1fe2a37e49f2b77e4468da90c865aeb00253779f": {
+      "nodes": {},
+      "total_nodes": 0,
+      "rels": {},
+      "total_rels": 0
+    },
+    "307258b8f39bb0e415cb425d37d26ecb205191580a89ce92b36c628922fd25f1": {
+      "nodes": {},
+      "total_nodes": 0,
+      "rels": {},
+      "total_rels": 0
+    },
+    "fd1c5962ce1af212ff9de02af3c46c3b49970e3b0ca3fa793a8b4d9c282f0927": {
+      "nodes": {},
+      "total_nodes": 0,
+      "rels": {},
+      "total_rels": 0
+    }
+  },
+  "openai-gpt5-mini": [
+    {
+      "chunk_hash": "a20cff5b14e20e0b26c1c00c9cd11155f8c2971c3c2640ed08c16b2c4508d1ac",
+      "page": 2400,
+      "stats": {
+        "total_nodes": 32,
+        "total_rels": 31,
+        "nodes": {
+          "Problem": 2,
+          "Symptom": 4,
+          "Tool": 1,
+          "Test": 12,
+          "Result": 11,
+          "Solution": 2
+        },
+        "rels": {
+          "REQUIRES_TOOL": 4,
+          "LEADS_TO": 21,
+          "NEXT_STEP": 6
+        }
+      },
+      "time": 125.73207569122314
+    },
+    {
+      "chunk_hash": "40d4445b051df7205ba37028c12ccebf475ab82226d2b49efb8cccbd40faba4f",
+      "page": 2402,
+      "stats": {
+        "total_nodes": 48,
+        "total_rels": 72,
+        "nodes": {
+          "Problem": 1,
+          "Tool": 1,
+          "Test": 22,
+          "Result": 9,
+          "Solution": 11,
+          "Part": 4
+        },
+        "rels": {
+          "REQUIRES_TOOL": 10,
+          "LEADS_TO": 39,
+          "NEXT_STEP": 18,
+          "REQUIRES_PART": 5
+        }
+      },
+      "time": 187.17265248298645
+    },
+    {
+      "chunk_hash": "83eeeea604942e6c31e9f73c1fe2a37e49f2b77e4468da90c865aeb00253779f",
+      "page": 2403,
+      "stats": {
+        "total_nodes": 58,
+        "total_rels": 108,
+        "nodes": {
+          "Problem": 8,
+          "Test": 26,
+          "Result": 7,
+          "Solution": 11,
+          "Tool": 1,
+          "Part": 5
+        },
+        "rels": {
+          "LEADS_TO": 69,
+          "NEXT_STEP": 22,
+          "REQUIRES_TOOL": 13,
+          "REQUIRES_PART": 4
+        }
+      },
+      "time": 306.18357276916504
+    },
+    {
+      "chunk_hash": "307258b8f39bb0e415cb425d37d26ecb205191580a89ce92b36c628922fd25f1",
+      "page": 2406,
+      "stats": {
+        "total_nodes": 62,
+        "total_rels": 95,
+        "nodes": {
+          "Problem": 1,
+          "Symptom": 1,
+          "Tool": 2,
+          "Solution": 10,
+          "Part": 6,
+          "Test": 29,
+          "Result": 13
+        },
+        "rels": {
+          "NEXT_STEP": 28,
+          "LEADS_TO": 58,
+          "REQUIRES_TOOL": 3,
+          "REQUIRES_PART": 6
+        }
+      },
+      "time": 250.59525394439697
+    },
+    {
+      "chunk_hash": "fd1c5962ce1af212ff9de02af3c46c3b49970e3b0ca3fa793a8b4d9c282f0927",
+      "page": 2407,
+      "stats": {
+        "total_nodes": 56,
+        "total_rels": 104,
+        "nodes": {
+          "Problem": 1,
+          "Test": 31,
+          "Solution": 15,
+          "Part": 7,
+          "Tool": 2
+        },
+        "rels": {
+          "LEADS_TO": 59,
+          "NEXT_STEP": 27,
+          "REQUIRES_PART": 8,
+          "REQUIRES_TOOL": 10
+        }
+      },
+      "time": 243.59059810638428
+    }
+  ]
+}

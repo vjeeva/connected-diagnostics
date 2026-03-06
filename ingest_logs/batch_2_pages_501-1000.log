@@ -1,0 +1,512 @@
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 492 pages with text.
+
+Created 84 chunks.
+
+Skipping 1 already-ingested chunks.
+83 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/83] chunk 6: 0 nodes, 0 rels
+  [2/83] chunk 5: 6 nodes, 5 rels
+  [3/83] chunk 7: 28 nodes, 27 rels
+  [4/83] chunk 8: 18 nodes, 10 rels
+  [5/83] chunk 9: 29 nodes, 10 rels
+  [6/83] chunk 4: 33 nodes, 34 rels
+  [7/83] chunk 10: 33 nodes, 27 rels
+  [8/83] chunk 2: 0 nodes, 0 rels
+  [9/83] chunk 3: 0 nodes, 0 rels
+  [10/83] chunk 1: 0 nodes, 0 rels
+  [11/83] chunk 11: 49 nodes, 8 rels
+  [12/83] chunk 18: 0 nodes, 0 rels
+  [13/83] chunk 14: 0 nodes, 0 rels
+  [14/83] chunk 12: 0 nodes, 0 rels
+  [15/83] chunk 15: 0 nodes, 0 rels
+  [16/83] chunk 13: 86 nodes, 2 rels
+  [17/83] chunk 22: 24 nodes, 27 rels
+  [18/83] chunk 19: 15 nodes, 13 rels
+  [19/83] chunk 24: 34 nodes, 32 rels
+  [20/83] chunk 20: 37 nodes, 54 rels
+  [21/83] chunk 23: 33 nodes, 29 rels
+  [22/83] chunk 21: 52 nodes, 47 rels
+  [23/83] chunk 17: 0 nodes, 0 rels
+  [24/83] chunk 16: 0 nodes, 0 rels
+  [25/83] chunk 32: 38 nodes, 24 rels
+  [26/83] chunk 27: 41 nodes, 56 rels
+  [27/83] chunk 29: 0 nodes, 0 rels
+  [28/83] chunk 30: 0 nodes, 0 rels
+  [29/83] chunk 26: 0 nodes, 0 rels
+  [30/83] chunk 28: 0 nodes, 0 rels
+  [31/83] chunk 31: 0 nodes, 0 rels
+  [32/83] chunk 25: 0 nodes, 0 rels
+  [33/83] chunk 37: 48 nodes, 32 rels
+  [34/83] chunk 36: 0 nodes, 0 rels
+  [35/83] chunk 38: 0 nodes, 0 rels
+  [36/83] chunk 35: 0 nodes, 0 rels
+  [37/83] chunk 34: 0 nodes, 0 rels
+  [38/83] chunk 33: 33 nodes, 43 rels
+  [39/83] chunk 40: 46 nodes, 50 rels
+  [40/83] chunk 39: 0 nodes, 0 rels
+  [41/83] chunk 48: 47 nodes, 18 rels
+  [42/83] chunk 43: 46 nodes, 33 rels
+  [43/83] chunk 44: 48 nodes, 39 rels
+  [44/83] chunk 47: 0 nodes, 0 rels
+  [45/83] chunk 42: 0 nodes, 0 rels
+  [46/83] chunk 45: 0 nodes, 0 rels
+  [47/83] chunk 46: 27 nodes, 24 rels
+  [48/83] chunk 50: 28 nodes, 24 rels
+  [49/83] chunk 51: 37 nodes, 33 rels
+  [50/83] chunk 49: 29 nodes, 39 rels
+  [51/83] chunk 41: 0 nodes, 0 rels
+  [52/83] chunk 53: 56 nodes, 36 rels
+  [53/83] chunk 52: 0 nodes, 0 rels
+  [54/83] chunk 56: 17 nodes, 16 rels
+  [55/83] chunk 58: 13 nodes, 3 rels
+  [56/83] chunk 60: 23 nodes, 18 rels
+  [57/83] chunk 59: 41 nodes, 27 rels
+  [58/83] chunk 55: 31 nodes, 25 rels
+  [59/83] chunk 54: 0 nodes, 0 rels
+  [60/83] chunk 57: 61 nodes, 42 rels
+  [61/83] chunk 61: 0 nodes, 0 rels
+  [62/83] chunk 62: 0 nodes, 0 rels
+  [63/83] chunk 70: 0 nodes, 0 rels
+  [64/83] chunk 71: 0 nodes, 0 rels
+  [65/83] chunk 72: 24 nodes, 37 rels
+  [66/83] chunk 69: 38 nodes, 45 rels
+  [67/83] chunk 73: 0 nodes, 0 rels
+  [68/83] chunk 67: 49 nodes, 43 rels
+  [69/83] chunk 74: 0 nodes, 0 rels
+  [70/83] chunk 66: 0 nodes, 0 rels
+  [71/83] chunk 65: 0 nodes, 0 rels
+  [72/83] chunk 75: 34 nodes, 42 rels
+  [73/83] chunk 76: 45 nodes, 48 rels
+  [74/83] chunk 78: 0 nodes, 0 rels
+  [75/83] chunk 77: 0 nodes, 0 rels
+  [76/83] chunk 64: 0 nodes, 0 rels
+  [77/83] chunk 63: 0 nodes, 0 rels
+  [78/83] chunk 83: 28 nodes, 25 rels
+  [79/83] chunk 81: 32 nodes, 27 rels
+  [80/83] chunk 82: 30 nodes, 35 rels
+  [81/83] chunk 80: 0 nodes, 0 rels
+  [82/83] chunk 79: 43 nodes, 45 rels
+  [83/83] chunk 68: 60 nodes, 24 rels
+  83/83 done (chunk 68: 60 nodes, 24 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+183 nodes with unresolved cross-references.
+Building page index for cross-reference search...
+Indexing 124 pages (7142 already done)...
+No text pages to index.
+  Enriched: CHECK TOUCH SWITCH ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: CHECK PANEL & STEERING SWITCH ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: Check Touch Switch ← p.1130 DIAGNOSTIC MODE (dist=0.350)
+  Enriched: CHECK MIC & VOICE RECOGNITION ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY ← p.841 TELEPHONE MICROPHONE 
+(dist=0.403)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - Step 10 ← p.841 TELEPHONE 
+MICROPHONE (dist=0.403)
+  Enriched: CHECK DCM (TELEMATICS TRANSCEIVER) - Step 11 ← p.826 REPLACE DCM 
+(TELEMATICS TRANSCEIVER) (dist=0.264)
+  Enriched: CHECK SPEAKER ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: CHECK VEHICLE SIGNAL ← p.791 (a) Refer to Terminals of ECU. 
+(dist=0.424)
+  Enriched: CHECK HANDS-FREE VOICE QUALITY AND VOLUME SETTING ← p.1130 
+DIAGNOSTIC MODE (dist=0.366)
+  Enriched: PERFORM TROUBLESHOOTING BASED ON MALFUNCTION SYMPTOM ← p.4030 (a) 
+Operation Check. (dist=0.250)
+  Enriched: REFER TO PROBLEM SYMPTOMS TABLE ← p.3539  (dist=0.458)
+  Enriched: Inspect Front No. 2 Speaker Assembly ← p.739 8. REMOVE NO. 2 
+AMPLIFIER BRACKET (dist=0.340)
+  Enriched: CLEAR DTC (B1575) ← p.6083 GO TO DIAGNOSTIC TROUBLE CODE CHART 
+(dist=0.344)
+  Enriched: RECHECK FOR DIAGNOSTIC TROUBLE CODE ← p.67 (NORMAL MODE) 
+(dist=0.317)
+  Enriched: Inspect Front No. 1 Speaker Assembly ← p.581 (a) Disconnect the H21 
+stereo component amplifier assembly c (dist=0.338)
+  Enriched: CLEAR DTC ← p.6083 GO TO DIAGNOSTIC TROUBLE CODE CHART (dist=0.344)
+  Enriched: CHECK FREEZE FRAME DATA ← p.2117 FREEZE FRAME DATA; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.439)
+  Enriched: Inspect Front No. 4 Speaker Assembly ← p.581 (a) Disconnect the H21 
+stereo component amplifier assembly c (dist=0.359)
+  Enriched: Inspect DCM (Telematics Transceiver) ← p.826 REPLACE DCM (TELEMATICS
+TRANSCEIVER) (dist=0.301)
+  Enriched: Check Front No. 3 Speaker Assembly ← p.581 (a) Disconnect the H21 
+stereo component amplifier assembly c (dist=0.385)
+  Enriched: REPLACE MULTI-DISPLAY ASSEMBLY ← p.1196 (a) Replace the 
+multi-display assembly with a new. (dist=0.412)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: Inspect Rear Speaker Assembly ← p.3831 (e) Detach the 5 claws and 
+remove the inside handle sub-asse (dist=0.330)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: INSPECT MULTI-MEDIA MODULE RECEIVER ASSEMBLY ← p.960 REPLACE 
+MULTI-MEDIA MODULE RECEIVER ASSEMBLY (dist=0.391)
+  Enriched: CHECK FOR DTC ← p.6167 (NORMAL MODE) (dist=0.296)
+  Enriched: CHECK FOR DTC ← p.6167 (NORMAL MODE) (dist=0.296)
+  Enriched: CHECK WIRELESS DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should 
+be performed while the electrical key ante (dist=0.366)
+  Enriched: CHECK LIGHTING SYSTEM (INT) ← p.4037 Turn the engine switch on (IG).
+(dist=0.389)
+  Enriched: CHECK AIR CONDITIONING SYSTEM ← p.4663 TESTER CONNECTION 
+(dist=0.367)
+  Enriched: CHECK LIGHTING SYSTEM (EXT) ← p.4029  (dist=0.389)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4589 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.378)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4630 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.379)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.320)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK POWER DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should be 
+performed while the electrical key ante (dist=0.347)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.341)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.6089 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.371)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.6089 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.371)
+  Enriched: INSPECT MULTI-MEDIA MODULE RECEIVER ASSEMBLY ← p.649 Front view of 
+wire harness connector (dist=0.372)
+  Enriched: CHECK MICROPHONE (OPERATION CHECK) ← p.544 (1) Touch the display 
+anywhere in the open area to perform t (dist=0.328)
+  Enriched: CHECK TOUCH SWITCH (OPERATION CHECK) ← p.878 Screen Description 
+(dist=0.402)
+  Enriched: CHECK DISPLAY SETTING ← p.463 Satellite Radio Broadcast cannot be 
+Received; 2016 - 2021 MY (dist=0.420)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.5174 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.295)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: CHECK FRONT POWER SEAT CONTROL SYSTEM ← p.5204 Power Seat Power Easy
+Access System Function does not Operat (dist=0.355)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - Step 10 ← p.841 TELEPHONE 
+MICROPHONE (dist=0.403)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY ← p.841 TELEPHONE MICROPHONE 
+(dist=0.403)
+  Enriched: PERFORM TROUBLESHOOTING ← p.766 TERMINALS OF ECU; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.283)
+  Enriched: ENTER DIAGNOSTIC MODE ← p.7182 Multi-terrain Monitor System*2 
+(dist=0.310)
+  Enriched: CHECK DCM (TELEMATICS TRANSCEIVER) - Step 11 ← p.826 REPLACE DCM 
+(TELEMATICS TRANSCEIVER) (dist=0.264)
+  Enriched: CHECK ECU TERMINAL BASED ON MALFUNCTION SYMPTOM ← p.766 TERMINALS OF
+ECU; 2016 - 2021 MY GX460 [08/2015 - ] (dist=0.329)
+  Enriched: DIAGNOSTIC TROUBLE CODE CHART ← p.715 DIAGNOSTIC TROUBLE CODE CHART;
+2016 - 2021 MY GX460 [08/2015 (dist=0.265)
+  Enriched: Check for DTCs and repair systems ← p.767 DIAGNOSIS SYSTEM; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.304)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.710 PROBLEM SYMPTOMS TABLE; 2016 - 2021 
+MY GX460 [08/2015 - ] (dist=0.287)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.7142 (NORMAL MODE) (dist=0.418)
+  Enriched: Overall Analysis and Troubleshooting ← p.791 (a) Refer to Terminals 
+of ECU. (dist=0.288)
+  Enriched: Perform DCM Activation ← p.793 DCM ACTIVATION; 2019 - 2021 MY GX460 
+[08/2018 - ] (dist=0.257)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM ← p.7088 TESTER CONNECTION 
+(dist=0.408)
+  Enriched: Perform Health Check ← p.794 HEALTH CHECK; 2019 - 2021 MY GX460 
+[08/2018 - ] (dist=0.374)
+  Enriched: Confirmation Test ← p.824 TESTER CONNECTION (dist=0.384)
+  Enriched: CHECK HARNESS AND CONNECTOR (NAVIGATION ANTENNA ASSEMBLY - DCM 
+[TELEMATICS TRANSCEIVER]) ← p.804 Front view of wire harness connector 
+(dist=0.312)
+  Enriched: CHECK DLC3 ← p.3081 Front view of DLC3 (dist=0.419)
+  Enriched: Refer to Problem Symptoms Table ← p.796 PROBLEM SYMPTOMS TABLE; 2019
+- 2021 MY GX460 [08/2018 - ] (dist=0.375)
+  Enriched: Install roof headlining assembly ← p.6764 6.10:8.0.50 (dist=0.318)
+  Enriched: Install roof headlining assembly ← p.6764 6.10:8.0.50 (dist=0.318)
+  Enriched: Check SRS warning light ← p.3795 (a) Initialize the power window 
+control system (See page (dist=0.329)
+  Enriched: CHECK HARNESS AND CONNECTOR (NO. 2 ANTENNA CORD SUB-ASSEMBLY - DCM 
+[TELEMATICS TRANSCEIVER]) ← p.818 Front view of wire harness connector 
+(dist=0.315)
+  Enriched: CHECK INDICATOR ← p.805 B1570; Manual (SOS) Switch Red Indicator 
+Malfunction; 2019 - (dist=0.383)
+  Enriched: Check SRS warning light ← p.3795 (a) Initialize the power window 
+control system (See page (dist=0.329)
+  Enriched: CHECK FOR INTERMITTENT PROBLEMS ← p.6894  (dist=0.356)
+  Enriched: CHECK DLC3 ← p.6438 DTCs 36 (Zero Point Calibration of Yaw Rate 
+Sensor Undone) a (dist=0.422)
+  Enriched: Install roof headlining assembly ← p.6764 6.10:8.0.50 (dist=0.318)
+  Enriched: Go to CAN Communication System ← p.6895  (dist=0.375)
+  Enriched: Check CAN communication system ← p.6167 (NORMAL MODE) (dist=0.291)
+  Enriched: Remove roof headlining assembly ← p.4882  (dist=0.309)
+  Enriched: Check navigation system normal condition ← p.6891  (dist=0.415)
+  Enriched: Remove roof headlining assembly ← p.4882  (dist=0.309)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6167 (NORMAL MODE) (dist=0.291)
+  Enriched: CHECK FOR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.307)
+  Enriched: CHECK NAVIGATION SYSTEM NORMAL CONDITION ← p.876 OPERATION CHECK; 
+2016 - 2021 MY GX460 [08/2015 - ] (dist=0.415)
+Enrichment error: Connection error.
+Enrichment error: Connection error.
+  Enriched: DTC CLEAR ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.307)
+  Enriched: RECHECK FOR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.307)
+  Enriched: RECHECK FOR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.307)
+  Enriched: Check Hands-free Voice Quality Setting ← p.391 (c) Select "Vehicle 
+Signal" from the "Function Check/Setting (dist=0.401)
+  Enriched: Cellular Phone Inspection ← p.486 CHECK USING ANOTHER CELLULAR PHONE
+(dist=0.394)
+  Enriched: CHECK GPS & VEHICLE SENSORS ← p.879 (d) Touch Switch Check 
+(dist=0.437)
+  Enriched: Voice is not Recognized ← p.617 Voice is not Recognized; 2016 - 2021
+MY GX460 [08/2015 - ] (dist=0.409)
+  Enriched: Steering Pad Switch Circuit ← p.968 Steering Pad Switch Circuit; 
+2020 - 2021 MY GX460 [08/2019 - (dist=0.362)
+  Enriched: DIAGNOSTIC TROUBLE CODE CHART ← p.902 DIAGNOSTIC TROUBLE CODE CHART;
+2019 - 2021 MY GX460 [08/2018 (dist=0.260)
+  Enriched: Microphone Circuit between Microphone and Radio Receiver ← p.978 
+Microphone Circuit between Microphone and Radio Receiver; 20 (dist=0.362)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.888 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.444)
+  Enriched: CLEAR DTC (B1574 - After Harness Replacement) ← p.1006 3. CLEAR 
+FREEZE FRAME DATA (dist=0.397)
+  Enriched: CLEAR DTC (B1574) ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: Satellite Radio Broadcast cannot be Selected or After Selecting 
+Broadcast, Broadcast cannot be Added into Memory ← p.601 Satellite Radio 
+Broadcast cannot be Selected or After Select (dist=0.278)
+  Enriched: CHECK DTC (B1574 - After Harness Replacement) ← p.6167 (NORMAL MODE)
+(dist=0.310)
+  Enriched: CLEAR DTC (B1575) ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: Microphone & Voice Recognition Check ← p.544 (1) Touch the display 
+anywhere in the open area to perform t (dist=0.383)
+  Enriched: Vehicle Signal Check Mode ← p.6442 Check that the slip indicator 
+light is blinking in the test  (dist=0.365)
+  Enriched: CHECK DTC (B1574) ← p.6167 (NORMAL MODE) (dist=0.310)
+  Enriched: Satellite Radio Broadcast cannot be Received ← p.597 Satellite Radio
+Broadcast cannot be Received; 2016 - 2021 MY (dist=0.337)
+  Enriched: CHECK DTC (B1575) ← p.6167 (NORMAL MODE) (dist=0.310)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - B1579 Step 4 ← p.573 REPLACE 
+DCM (TELEMATICS TRANSCEIVER) (dist=0.335)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - B1579 Step 10 ← p.573 REPLACE 
+DCM (TELEMATICS TRANSCEIVER) (dist=0.335)
+  Enriched: CHECK DCM (TELEMATICS TRANSCEIVER) - B1579 Step 11 ← p.826 REPLACE 
+DCM (TELEMATICS TRANSCEIVER) (dist=0.251)
+  Enriched: CLEAR DTC (B1575 - After Harness Replacement) ← p.1006 3. CLEAR 
+FREEZE FRAME DATA (dist=0.397)
+  Enriched: CLEAR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.440)
+  Enriched: CHECK DTC ← p.6167 (NORMAL MODE) (dist=0.305)
+  Enriched: CHECK DTC (B1575 - After Harness Replacement) ← p.6167 (NORMAL MODE)
+(dist=0.310)
+  Enriched: MOST COMMUNICATION CONNECTORS ← p.897 CONNECTION METHOD (dist=0.417)
+  Enriched: REPLACE STEREO COMPONENT AMPLIFIER ASSEMBLY ← p.741 STEREO COMPONENT
+AMPLIFIER (for 17 Speakers) (dist=0.322)
+  Enriched: CONFIRM SYMPTOMS ← p.897 CONNECTION METHOD (dist=0.367)
+  Enriched: CLEAR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.440)
+  Enriched: CLEAR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.440)
+  Enriched: REPLACE MULTI-DISPLAY CONTROLLER SUB-ASSEMBLY ← p.6513 (a) Replace 
+the multi-display controller sub-assembly with a (dist=0.394)
+  Enriched: CHECK DTC (SFI SYSTEM) ← p.6167 (NORMAL MODE) (dist=0.390)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK DTC ← p.67 (NORMAL MODE) (dist=0.339)
+  Enriched: CHECK DTC (CAN COMMUNICATION SYSTEM) ← p.6167 (NORMAL MODE) 
+(dist=0.291)
+  Enriched: CHECK DTC ← p.6167 (NORMAL MODE) (dist=0.305)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK WIRELESS DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should 
+be performed while the electrical key ante (dist=0.400)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK LIGHTING SYSTEM (EXT) ← p.3954 LIGHTING (EXT) (dist=0.404)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4589 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.358)
+  Enriched: CHECK POWER DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should be 
+performed while the electrical key ante (dist=0.369)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4630 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.352)
+  Enriched: CHECK LIGHTING SYSTEM (INT) ← p.325 LIGHTING (INT) (dist=0.408)
+  Enriched: CHECK AIR CONDITIONING SYSTEM ← p.4663 TESTER CONNECTION 
+(dist=0.398)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.5174 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.291)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.341)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.341)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.6089 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.395)
+  Enriched: CHECK FRONT POWER SEAT CONTROL SYSTEM ← p.5204 Power Seat Power Easy
+Access System Function does not Operat (dist=0.355)
+  Enriched: CHECK FRONT POWER SEAT CONTROL SYSTEM ← p.5204 Power Seat Power Easy
+Access System Function does not Operat (dist=0.355)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.5694 USE SIMULATION METHOD TO 
+CHECK (dist=0.561)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM ← p.6895  (dist=0.381)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: GO TO MULTI-TERRAIN MONITOR SYSTEM ← p.7260 Multi-terrain Monitor 
+System*2 (dist=0.369)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.5694 USE SIMULATION METHOD TO 
+CHECK (dist=0.561)
+  Enriched: CHECK VEHICLE SIGNAL (OPERATION CHECK) ← p.391 (c) Select "Vehicle 
+Signal" from the "Function Check/Setting (dist=0.416)
+  Enriched: PROCEED TO NEXT SUSPECTED AREA SHOWN IN PROBLEM SYMPTOMS TABLE ← 
+p.4922 PROBLEM SYMPTOMS TABLE; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.412)
+  Enriched: INSPECT STEERING PAD SWITCH ASSEMBLY ← p.3440 INSPECTION; 2020 - 
+2021 MY GX460 [08/2019 - ] (dist=0.346)
+  Enriched: REMOVE REAR QUARTER PANEL MUDGUARD RH ← p.3887 REMOVAL; 2016 - 2021 
+MY GX460 [08/2015 - ] (dist=0.362)
+  Enriched: INSPECT PARKING BRAKE SWITCH ASSEMBLY ← p.1503 INSPECTION; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.331)
+  Enriched: REMOVE REAR QUARTER PANEL MUDGUARD LH ← p.3887 REMOVAL; 2016 - 2021 
+MY GX460 [08/2015 - ] (dist=0.374)
+  Enriched: INSPECT MULTI-MEDIA MODULE RECEIVER ASSEMBLY ← p.649 Front view of 
+wire harness connector (dist=0.372)
+  Enriched: CHECK VEHICLE SIGNAL (OPERATION CHECK) ← p.391 (c) Select "Vehicle 
+Signal" from the "Function Check/Setting (dist=0.311)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: REMOVE JACK BOX HOLE COVER ← p.4267 (a) Remove the switch cover. 
+(dist=0.502)
+  Enriched: REMOVE REAR BUMPER BAR PLATE ← p.7010 (f) Disconnect the 3 
+connectors. (dist=0.371)
+  Enriched: INSPECT SPIRAL CABLE SUB-ASSEMBLY ← p.5886 Check Window (dist=0.338)
+  Enriched: INSTALL REAR QUARTER PANEL MUDGUARD RH ← p.1246 6. INSTALL REAR 
+BUMPER ENERGY ABSORBER (dist=0.329)
+  Enriched: INSTALL JACK BOX HOLE COVER ← p.3763 7. REMOVE BACK DOOR LOCK COVER 
+(dist=0.569)
+  Enriched: INSTALL REAR QUARTER PANEL MUDGUARD LH ← p.1246 6. INSTALL REAR 
+BUMPER ENERGY ABSORBER (dist=0.331)
+  Enriched: INSTALL REAR BUMPER BAR PLATE ← p.1246 6. INSTALL REAR BUMPER ENERGY
+ABSORBER (dist=0.345)
+  Enriched: PERFORM BLIND SPOT MONITOR SENSOR INSTALLATION CONDITION INSPECTION 
+← p.6570 Set the reflector so that its center is 874.5 mm (2.87 ft) a 
+(dist=0.282)
+  Enriched: REMOVE REAR BUMPER COVER ← p.6876 (e) Detach the 16 claws and remove
+the front bumper cover. (dist=0.351)
+  Enriched: INSTALL REAR BUMPER COVER ← p.1246 6. INSTALL REAR BUMPER ENERGY 
+ABSORBER (dist=0.345)
+  Enriched: PERFORM DIAGNOSTIC SYSTEM CHECK ← p.1003 DIAGNOSIS SYSTEM; 2021 MY 
+GX460 [08/2020 - ] (dist=0.317)
+  Enriched: PERFORM BLIND SPOT MONITOR BEAM AXIS CONFIRMATION ← p.995 OPERATION 
+CHECK; 2021 MY GX460 [08/2020 - ] (dist=0.283)
+  Enriched: RECHECK FOR DTC ← p.1004 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.316)
+  Enriched: CIRCUIT INSPECTION ← p.6570 Set the reflector so that its center is 
+874.5 mm (2.87 ft) a (dist=0.311)
+  Enriched: DIAGNOSTIC TROUBLE CODE CHART ← p.1009 DIAGNOSTIC TROUBLE CODE 
+CHART; 2020 - 2021 MY GX460 [08/2019 (dist=0.255)
+  Enriched: CLEAR DTC ← p.1004 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 
+- ] (dist=0.329)
+  Enriched: PERFORM BEAM AXIS INSPECTION AND CONFIRMATION ← p.998 Perform the 
+operation as precisely as possible. (dist=0.245)
+  Enriched: CHECK FOR DTC AND FREEZE FRAME DATA ← p.1004 DTC CHECK / CLEAR; 2016
+- 2021 MY GX460 [08/2015 - ] (dist=0.265)
+  Enriched: PERFORM TROUBLESHOOTING BASED ON MALFUNCTION SYMPTOM ← p.1002 
+TERMINALS OF ECU; 2016 - 2021 MY GX460 [08/2015 - ] (dist=0.311)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1001 PROBLEM SYMPTOMS TABLE; 2021 MY 
+GX460 [08/2020 - ] (dist=0.295)
+Enriched 181/183 nodes from cross-references.
+
+Building graph from extractions...
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{result -> String("A"), proceed_to -> String("THERE IS NO SONG/PROGRAM TITLE 
+OR ARTIST NAME/FEATURE ASSOCIATED WITH CHANNEL AT THAT TIME"), display -> 
+String(""UNAUTH" is displayed")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{title -> String("Terminals of ECU"), temp_id -> String("t11a"), instruction 
+-> String("Verify electrical connections at the ECU terminals")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{description -> String("Replace the telephone microphone assembly with a new 
+or normally functioning one"), step -> String("a")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{illumination_test -> String("Connect positive (+) lead from auxiliary 
+battery to terminal 5 and negative (-) lead to terminal 9 of steering pad switch
+assembly connector. Check that illumination illuminates."), resistance_tests -> 
+List{Map{condition -> String("No switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("95 to 105 kΩ")}, 
+Map{condition -> String("Seek+ switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("Below 2.5 Ω")}, 
+Map{condition -> String("Seek- switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("313 to 345 Ω")}, 
+Map{condition -> String("Volume+ switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("950 to 1050 Ω")}, 
+Map{condition -> String("Volume- switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("2955 to 3265 Ω")}, 
+Map{condition -> String("No switch pushed"), tester_connection -> String("A-10 
+(AU2) - A-8 (EAU)"), specified -> String("95 to 105 kΩ")}, Map{condition -> 
+String("MODE switch pushed"), tester_connection -> String("A-10 (AU2) - A-8 
+(EAU)"), specified -> String("Below 2.5 Ω")}, Map{condition -> String("On hook 
+switch pushed"), tester_connection -> String("A-10 (AU2) - A-8 (EAU)"), 
+specified -> String("313 to 345 Ω")}, Map{condition -> String("Off hook switch 
+pushed"), tester_connection -> String("A-10 (AU2) - A-8 (EAU)"), specified -> 
+String("950 to 1050 Ω")}, Map{condition -> String("Voice switch pushed"), 
+tester_connection -> String("A-10 (AU2) - A-8 (EAU)"), specified -> String("2955
+to 3265 Ω")}, Map{condition -> String("No switch pushed"), tester_connection -> 
+String("A-3 (+DP2) - A-8 (EAU)"), specified -> String("95 to 105 kΩ")}, 
+Map{condition -> String("Left switch pushed"), tester_connection -> String("A-3 
+(+DP2) - A-8 (EAU)"), specified -> String("Below 2.5 Ω")}, Map{condition -> 
+String("Up switch pushed"), tester_connection -> String("A-3 (+DP2) - A-8 
+(EAU)"), specified -> String("313 to 345 Ω")}, Map{condition -> String("Down 
+switch pushed"), tester_connection -> String("A-3 (+DP2) - A-8 (EAU)"), 
+specified -> String("950 to 1050 Ω")}, Map{condition -> String("Right switch 
+pushed"), tester_connection -> String("A-3 (+DP2) - A-8 (EAU)"), specified -> 
+String("2955 to 3265 Ω")}, Map{condition -> String("No switch pushed"), 
+tester_connection -> String("A-2 (+DP) - A-8 (EAU)"), specified -> String("95 to
+105 kΩ")}, Map{condition -> String("Enter switch pushed"), tester_connection -> 
+String("A-2 (+DP) - A-8 (EAU)"), specified -> String("Below 2.5 Ω")}, 
+Map{condition -> String("Top switch pushed"), tester_connection -> String("A-2 
+(+DP) - A-8 (EAU)"), specified -> String("313 to 345 Ω")}, Map{condition -> 
+String("Back switch pushed"), tester_connection -> String("A-2 (+DP) - A-8 
+(EAU)"), specified -> String("950 to 1050 Ω")}, Map{condition -> String("No 
+switch pushed"), tester_connection -> String("A-4 (DIST) - A-7 (ECC)"), 
+specified -> String("1.0 MΩ or higher")}, Map{condition -> String("ACC switch 
+pushed"), tester_connection -> String("A-4 (DIST) - A-7 (ECC)"), specified -> 
+String("Below 2.5 Ω")}, Map{condition -> String("Lane departure alert switch 
+pushed"), tester_connection -> String("A-4 (DIST) - A-7 (ECC)"), specified -> 
+String("228 to 252 Ω")}, Map{condition -> String("Always"), tester_connection ->
+String("A-6 (HO) - B-HO"), specified -> String("Below 2.5 Ω")}, Map{condition ->
+String("Always"), tester_connection -> String("A-7 (ECC) - C-1 (ECC)"), 
+specified -> String("Below 2.5 Ω")}, Map{condition -> String("Always"), 
+tester_connection -> String("A-12 (CCS) - C-3 (CCS)"), specified -> 
+String("Below 2.5 Ω")}}}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{R42_10 -> String("W-B"), R42_5 -> String("GR"), R42_4 -> String("B")}.}
+
+Graph built: 2790 nodes, 2521 relationships
+Unique nodes: 1547
+
+Storing chunks in PostgreSQL...
+Stored 83 chunks.
+
+Generating embeddings for 171 chunks...
+Generated 171 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 171 chunks.
+
+Ingestion complete!

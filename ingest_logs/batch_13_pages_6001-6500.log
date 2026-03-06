@@ -1,0 +1,189 @@
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 498 pages with text.
+
+Created 152 chunks.
+
+152 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/152] chunk 8: 0 nodes, 0 rels
+  [2/152] chunk 4: 0 nodes, 0 rels
+  [3/152] chunk 2: 0 nodes, 0 rels
+  [4/152] chunk 5: 0 nodes, 0 rels
+  [5/152] chunk 1: 0 nodes, 0 rels
+  [6/152] chunk 3: 0 nodes, 0 rels
+  [7/152] chunk 7: 0 nodes, 0 rels
+  [8/152] chunk 6: 0 nodes, 0 rels
+  [9/152] chunk 9: 0 nodes, 0 rels
+  [10/152] chunk 12: 0 nodes, 0 rels
+  [11/152] chunk 10: 0 nodes, 0 rels
+  [12/152] chunk 13: 0 nodes, 0 rels
+  [13/152] chunk 11: 0 nodes, 0 rels
+  [14/152] chunk 15: 0 nodes, 0 rels
+  [15/152] chunk 14: 0 nodes, 0 rels
+  [16/152] chunk 17: 0 nodes, 0 rels
+  [17/152] chunk 16: 0 nodes, 0 rels
+  [18/152] chunk 18: 0 nodes, 0 rels
+  [19/152] chunk 21: 0 nodes, 0 rels
+  [20/152] chunk 22: 0 nodes, 0 rels
+  [21/152] chunk 23: 0 nodes, 0 rels
+  [22/152] chunk 19: 0 nodes, 0 rels
+  [23/152] chunk 20: 0 nodes, 0 rels
+  [24/152] chunk 25: 0 nodes, 0 rels
+  [25/152] chunk 26: 0 nodes, 0 rels
+  [26/152] chunk 24: 0 nodes, 0 rels
+  [27/152] chunk 28: 0 nodes, 0 rels
+  [28/152] chunk 30: 0 nodes, 0 rels
+  [29/152] chunk 29: 0 nodes, 0 rels
+  [30/152] chunk 31: 0 nodes, 0 rels
+  [31/152] chunk 32: 0 nodes, 0 rels
+  [32/152] chunk 33: 0 nodes, 0 rels
+  [33/152] chunk 27: 0 nodes, 0 rels
+  [34/152] chunk 34: 0 nodes, 0 rels
+  [35/152] chunk 35: 0 nodes, 0 rels
+  [36/152] chunk 36: 0 nodes, 0 rels
+  [37/152] chunk 38: 0 nodes, 0 rels
+  [38/152] chunk 39: 0 nodes, 0 rels
+  [39/152] chunk 40: 0 nodes, 0 rels
+  [40/152] chunk 42: 0 nodes, 0 rels
+  [41/152] chunk 41: 0 nodes, 0 rels
+  [42/152] chunk 43: 0 nodes, 0 rels
+  [43/152] chunk 45: 0 nodes, 0 rels
+  [44/152] chunk 47: 0 nodes, 0 rels
+  [45/152] chunk 48: 0 nodes, 0 rels
+  [46/152] chunk 49: 0 nodes, 0 rels
+  [47/152] chunk 37: 0 nodes, 0 rels
+  [48/152] chunk 44: 0 nodes, 0 rels
+  [49/152] chunk 50: 0 nodes, 0 rels
+  [50/152] chunk 52: 0 nodes, 0 rels
+  [51/152] chunk 51: 0 nodes, 0 rels
+  [52/152] chunk 53: 0 nodes, 0 rels
+  [53/152] chunk 56: 0 nodes, 0 rels
+  [54/152] chunk 54: 0 nodes, 0 rels
+  [55/152] chunk 46: 0 nodes, 0 rels
+  [56/152] chunk 60: 0 nodes, 0 rels
+  [57/152] chunk 61: 0 nodes, 0 rels
+  [58/152] chunk 57: 0 nodes, 0 rels
+  [59/152] chunk 62: 0 nodes, 0 rels
+  [60/152] chunk 55: 0 nodes, 0 rels
+  [61/152] chunk 59: 0 nodes, 0 rels
+  [62/152] chunk 64: 0 nodes, 0 rels
+  [63/152] chunk 63: 0 nodes, 0 rels
+  [64/152] chunk 65: 0 nodes, 0 rels
+  [65/152] chunk 58: 0 nodes, 0 rels
+  [66/152] chunk 66: 0 nodes, 0 rels
+  [67/152] chunk 69: 0 nodes, 0 rels
+  [68/152] chunk 68: 0 nodes, 0 rels
+  [69/152] chunk 70: 0 nodes, 0 rels
+  [70/152] chunk 67: 0 nodes, 0 rels
+  [71/152] chunk 72: 0 nodes, 0 rels
+  [72/152] chunk 74: 0 nodes, 0 rels
+  [73/152] chunk 71: 0 nodes, 0 rels
+  [74/152] chunk 75: 0 nodes, 0 rels
+  [75/152] chunk 73: 0 nodes, 0 rels
+  [76/152] chunk 77: 0 nodes, 0 rels
+  [77/152] chunk 76: 0 nodes, 0 rels
+  [78/152] chunk 78: 0 nodes, 0 rels
+  [79/152] chunk 79: 0 nodes, 0 rels
+  [80/152] chunk 80: 0 nodes, 0 rels
+  [81/152] chunk 82: 0 nodes, 0 rels
+  [82/152] chunk 83: 0 nodes, 0 rels
+  [83/152] chunk 84: 0 nodes, 0 rels
+  [84/152] chunk 81: 0 nodes, 0 rels
+  [85/152] chunk 86: 0 nodes, 0 rels
+  [86/152] chunk 89: 0 nodes, 0 rels
+  [87/152] chunk 88: 0 nodes, 0 rels
+  [88/152] chunk 90: 0 nodes, 0 rels
+  [89/152] chunk 91: 0 nodes, 0 rels
+  [90/152] chunk 93: 0 nodes, 0 rels
+  [91/152] chunk 94: 0 nodes, 0 rels
+  [92/152] chunk 95: 0 nodes, 0 rels
+  [93/152] chunk 97: 0 nodes, 0 rels
+  [94/152] chunk 96: 0 nodes, 0 rels
+  [95/152] chunk 85: 0 nodes, 0 rels
+  [96/152] chunk 92: 0 nodes, 0 rels
+  [97/152] chunk 98: 0 nodes, 0 rels
+  [98/152] chunk 100: 0 nodes, 0 rels
+  [99/152] chunk 101: 0 nodes, 0 rels
+  [100/152] chunk 87: 0 nodes, 0 rels
+  [101/152] chunk 103: 0 nodes, 0 rels
+  [102/152] chunk 102: 0 nodes, 0 rels
+  [103/152] chunk 104: 0 nodes, 0 rels
+  [104/152] chunk 106: 0 nodes, 0 rels
+  [105/152] chunk 105: 0 nodes, 0 rels
+  [106/152] chunk 107: 0 nodes, 0 rels
+  [107/152] chunk 108: 0 nodes, 0 rels
+  [108/152] chunk 111: 0 nodes, 0 rels
+  [109/152] chunk 109: 0 nodes, 0 rels
+  [110/152] chunk 110: 0 nodes, 0 rels
+  [111/152] chunk 113: 0 nodes, 0 rels
+  [112/152] chunk 99: 0 nodes, 0 rels
+  [113/152] chunk 114: 0 nodes, 0 rels
+  [114/152] chunk 112: 0 nodes, 0 rels
+  [115/152] chunk 115: 0 nodes, 0 rels
+  [116/152] chunk 118: 0 nodes, 0 rels
+  [117/152] chunk 116: 0 nodes, 0 rels
+  [118/152] chunk 122: 0 nodes, 0 rels
+  [119/152] chunk 119: 0 nodes, 0 rels
+  [120/152] chunk 121: 0 nodes, 0 rels
+  [121/152] chunk 120: 0 nodes, 0 rels
+  [122/152] chunk 117: 0 nodes, 0 rels
+  [123/152] chunk 123: 0 nodes, 0 rels
+  [124/152] chunk 126: 0 nodes, 0 rels
+  [125/152] chunk 127: 0 nodes, 0 rels
+  [126/152] chunk 125: 0 nodes, 0 rels
+  [127/152] chunk 128: 0 nodes, 0 rels
+  [128/152] chunk 129: 0 nodes, 0 rels
+  [129/152] chunk 130: 0 nodes, 0 rels
+  [130/152] chunk 132: 0 nodes, 0 rels
+  [131/152] chunk 131: 0 nodes, 0 rels
+  [132/152] chunk 134: 0 nodes, 0 rels
+  [133/152] chunk 136: 0 nodes, 0 rels
+  [134/152] chunk 133: 0 nodes, 0 rels
+  [135/152] chunk 135: 0 nodes, 0 rels
+  [136/152] chunk 138: 0 nodes, 0 rels
+  [137/152] chunk 139: 0 nodes, 0 rels
+  [138/152] chunk 137: 0 nodes, 0 rels
+  [139/152] chunk 140: 0 nodes, 0 rels
+  [140/152] chunk 141: 0 nodes, 0 rels
+  [141/152] chunk 143: 0 nodes, 0 rels
+  [142/152] chunk 142: 0 nodes, 0 rels
+  [143/152] chunk 144: 0 nodes, 0 rels
+  [144/152] chunk 145: 0 nodes, 0 rels
+  [145/152] chunk 147: 0 nodes, 0 rels
+  [146/152] chunk 149: 0 nodes, 0 rels
+  [147/152] chunk 146: 0 nodes, 0 rels
+  [148/152] chunk 151: 0 nodes, 0 rels
+  [149/152] chunk 150: 0 nodes, 0 rels
+  [150/152] chunk 148: 0 nodes, 0 rels
+  [151/152] chunk 152: 0 nodes, 0 rels
+  [152/152] chunk 124: 0 nodes, 0 rels
+  152/152 done (chunk 124: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 152 chunks.
+
+Generating embeddings for 152 chunks...
+Generated 152 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 152 chunks.
+
+Ingestion complete!

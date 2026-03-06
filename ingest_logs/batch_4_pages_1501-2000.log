@@ -1,0 +1,197 @@
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 492 pages with text.
+
+Created 60 chunks.
+
+60 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/60] chunk 7: 17 nodes, 17 rels
+  [2/60] chunk 8: 38 nodes, 12 rels
+  [3/60] chunk 1: 44 nodes, 35 rels
+  [4/60] chunk 5: 62 nodes, 12 rels
+  [5/60] chunk 3: 59 nodes, 58 rels
+  [6/60] chunk 6: 0 nodes, 0 rels
+  [7/60] chunk 4: 0 nodes, 0 rels
+  [8/60] chunk 2: 0 nodes, 0 rels
+  [9/60] chunk 15: 18 nodes, 16 rels
+  [10/60] chunk 13: 27 nodes, 20 rels
+  [11/60] chunk 12: 37 nodes, 35 rels
+  [12/60] chunk 14: 43 nodes, 46 rels
+  [13/60] chunk 11: 32 nodes, 24 rels
+  [14/60] chunk 10: 55 nodes, 24 rels
+  [15/60] chunk 18: 0 nodes, 0 rels
+  [16/60] chunk 23: 0 nodes, 0 rels
+  [17/60] chunk 24: 0 nodes, 0 rels
+  [18/60] chunk 25: 0 nodes, 0 rels
+  [19/60] chunk 26: 0 nodes, 0 rels
+  [20/60] chunk 27: 0 nodes, 0 rels
+  [21/60] chunk 28: 0 nodes, 0 rels
+  [22/60] chunk 29: 0 nodes, 0 rels
+  [23/60] chunk 30: 0 nodes, 0 rels
+  [24/60] chunk 31: 0 nodes, 0 rels
+  [25/60] chunk 32: 0 nodes, 0 rels
+  [26/60] chunk 33: 0 nodes, 0 rels
+  [27/60] chunk 34: 0 nodes, 0 rels
+  [28/60] chunk 35: 0 nodes, 0 rels
+  [29/60] chunk 36: 0 nodes, 0 rels
+  [30/60] chunk 37: 0 nodes, 0 rels
+  [31/60] chunk 38: 0 nodes, 0 rels
+  [32/60] chunk 39: 0 nodes, 0 rels
+  [33/60] chunk 40: 0 nodes, 0 rels
+  [34/60] chunk 41: 0 nodes, 0 rels
+  [35/60] chunk 42: 0 nodes, 0 rels
+  [36/60] chunk 43: 0 nodes, 0 rels
+  [37/60] chunk 44: 0 nodes, 0 rels
+  [38/60] chunk 45: 0 nodes, 0 rels
+  [39/60] chunk 46: 0 nodes, 0 rels
+  [40/60] chunk 47: 0 nodes, 0 rels
+  [41/60] chunk 48: 0 nodes, 0 rels
+  [42/60] chunk 49: 0 nodes, 0 rels
+  [43/60] chunk 50: 0 nodes, 0 rels
+  [44/60] chunk 51: 0 nodes, 0 rels
+  [45/60] chunk 52: 0 nodes, 0 rels
+  [46/60] chunk 53: 0 nodes, 0 rels
+  [47/60] chunk 54: 0 nodes, 0 rels
+  [48/60] chunk 55: 0 nodes, 0 rels
+  [49/60] chunk 56: 0 nodes, 0 rels
+  [50/60] chunk 57: 0 nodes, 0 rels
+  [51/60] chunk 58: 0 nodes, 0 rels
+  [52/60] chunk 59: 0 nodes, 0 rels
+  [53/60] chunk 60: 0 nodes, 0 rels
+  [54/60] chunk 19: 0 nodes, 0 rels
+  [55/60] chunk 20: 0 nodes, 0 rels
+  [56/60] chunk 21: 0 nodes, 0 rels
+  [57/60] chunk 22: 0 nodes, 0 rels
+  [58/60] chunk 9: 0 nodes, 0 rels
+  [59/60] chunk 17: 0 nodes, 0 rels
+  [60/60] chunk 16: 0 nodes, 0 rels
+  60/60 done (chunk 16: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+24 nodes with unresolved cross-references.
+Building page index for cross-reference search...
+Indexing 124 pages (7142 already done)...
+No text pages to index.
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCoqqe3Yvhwi6Cbghd'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCorLKppDuuW7t41mY'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCos5YS8xR8vdRmFE7'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCosa3WZpdQBqnWG3f'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCorahzuLU7ptz2c1U'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCospUswxpVVBZETwP'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCosaBwCRvMws7XUXZ'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCosaAv8X7NRWgHaXP'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp3F3ENCNXvaKLkCw'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp7DNW867TR6Mgqt7'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp7DEqiUxukUAWMyF'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp8wcjxebiX2tkV4y'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpBvMYYkfFX38Z6PW'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpDANGqxCRCdwicuA'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp9C5gAXvYqTZyw3n'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpGdYz6HULMZdigFt'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpQpK4taQcTUNjyvg'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpFeNkeapYJtvdaAN'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpMM48c857L5Dxza6'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpTYb6GHur4GxkRnB'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpWGi9q52NWcFmBqN'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpXkwVp8sjqSwyDfk'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpaz33GTf3kefus2h'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpfT4YrWwuhvovUsW'}
+Enriched 0/24 nodes from cross-references.
+
+Building graph from extractions...
+
+Graph built: 432 nodes, 299 relationships
+Unique nodes: 356
+
+Storing chunks in PostgreSQL...
+Stored 60 chunks.
+
+Generating embeddings for 60 chunks...
+Generated 60 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 60 chunks.
+
+Ingestion complete!

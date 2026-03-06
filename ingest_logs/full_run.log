@@ -1,0 +1,2620 @@
+=== Full PDF Ingestion ===
+PDF: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual (RM27D0U).pdf
+Total pages: 7266
+Batch size: 500
+Log dir: /home/varjitt/workspace/connected-diagnostics/ingest_logs
+
+[1/15] Pages 1-500 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 495 pages with text.
+
+Created 88 chunks.
+
+All chunks already ingested. Nothing to do.
+
+[1/15] Pages 1-500 DONE
+
+[2/15] Pages 501-1000 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 492 pages with text.
+
+Created 84 chunks.
+
+Skipping 1 already-ingested chunks.
+83 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/83] chunk 6: 0 nodes, 0 rels
+  [2/83] chunk 5: 6 nodes, 5 rels
+  [3/83] chunk 7: 28 nodes, 27 rels
+  [4/83] chunk 8: 18 nodes, 10 rels
+  [5/83] chunk 9: 29 nodes, 10 rels
+  [6/83] chunk 4: 33 nodes, 34 rels
+  [7/83] chunk 10: 33 nodes, 27 rels
+  [8/83] chunk 2: 0 nodes, 0 rels
+  [9/83] chunk 3: 0 nodes, 0 rels
+  [10/83] chunk 1: 0 nodes, 0 rels
+  [11/83] chunk 11: 49 nodes, 8 rels
+  [12/83] chunk 18: 0 nodes, 0 rels
+  [13/83] chunk 14: 0 nodes, 0 rels
+  [14/83] chunk 12: 0 nodes, 0 rels
+  [15/83] chunk 15: 0 nodes, 0 rels
+  [16/83] chunk 13: 86 nodes, 2 rels
+  [17/83] chunk 22: 24 nodes, 27 rels
+  [18/83] chunk 19: 15 nodes, 13 rels
+  [19/83] chunk 24: 34 nodes, 32 rels
+  [20/83] chunk 20: 37 nodes, 54 rels
+  [21/83] chunk 23: 33 nodes, 29 rels
+  [22/83] chunk 21: 52 nodes, 47 rels
+  [23/83] chunk 17: 0 nodes, 0 rels
+  [24/83] chunk 16: 0 nodes, 0 rels
+  [25/83] chunk 32: 38 nodes, 24 rels
+  [26/83] chunk 27: 41 nodes, 56 rels
+  [27/83] chunk 29: 0 nodes, 0 rels
+  [28/83] chunk 30: 0 nodes, 0 rels
+  [29/83] chunk 26: 0 nodes, 0 rels
+  [30/83] chunk 28: 0 nodes, 0 rels
+  [31/83] chunk 31: 0 nodes, 0 rels
+  [32/83] chunk 25: 0 nodes, 0 rels
+  [33/83] chunk 37: 48 nodes, 32 rels
+  [34/83] chunk 36: 0 nodes, 0 rels
+  [35/83] chunk 38: 0 nodes, 0 rels
+  [36/83] chunk 35: 0 nodes, 0 rels
+  [37/83] chunk 34: 0 nodes, 0 rels
+  [38/83] chunk 33: 33 nodes, 43 rels
+  [39/83] chunk 40: 46 nodes, 50 rels
+  [40/83] chunk 39: 0 nodes, 0 rels
+  [41/83] chunk 48: 47 nodes, 18 rels
+  [42/83] chunk 43: 46 nodes, 33 rels
+  [43/83] chunk 44: 48 nodes, 39 rels
+  [44/83] chunk 47: 0 nodes, 0 rels
+  [45/83] chunk 42: 0 nodes, 0 rels
+  [46/83] chunk 45: 0 nodes, 0 rels
+  [47/83] chunk 46: 27 nodes, 24 rels
+  [48/83] chunk 50: 28 nodes, 24 rels
+  [49/83] chunk 51: 37 nodes, 33 rels
+  [50/83] chunk 49: 29 nodes, 39 rels
+  [51/83] chunk 41: 0 nodes, 0 rels
+  [52/83] chunk 53: 56 nodes, 36 rels
+  [53/83] chunk 52: 0 nodes, 0 rels
+  [54/83] chunk 56: 17 nodes, 16 rels
+  [55/83] chunk 58: 13 nodes, 3 rels
+  [56/83] chunk 60: 23 nodes, 18 rels
+  [57/83] chunk 59: 41 nodes, 27 rels
+  [58/83] chunk 55: 31 nodes, 25 rels
+  [59/83] chunk 54: 0 nodes, 0 rels
+  [60/83] chunk 57: 61 nodes, 42 rels
+  [61/83] chunk 61: 0 nodes, 0 rels
+  [62/83] chunk 62: 0 nodes, 0 rels
+  [63/83] chunk 70: 0 nodes, 0 rels
+  [64/83] chunk 71: 0 nodes, 0 rels
+  [65/83] chunk 72: 24 nodes, 37 rels
+  [66/83] chunk 69: 38 nodes, 45 rels
+  [67/83] chunk 73: 0 nodes, 0 rels
+  [68/83] chunk 67: 49 nodes, 43 rels
+  [69/83] chunk 74: 0 nodes, 0 rels
+  [70/83] chunk 66: 0 nodes, 0 rels
+  [71/83] chunk 65: 0 nodes, 0 rels
+  [72/83] chunk 75: 34 nodes, 42 rels
+  [73/83] chunk 76: 45 nodes, 48 rels
+  [74/83] chunk 78: 0 nodes, 0 rels
+  [75/83] chunk 77: 0 nodes, 0 rels
+  [76/83] chunk 64: 0 nodes, 0 rels
+  [77/83] chunk 63: 0 nodes, 0 rels
+  [78/83] chunk 83: 28 nodes, 25 rels
+  [79/83] chunk 81: 32 nodes, 27 rels
+  [80/83] chunk 82: 30 nodes, 35 rels
+  [81/83] chunk 80: 0 nodes, 0 rels
+  [82/83] chunk 79: 43 nodes, 45 rels
+  [83/83] chunk 68: 60 nodes, 24 rels
+  83/83 done (chunk 68: 60 nodes, 24 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+183 nodes with unresolved cross-references.
+Building page index for cross-reference search...
+Indexing 124 pages (7142 already done)...
+No text pages to index.
+  Enriched: CHECK TOUCH SWITCH ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: CHECK PANEL & STEERING SWITCH ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: Check Touch Switch ← p.1130 DIAGNOSTIC MODE (dist=0.350)
+  Enriched: CHECK MIC & VOICE RECOGNITION ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY ← p.841 TELEPHONE MICROPHONE 
+(dist=0.403)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - Step 10 ← p.841 TELEPHONE 
+MICROPHONE (dist=0.403)
+  Enriched: CHECK DCM (TELEMATICS TRANSCEIVER) - Step 11 ← p.826 REPLACE DCM 
+(TELEMATICS TRANSCEIVER) (dist=0.264)
+  Enriched: CHECK SPEAKER ← p.1130 DIAGNOSTIC MODE (dist=0.366)
+  Enriched: CHECK VEHICLE SIGNAL ← p.791 (a) Refer to Terminals of ECU. 
+(dist=0.424)
+  Enriched: CHECK HANDS-FREE VOICE QUALITY AND VOLUME SETTING ← p.1130 
+DIAGNOSTIC MODE (dist=0.366)
+  Enriched: PERFORM TROUBLESHOOTING BASED ON MALFUNCTION SYMPTOM ← p.4030 (a) 
+Operation Check. (dist=0.250)
+  Enriched: REFER TO PROBLEM SYMPTOMS TABLE ← p.3539  (dist=0.458)
+  Enriched: Inspect Front No. 2 Speaker Assembly ← p.739 8. REMOVE NO. 2 
+AMPLIFIER BRACKET (dist=0.340)
+  Enriched: CLEAR DTC (B1575) ← p.6083 GO TO DIAGNOSTIC TROUBLE CODE CHART 
+(dist=0.344)
+  Enriched: RECHECK FOR DIAGNOSTIC TROUBLE CODE ← p.67 (NORMAL MODE) 
+(dist=0.317)
+  Enriched: Inspect Front No. 1 Speaker Assembly ← p.581 (a) Disconnect the H21 
+stereo component amplifier assembly c (dist=0.338)
+  Enriched: CLEAR DTC ← p.6083 GO TO DIAGNOSTIC TROUBLE CODE CHART (dist=0.344)
+  Enriched: CHECK FREEZE FRAME DATA ← p.2117 FREEZE FRAME DATA; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.439)
+  Enriched: Inspect Front No. 4 Speaker Assembly ← p.581 (a) Disconnect the H21 
+stereo component amplifier assembly c (dist=0.359)
+  Enriched: Inspect DCM (Telematics Transceiver) ← p.826 REPLACE DCM (TELEMATICS
+TRANSCEIVER) (dist=0.301)
+  Enriched: Check Front No. 3 Speaker Assembly ← p.581 (a) Disconnect the H21 
+stereo component amplifier assembly c (dist=0.385)
+  Enriched: REPLACE MULTI-DISPLAY ASSEMBLY ← p.1196 (a) Replace the 
+multi-display assembly with a new. (dist=0.412)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: Inspect Rear Speaker Assembly ← p.3831 (e) Detach the 5 claws and 
+remove the inside handle sub-asse (dist=0.330)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: INSPECT MULTI-MEDIA MODULE RECEIVER ASSEMBLY ← p.960 REPLACE 
+MULTI-MEDIA MODULE RECEIVER ASSEMBLY (dist=0.391)
+  Enriched: CHECK FOR DTC ← p.6167 (NORMAL MODE) (dist=0.296)
+  Enriched: CHECK FOR DTC ← p.6167 (NORMAL MODE) (dist=0.296)
+  Enriched: CHECK WIRELESS DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should 
+be performed while the electrical key ante (dist=0.366)
+  Enriched: CHECK LIGHTING SYSTEM (INT) ← p.4037 Turn the engine switch on (IG).
+(dist=0.389)
+  Enriched: CHECK AIR CONDITIONING SYSTEM ← p.4663 TESTER CONNECTION 
+(dist=0.367)
+  Enriched: CHECK LIGHTING SYSTEM (EXT) ← p.4029  (dist=0.389)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4589 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.378)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4630 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.379)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.320)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK POWER DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should be 
+performed while the electrical key ante (dist=0.347)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.341)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.6089 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.371)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.6089 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.371)
+  Enriched: INSPECT MULTI-MEDIA MODULE RECEIVER ASSEMBLY ← p.649 Front view of 
+wire harness connector (dist=0.372)
+  Enriched: CHECK MICROPHONE (OPERATION CHECK) ← p.544 (1) Touch the display 
+anywhere in the open area to perform t (dist=0.328)
+  Enriched: CHECK TOUCH SWITCH (OPERATION CHECK) ← p.878 Screen Description 
+(dist=0.402)
+  Enriched: CHECK DISPLAY SETTING ← p.463 Satellite Radio Broadcast cannot be 
+Received; 2016 - 2021 MY (dist=0.420)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.5174 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.295)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.399)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: CHECK FRONT POWER SEAT CONTROL SYSTEM ← p.5204 Power Seat Power Easy
+Access System Function does not Operat (dist=0.355)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - Step 10 ← p.841 TELEPHONE 
+MICROPHONE (dist=0.403)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY ← p.841 TELEPHONE MICROPHONE 
+(dist=0.403)
+  Enriched: PERFORM TROUBLESHOOTING ← p.766 TERMINALS OF ECU; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.283)
+  Enriched: ENTER DIAGNOSTIC MODE ← p.7182 Multi-terrain Monitor System*2 
+(dist=0.310)
+  Enriched: CHECK DCM (TELEMATICS TRANSCEIVER) - Step 11 ← p.826 REPLACE DCM 
+(TELEMATICS TRANSCEIVER) (dist=0.264)
+  Enriched: CHECK ECU TERMINAL BASED ON MALFUNCTION SYMPTOM ← p.766 TERMINALS OF
+ECU; 2016 - 2021 MY GX460 [08/2015 - ] (dist=0.329)
+  Enriched: DIAGNOSTIC TROUBLE CODE CHART ← p.715 DIAGNOSTIC TROUBLE CODE CHART;
+2016 - 2021 MY GX460 [08/2015 (dist=0.265)
+  Enriched: Check for DTCs and repair systems ← p.767 DIAGNOSIS SYSTEM; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.304)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.710 PROBLEM SYMPTOMS TABLE; 2016 - 2021 
+MY GX460 [08/2015 - ] (dist=0.287)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.7142 (NORMAL MODE) (dist=0.418)
+  Enriched: Overall Analysis and Troubleshooting ← p.791 (a) Refer to Terminals 
+of ECU. (dist=0.288)
+  Enriched: Perform DCM Activation ← p.793 DCM ACTIVATION; 2019 - 2021 MY GX460 
+[08/2018 - ] (dist=0.257)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM ← p.7088 TESTER CONNECTION 
+(dist=0.408)
+  Enriched: Perform Health Check ← p.794 HEALTH CHECK; 2019 - 2021 MY GX460 
+[08/2018 - ] (dist=0.374)
+  Enriched: Confirmation Test ← p.824 TESTER CONNECTION (dist=0.384)
+  Enriched: CHECK HARNESS AND CONNECTOR (NAVIGATION ANTENNA ASSEMBLY - DCM 
+[TELEMATICS TRANSCEIVER]) ← p.804 Front view of wire harness connector 
+(dist=0.312)
+  Enriched: CHECK DLC3 ← p.3081 Front view of DLC3 (dist=0.419)
+  Enriched: Refer to Problem Symptoms Table ← p.796 PROBLEM SYMPTOMS TABLE; 2019
+- 2021 MY GX460 [08/2018 - ] (dist=0.375)
+  Enriched: Install roof headlining assembly ← p.6764 6.10:8.0.50 (dist=0.318)
+  Enriched: Install roof headlining assembly ← p.6764 6.10:8.0.50 (dist=0.318)
+  Enriched: Check SRS warning light ← p.3795 (a) Initialize the power window 
+control system (See page (dist=0.329)
+  Enriched: CHECK HARNESS AND CONNECTOR (NO. 2 ANTENNA CORD SUB-ASSEMBLY - DCM 
+[TELEMATICS TRANSCEIVER]) ← p.818 Front view of wire harness connector 
+(dist=0.315)
+  Enriched: CHECK INDICATOR ← p.805 B1570; Manual (SOS) Switch Red Indicator 
+Malfunction; 2019 - (dist=0.383)
+  Enriched: Check SRS warning light ← p.3795 (a) Initialize the power window 
+control system (See page (dist=0.329)
+  Enriched: CHECK FOR INTERMITTENT PROBLEMS ← p.6894  (dist=0.356)
+  Enriched: CHECK DLC3 ← p.6438 DTCs 36 (Zero Point Calibration of Yaw Rate 
+Sensor Undone) a (dist=0.422)
+  Enriched: Install roof headlining assembly ← p.6764 6.10:8.0.50 (dist=0.318)
+  Enriched: Go to CAN Communication System ← p.6895  (dist=0.375)
+  Enriched: Check CAN communication system ← p.6167 (NORMAL MODE) (dist=0.291)
+  Enriched: Remove roof headlining assembly ← p.4882  (dist=0.309)
+  Enriched: Check navigation system normal condition ← p.6891  (dist=0.415)
+  Enriched: Remove roof headlining assembly ← p.4882  (dist=0.309)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.6167 (NORMAL MODE) (dist=0.291)
+  Enriched: CHECK FOR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.307)
+  Enriched: CHECK NAVIGATION SYSTEM NORMAL CONDITION ← p.876 OPERATION CHECK; 
+2016 - 2021 MY GX460 [08/2015 - ] (dist=0.415)
+Enrichment error: Connection error.
+Enrichment error: Connection error.
+  Enriched: DTC CLEAR ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.307)
+  Enriched: RECHECK FOR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.307)
+  Enriched: RECHECK FOR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.307)
+  Enriched: Check Hands-free Voice Quality Setting ← p.391 (c) Select "Vehicle 
+Signal" from the "Function Check/Setting (dist=0.401)
+  Enriched: Cellular Phone Inspection ← p.486 CHECK USING ANOTHER CELLULAR PHONE
+(dist=0.394)
+  Enriched: CHECK GPS & VEHICLE SENSORS ← p.879 (d) Touch Switch Check 
+(dist=0.437)
+  Enriched: Voice is not Recognized ← p.617 Voice is not Recognized; 2016 - 2021
+MY GX460 [08/2015 - ] (dist=0.409)
+  Enriched: Steering Pad Switch Circuit ← p.968 Steering Pad Switch Circuit; 
+2020 - 2021 MY GX460 [08/2019 - (dist=0.362)
+  Enriched: DIAGNOSTIC TROUBLE CODE CHART ← p.902 DIAGNOSTIC TROUBLE CODE CHART;
+2019 - 2021 MY GX460 [08/2018 (dist=0.260)
+  Enriched: Microphone Circuit between Microphone and Radio Receiver ← p.978 
+Microphone Circuit between Microphone and Radio Receiver; 20 (dist=0.362)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.888 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.444)
+  Enriched: CLEAR DTC (B1574 - After Harness Replacement) ← p.1006 3. CLEAR 
+FREEZE FRAME DATA (dist=0.397)
+  Enriched: CLEAR DTC (B1574) ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: Satellite Radio Broadcast cannot be Selected or After Selecting 
+Broadcast, Broadcast cannot be Added into Memory ← p.601 Satellite Radio 
+Broadcast cannot be Selected or After Select (dist=0.278)
+  Enriched: CHECK DTC (B1574 - After Harness Replacement) ← p.6167 (NORMAL MODE)
+(dist=0.310)
+  Enriched: CLEAR DTC (B1575) ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: Microphone & Voice Recognition Check ← p.544 (1) Touch the display 
+anywhere in the open area to perform t (dist=0.383)
+  Enriched: Vehicle Signal Check Mode ← p.6442 Check that the slip indicator 
+light is blinking in the test  (dist=0.365)
+  Enriched: CHECK DTC (B1574) ← p.6167 (NORMAL MODE) (dist=0.310)
+  Enriched: Satellite Radio Broadcast cannot be Received ← p.597 Satellite Radio
+Broadcast cannot be Received; 2016 - 2021 MY (dist=0.337)
+  Enriched: CHECK DTC (B1575) ← p.6167 (NORMAL MODE) (dist=0.310)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - B1579 Step 4 ← p.573 REPLACE 
+DCM (TELEMATICS TRANSCEIVER) (dist=0.335)
+  Enriched: CHECK TELEPHONE MICROPHONE ASSEMBLY - B1579 Step 10 ← p.573 REPLACE 
+DCM (TELEMATICS TRANSCEIVER) (dist=0.335)
+  Enriched: CHECK DCM (TELEMATICS TRANSCEIVER) - B1579 Step 11 ← p.826 REPLACE 
+DCM (TELEMATICS TRANSCEIVER) (dist=0.251)
+  Enriched: CLEAR DTC (B1575 - After Harness Replacement) ← p.1006 3. CLEAR 
+FREEZE FRAME DATA (dist=0.397)
+  Enriched: CLEAR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.440)
+  Enriched: CHECK DTC ← p.6167 (NORMAL MODE) (dist=0.305)
+  Enriched: CHECK DTC (B1575 - After Harness Replacement) ← p.6167 (NORMAL MODE)
+(dist=0.310)
+  Enriched: MOST COMMUNICATION CONNECTORS ← p.897 CONNECTION METHOD (dist=0.417)
+  Enriched: REPLACE STEREO COMPONENT AMPLIFIER ASSEMBLY ← p.741 STEREO COMPONENT
+AMPLIFIER (for 17 Speakers) (dist=0.322)
+  Enriched: CONFIRM SYMPTOMS ← p.897 CONNECTION METHOD (dist=0.367)
+  Enriched: CLEAR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.440)
+  Enriched: CLEAR DTC ← p.800 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 -
+] (dist=0.440)
+  Enriched: REPLACE MULTI-DISPLAY CONTROLLER SUB-ASSEMBLY ← p.6513 (a) Replace 
+the multi-display controller sub-assembly with a (dist=0.394)
+  Enriched: CHECK DTC (SFI SYSTEM) ← p.6167 (NORMAL MODE) (dist=0.390)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK DTC ← p.67 (NORMAL MODE) (dist=0.339)
+  Enriched: CHECK DTC (CAN COMMUNICATION SYSTEM) ← p.6167 (NORMAL MODE) 
+(dist=0.291)
+  Enriched: CHECK DTC ← p.6167 (NORMAL MODE) (dist=0.305)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK WIRELESS DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should 
+be performed while the electrical key ante (dist=0.400)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK LIGHTING SYSTEM (EXT) ← p.3954 LIGHTING (EXT) (dist=0.404)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4589 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.358)
+  Enriched: CHECK POWER DOOR LOCK CONTROL SYSTEM ← p.6042 Inspection should be 
+performed while the electrical key ante (dist=0.369)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.4630 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.352)
+  Enriched: CHECK LIGHTING SYSTEM (INT) ← p.325 LIGHTING (INT) (dist=0.408)
+  Enriched: CHECK AIR CONDITIONING SYSTEM ← p.4663 TESTER CONNECTION 
+(dist=0.398)
+  Enriched: CHECK CAN COMMUNICATION SYSTEM ← p.4080 CHECK FOR DTC (dist=0.329)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.5174 CUSTOMIZE PARAMETERS; 2016 - 2021 MY 
+GX460 [08/2015 - ] (dist=0.291)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.341)
+  Enriched: CHECK SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Entry 
+Function) ← p.6632 1. Make sure the following conditions are met: (dist=0.341)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: CHECK CUSTOMIZE ITEMS ← p.6089 CUSTOMIZE PARAMETERS; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.395)
+  Enriched: CHECK FRONT POWER SEAT CONTROL SYSTEM ← p.5204 Power Seat Power Easy
+Access System Function does not Operat (dist=0.355)
+  Enriched: CHECK FRONT POWER SEAT CONTROL SYSTEM ← p.5204 Power Seat Power Easy
+Access System Function does not Operat (dist=0.355)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.5694 USE SIMULATION METHOD TO 
+CHECK (dist=0.561)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM ← p.6895  (dist=0.381)
+  Enriched: CLEAR DTC ← p.1006 3. CLEAR FREEZE FRAME DATA (dist=0.397)
+  Enriched: GO TO MULTI-TERRAIN MONITOR SYSTEM ← p.7260 Multi-terrain Monitor 
+System*2 (dist=0.369)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.5694 USE SIMULATION METHOD TO 
+CHECK (dist=0.561)
+  Enriched: CHECK VEHICLE SIGNAL (OPERATION CHECK) ← p.391 (c) Select "Vehicle 
+Signal" from the "Function Check/Setting (dist=0.416)
+  Enriched: PROCEED TO NEXT SUSPECTED AREA SHOWN IN PROBLEM SYMPTOMS TABLE ← 
+p.4922 PROBLEM SYMPTOMS TABLE; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.412)
+  Enriched: INSPECT STEERING PAD SWITCH ASSEMBLY ← p.3440 INSPECTION; 2020 - 
+2021 MY GX460 [08/2019 - ] (dist=0.346)
+  Enriched: REMOVE REAR QUARTER PANEL MUDGUARD RH ← p.3887 REMOVAL; 2016 - 2021 
+MY GX460 [08/2015 - ] (dist=0.362)
+  Enriched: INSPECT PARKING BRAKE SWITCH ASSEMBLY ← p.1503 INSPECTION; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.331)
+  Enriched: REMOVE REAR QUARTER PANEL MUDGUARD LH ← p.3887 REMOVAL; 2016 - 2021 
+MY GX460 [08/2015 - ] (dist=0.374)
+  Enriched: INSPECT MULTI-MEDIA MODULE RECEIVER ASSEMBLY ← p.649 Front view of 
+wire harness connector (dist=0.372)
+  Enriched: CHECK VEHICLE SIGNAL (OPERATION CHECK) ← p.391 (c) Select "Vehicle 
+Signal" from the "Function Check/Setting (dist=0.311)
+  Enriched: CHECK MULTI-DISPLAY ASSEMBLY ← p.700 7. REMOVE NO. 2 MULTI-DISPLAY 
+CONTROLLER BRACKET (dist=0.463)
+  Enriched: REMOVE JACK BOX HOLE COVER ← p.4267 (a) Remove the switch cover. 
+(dist=0.502)
+  Enriched: REMOVE REAR BUMPER BAR PLATE ← p.7010 (f) Disconnect the 3 
+connectors. (dist=0.371)
+  Enriched: INSPECT SPIRAL CABLE SUB-ASSEMBLY ← p.5886 Check Window (dist=0.338)
+  Enriched: INSTALL REAR QUARTER PANEL MUDGUARD RH ← p.1246 6. INSTALL REAR 
+BUMPER ENERGY ABSORBER (dist=0.329)
+  Enriched: INSTALL JACK BOX HOLE COVER ← p.3763 7. REMOVE BACK DOOR LOCK COVER 
+(dist=0.569)
+  Enriched: INSTALL REAR QUARTER PANEL MUDGUARD LH ← p.1246 6. INSTALL REAR 
+BUMPER ENERGY ABSORBER (dist=0.331)
+  Enriched: INSTALL REAR BUMPER BAR PLATE ← p.1246 6. INSTALL REAR BUMPER ENERGY
+ABSORBER (dist=0.345)
+  Enriched: PERFORM BLIND SPOT MONITOR SENSOR INSTALLATION CONDITION INSPECTION 
+← p.6570 Set the reflector so that its center is 874.5 mm (2.87 ft) a 
+(dist=0.282)
+  Enriched: REMOVE REAR BUMPER COVER ← p.6876 (e) Detach the 16 claws and remove
+the front bumper cover. (dist=0.351)
+  Enriched: INSTALL REAR BUMPER COVER ← p.1246 6. INSTALL REAR BUMPER ENERGY 
+ABSORBER (dist=0.345)
+  Enriched: PERFORM DIAGNOSTIC SYSTEM CHECK ← p.1003 DIAGNOSIS SYSTEM; 2021 MY 
+GX460 [08/2020 - ] (dist=0.317)
+  Enriched: PERFORM BLIND SPOT MONITOR BEAM AXIS CONFIRMATION ← p.995 OPERATION 
+CHECK; 2021 MY GX460 [08/2020 - ] (dist=0.283)
+  Enriched: RECHECK FOR DTC ← p.1004 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 
+[08/2015 - ] (dist=0.316)
+  Enriched: CIRCUIT INSPECTION ← p.6570 Set the reflector so that its center is 
+874.5 mm (2.87 ft) a (dist=0.311)
+  Enriched: DIAGNOSTIC TROUBLE CODE CHART ← p.1009 DIAGNOSTIC TROUBLE CODE 
+CHART; 2020 - 2021 MY GX460 [08/2019 (dist=0.255)
+  Enriched: CLEAR DTC ← p.1004 DTC CHECK / CLEAR; 2016 - 2021 MY GX460 [08/2015 
+- ] (dist=0.329)
+  Enriched: PERFORM BEAM AXIS INSPECTION AND CONFIRMATION ← p.998 Perform the 
+operation as precisely as possible. (dist=0.245)
+  Enriched: CHECK FOR DTC AND FREEZE FRAME DATA ← p.1004 DTC CHECK / CLEAR; 2016
+- 2021 MY GX460 [08/2015 - ] (dist=0.265)
+  Enriched: PERFORM TROUBLESHOOTING BASED ON MALFUNCTION SYMPTOM ← p.1002 
+TERMINALS OF ECU; 2016 - 2021 MY GX460 [08/2015 - ] (dist=0.311)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1001 PROBLEM SYMPTOMS TABLE; 2021 MY 
+GX460 [08/2020 - ] (dist=0.295)
+Enriched 181/183 nodes from cross-references.
+
+Building graph from extractions...
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{result -> String("A"), proceed_to -> String("THERE IS NO SONG/PROGRAM TITLE 
+OR ARTIST NAME/FEATURE ASSOCIATED WITH CHANNEL AT THAT TIME"), display -> 
+String(""UNAUTH" is displayed")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{title -> String("Terminals of ECU"), temp_id -> String("t11a"), instruction 
+-> String("Verify electrical connections at the ECU terminals")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{description -> String("Replace the telephone microphone assembly with a new 
+or normally functioning one"), step -> String("a")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{illumination_test -> String("Connect positive (+) lead from auxiliary 
+battery to terminal 5 and negative (-) lead to terminal 9 of steering pad switch
+assembly connector. Check that illumination illuminates."), resistance_tests -> 
+List{Map{condition -> String("No switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("95 to 105 kΩ")}, 
+Map{condition -> String("Seek+ switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("Below 2.5 Ω")}, 
+Map{condition -> String("Seek- switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("313 to 345 Ω")}, 
+Map{condition -> String("Volume+ switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("950 to 1050 Ω")}, 
+Map{condition -> String("Volume- switch pushed"), tester_connection -> 
+String("A-11 (AU1) - A-8 (EAU)"), specified -> String("2955 to 3265 Ω")}, 
+Map{condition -> String("No switch pushed"), tester_connection -> String("A-10 
+(AU2) - A-8 (EAU)"), specified -> String("95 to 105 kΩ")}, Map{condition -> 
+String("MODE switch pushed"), tester_connection -> String("A-10 (AU2) - A-8 
+(EAU)"), specified -> String("Below 2.5 Ω")}, Map{condition -> String("On hook 
+switch pushed"), tester_connection -> String("A-10 (AU2) - A-8 (EAU)"), 
+specified -> String("313 to 345 Ω")}, Map{condition -> String("Off hook switch 
+pushed"), tester_connection -> String("A-10 (AU2) - A-8 (EAU)"), specified -> 
+String("950 to 1050 Ω")}, Map{condition -> String("Voice switch pushed"), 
+tester_connection -> String("A-10 (AU2) - A-8 (EAU)"), specified -> String("2955
+to 3265 Ω")}, Map{condition -> String("No switch pushed"), tester_connection -> 
+String("A-3 (+DP2) - A-8 (EAU)"), specified -> String("95 to 105 kΩ")}, 
+Map{condition -> String("Left switch pushed"), tester_connection -> String("A-3 
+(+DP2) - A-8 (EAU)"), specified -> String("Below 2.5 Ω")}, Map{condition -> 
+String("Up switch pushed"), tester_connection -> String("A-3 (+DP2) - A-8 
+(EAU)"), specified -> String("313 to 345 Ω")}, Map{condition -> String("Down 
+switch pushed"), tester_connection -> String("A-3 (+DP2) - A-8 (EAU)"), 
+specified -> String("950 to 1050 Ω")}, Map{condition -> String("Right switch 
+pushed"), tester_connection -> String("A-3 (+DP2) - A-8 (EAU)"), specified -> 
+String("2955 to 3265 Ω")}, Map{condition -> String("No switch pushed"), 
+tester_connection -> String("A-2 (+DP) - A-8 (EAU)"), specified -> String("95 to
+105 kΩ")}, Map{condition -> String("Enter switch pushed"), tester_connection -> 
+String("A-2 (+DP) - A-8 (EAU)"), specified -> String("Below 2.5 Ω")}, 
+Map{condition -> String("Top switch pushed"), tester_connection -> String("A-2 
+(+DP) - A-8 (EAU)"), specified -> String("313 to 345 Ω")}, Map{condition -> 
+String("Back switch pushed"), tester_connection -> String("A-2 (+DP) - A-8 
+(EAU)"), specified -> String("950 to 1050 Ω")}, Map{condition -> String("No 
+switch pushed"), tester_connection -> String("A-4 (DIST) - A-7 (ECC)"), 
+specified -> String("1.0 MΩ or higher")}, Map{condition -> String("ACC switch 
+pushed"), tester_connection -> String("A-4 (DIST) - A-7 (ECC)"), specified -> 
+String("Below 2.5 Ω")}, Map{condition -> String("Lane departure alert switch 
+pushed"), tester_connection -> String("A-4 (DIST) - A-7 (ECC)"), specified -> 
+String("228 to 252 Ω")}, Map{condition -> String("Always"), tester_connection ->
+String("A-6 (HO) - B-HO"), specified -> String("Below 2.5 Ω")}, Map{condition ->
+String("Always"), tester_connection -> String("A-7 (ECC) - C-1 (ECC)"), 
+specified -> String("Below 2.5 Ω")}, Map{condition -> String("Always"), 
+tester_connection -> String("A-12 (CCS) - C-3 (CCS)"), specified -> 
+String("Below 2.5 Ω")}}}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{R42_10 -> String("W-B"), R42_5 -> String("GR"), R42_4 -> String("B")}.}
+
+Graph built: 2790 nodes, 2521 relationships
+Unique nodes: 1547
+
+Storing chunks in PostgreSQL...
+Stored 83 chunks.
+
+Generating embeddings for 171 chunks...
+Generated 171 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 171 chunks.
+
+Ingestion complete!
+[2/15] Pages 501-1000 DONE
+
+[3/15] Pages 1001-1500 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 495 pages with text.
+
+Created 77 chunks.
+
+77 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/77] chunk 3: 20 nodes, 18 rels
+  [2/77] chunk 6: 27 nodes, 21 rels
+  [3/77] chunk 2: 56 nodes, 7 rels
+  [4/77] chunk 4: 0 nodes, 0 rels
+  [5/77] chunk 5: 0 nodes, 0 rels
+  [6/77] chunk 7: 0 nodes, 0 rels
+  [7/77] chunk 8: 111 nodes, 25 rels
+  [8/77] chunk 1: 0 nodes, 0 rels
+  [9/77] chunk 13: 0 nodes, 0 rels
+  [10/77] chunk 11: 38 nodes, 32 rels
+  [11/77] chunk 9: 34 nodes, 24 rels
+  [12/77] chunk 12: 0 nodes, 0 rels
+  [13/77] chunk 10: 18 nodes, 11 rels
+  [14/77] chunk 14: 0 nodes, 0 rels
+  [15/77] chunk 15: 0 nodes, 0 rels
+  [16/77] chunk 23: 17 nodes, 21 rels
+  [17/77] chunk 21: 52 nodes, 14 rels
+  [18/77] chunk 16: 46 nodes, 37 rels
+  [19/77] chunk 17: 29 nodes, 28 rels
+  [20/77] chunk 22: 0 nodes, 0 rels
+  [21/77] chunk 18: 0 nodes, 0 rels
+  [22/77] chunk 19: 65 nodes, 43 rels
+  [23/77] chunk 20: 0 nodes, 0 rels
+  [24/77] chunk 29: 52 nodes, 44 rels
+  [25/77] chunk 28: 35 nodes, 27 rels
+  [26/77] chunk 25: 27 nodes, 24 rels
+  [27/77] chunk 26: 35 nodes, 34 rels
+  [28/77] chunk 27: 0 nodes, 0 rels
+  [29/77] chunk 31: 0 nodes, 0 rels
+  [30/77] chunk 30: 0 nodes, 0 rels
+  [31/77] chunk 35: 42 nodes, 33 rels
+  [32/77] chunk 24: 34 nodes, 28 rels
+  [33/77] chunk 33: 0 nodes, 0 rels
+  [34/77] chunk 37: 0 nodes, 0 rels
+  [35/77] chunk 34: 0 nodes, 0 rels
+  [36/77] chunk 36: 0 nodes, 0 rels
+  [37/77] chunk 32: 46 nodes, 40 rels
+  [38/77] chunk 40: 27 nodes, 25 rels
+  [39/77] chunk 39: 25 nodes, 19 rels
+  [40/77] chunk 46: 33 nodes, 33 rels
+  [41/77] chunk 47: 26 nodes, 24 rels
+  [42/77] chunk 42: 0 nodes, 0 rels
+  [43/77] chunk 43: 0 nodes, 0 rels
+  [44/77] chunk 38: 0 nodes, 0 rels
+  [45/77] chunk 41: 0 nodes, 0 rels
+  [46/77] chunk 52: 34 nodes, 32 rels
+  [47/77] chunk 45: 33 nodes, 19 rels
+  [48/77] chunk 49: 0 nodes, 0 rels
+  [49/77] chunk 44: 36 nodes, 26 rels
+  [50/77] chunk 53: 0 nodes, 0 rels
+  [51/77] chunk 51: 44 nodes, 16 rels
+  [52/77] chunk 48: 60 nodes, 28 rels
+  [53/77] chunk 50: 0 nodes, 0 rels
+  [54/77] chunk 54: 10 nodes, 10 rels
+  [55/77] chunk 59: 29 nodes, 40 rels
+  [56/77] chunk 57: 34 nodes, 46 rels
+  [57/77] chunk 55: 0 nodes, 0 rels
+  [58/77] chunk 58: 0 nodes, 0 rels
+  [59/77] chunk 56: 0 nodes, 0 rels
+  [60/77] chunk 62: 0 nodes, 0 rels
+  [61/77] chunk 64: 35 nodes, 41 rels
+  [62/77] chunk 61: 38 nodes, 39 rels
+  [63/77] chunk 60: 0 nodes, 0 rels
+  [64/77] chunk 66: 0 nodes, 0 rels
+  [65/77] chunk 65: 53 nodes, 51 rels
+  [66/77] chunk 63: 0 nodes, 0 rels
+  [67/77] chunk 67: 0 nodes, 0 rels
+  [68/77] chunk 72: 48 nodes, 34 rels
+  [69/77] chunk 73: 0 nodes, 0 rels
+  [70/77] chunk 70: 52 nodes, 44 rels
+  [71/77] chunk 71: 0 nodes, 0 rels
+  [72/77] chunk 69: 0 nodes, 0 rels
+  [73/77] chunk 74: 0 nodes, 0 rels
+  [74/77] chunk 75: 0 nodes, 0 rels
+  [75/77] chunk 68: 0 nodes, 0 rels
+  [76/77] chunk 77: 36 nodes, 24 rels
+  [77/77] chunk 76: 0 nodes, 0 rels
+  77/77 done (chunk 76: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+146 nodes with unresolved cross-references.
+Building page index for cross-reference search...
+Indexing 124 pages (7142 already done)...
+No text pages to index.
+  Enriched: Proceed to Test Mode ← p.7015 Set the reflector so that its center 
+is 874.5 mm (2.87 ft.)  (dist=0.256)
+  Enriched: Use Simulation Method to Check ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.421)
+  Enriched: REPLACE STEERING SENSOR ← p.5882 7. REMOVE STEERING SENSOR 
+(dist=0.340)
+  Enriched: Proceed to Test Mode (Blind Spot Monitor Beam Axis Inspection) ← 
+p.7015 Set the reflector so that its center is 874.5 mm (2.87 ft.)  (dist=0.256)
+  Enriched: Check Installation Condition ← p.999 ALLOWABLE RANGE (dist=0.293)
+  Enriched: Check Installation Condition ← p.999 ALLOWABLE RANGE (dist=0.296)
+  Enriched: Remove Front No. 2 Console Box Insert ← p.6784 6.10:8.0.50 
+(dist=0.321)
+  Enriched: Check for Open or Short in CAN Bus Wires (Blind Spot Monitor Sensor 
+LH) ← p.1035 Front view of wire harness connector (dist=0.274)
+  Enriched: Remove Center Instrument Cluster Finish Panel Garnish ← p.4851 
+Center Instrument Cluster Finish Panel (dist=0.264)
+  Enriched: Remove Instrument Side Panel RH ← p.6793 6.10:8.0.50 (dist=0.290)
+  Enriched: Perform Beam Axis Confirmation ← p.995 OPERATION CHECK; 2021 MY 
+GX460 [08/2020 - ] (dist=0.264)
+  Enriched: Remove Instrument Panel Finish Panel End RH ← p.4849 REMOVAL; 2020 -
+2021 MY GX460 [08/2019 - ] (dist=0.311)
+  Enriched: Go to CAN Communication System ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.421)
+  Enriched: Remove Lower No. 2 Instrument Panel Airbag Assembly ← p.6798 41. 
+REMOVE NO. 1 INSTRUMENT PANEL SPEAKER PANEL SUB-ASSEMBLY (dist=0.269)
+  Enriched: Perform Beam Axis Confirmation ← p.995 OPERATION CHECK; 2021 MY 
+GX460 [08/2020 - ] (dist=0.264)
+  Enriched: Remove Lower Instrument Cover LH ← p.6796 Protective Tape 
+(dist=0.325)
+  Enriched: Remove Instrument Panel Box Door Cover ← p.4852 Protective Tape 
+(dist=0.286)
+  Enriched: Remove No. 2 Instrument Panel Register Assembly ← p.853 14. REMOVE 
+NO. 3 INSTRUMENT PANEL REGISTER ASSEMBLY (dist=0.241)
+  Enriched: Remove No. 2 Instrument Panel Under Cover Sub-Assembly ← p.4850 17. 
+REMOVE INSTRUMENT SIDE PANEL LH (dist=0.268)
+  Enriched: Remove Instrument Panel Box Assembly ← p.4850 17. REMOVE INSTRUMENT 
+SIDE PANEL LH (dist=0.253)
+  Enriched: Check SRS Warning Light ← p.3795 (a) Initialize the power window 
+control system (See page (dist=0.329)
+  Enriched: SYMPTOM SIMULATION ← p.1055 Communication malfunction indication 
+(dist=0.477)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING - Terminals of ECU ← p.1062 
+TERMINALS OF ECU; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.301)
+  Enriched: DETECTION RANGE MEASUREMENT - Front Corner Sensors ← p.1057 
+Multi-information Display (dist=0.416)
+  Enriched: DETECTION RANGE MEASUREMENT - Front Center Sensors ← p.1055 
+Communication malfunction indication (dist=0.394)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING - Operation Check ← p.1054 
+OPERATION CHECK; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.362)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING - Data List / Active Test ← 
+p.1134 DATA LIST / ACTIVE TEST; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.395)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1061 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.371)
+  Enriched: ADJUST, REPAIR OR REPLACE IN ACCORDANCE WITH PROBLEM SYMPTOMS TABLE 
+← p.3539  (dist=0.411)
+  Enriched: DETECTION RANGE MEASUREMENT - Rear Corner Sensors ← p.1057 
+Multi-information Display (dist=0.396)
+  Enriched: REFER TO DIAGNOSTIC TROUBLE CODE CHART ← p.1067 DIAGNOSTIC TROUBLE 
+CODE CHART; 2020 - 2021 MY GX460 [08/2019 (dist=0.277)
+  Enriched: PERFORM CONFIRMATION TEST ← p.1055 Communication malfunction 
+indication (dist=0.390)
+  Enriched: DETECTION RANGE MEASUREMENT - Rear Center Sensors ← p.999 ALLOWABLE 
+RANGE (dist=0.385)
+  Enriched: CLEAN PARK SONAR SENSOR ← p.1061 PROBLEM SYMPTOMS TABLE; 2020 - 2021
+MY GX460 [08/2019 - ] (dist=0.528)
+  Enriched: Troubleshoot Frozen Indication ← p.1061 PROBLEM SYMPTOMS TABLE; 2020
+- 2021 MY GX460 [08/2019 - ] (dist=0.489)
+  Enriched: TROUBLESHOOT OPEN CIRCUIT IN ULTRASONIC SENSOR ← p.1081  
+(dist=0.514)
+  Enriched: INSTALL NO. 2 SWITCH HOLE BASE ← p.5069 INSTALLATION; 2020 - 2021 MY
+GX460 [08/2019 - ] (dist=0.485)
+  Enriched: CHECK NAVIGATION SYSTEM ← p.1130 DIAGNOSTIC MODE (dist=0.387)
+  Enriched: CHECK COMMUNICATION FUNCTION OF CAN COMMUNICATION SYSTEM ← p.6127 
+CAUTION / NOTICE / HINT (dist=0.337)
+  Enriched: CHECK AUDIO AND VISUAL SYSTEM ← p.540 (b) USB audio system 
+compatible devices (dist=0.408)
+  Enriched: CHECK NAVIGATION SYSTEM ← p.1130 DIAGNOSTIC MODE (dist=0.385)
+  Enriched: Troubleshoot Open Circuit Malfunction ← p.1138 DTC C1611 is not 
+output. (dist=0.317)
+  Enriched: Perform System Calibration ← p.1103 CALIBRATION; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.428)
+  Enriched: CHECK FOR DTC ← p.1543 Even if the following procedure is not 
+performed, permanent  (dist=0.271)
+  Enriched: CHECK AUDIO AND VISUAL SYSTEM ← p.540 (b) USB audio system 
+compatible devices (dist=0.392)
+  Enriched: Correct Steering Angle Neutral Point ← p.1123 w/o Navigation System:
+(dist=0.385)
+  Enriched: Diagnostic Mode - Signal Connection Check (CAMERA SW check) ← p.1130
+DIAGNOSTIC MODE (dist=0.343)
+  Enriched: Diagnostic Mode - Signal Connection Check (SHIFT check) ← p.1130 
+DIAGNOSTIC MODE (dist=0.386)
+  Enriched: Audio and Visual System - Touch Switch Self Check (w/o Navigation 
+System) ← p.544 (1) Touch the display anywhere in the open area to perform t 
+(dist=0.404)
+  Enriched: ECU Power Source Circuit Check ← p.5148 ECU Power Source Circuit; 
+2020 - 2021 MY GX460 [08/2019 - ] (dist=0.389)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING ← p.4030 (a) Operation Check. 
+(dist=0.315)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1125 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.398)
+  Enriched: Diagnostic Mode - Signal Connection Check (CAN check) ← p.6898 Front
+view of DLC3 (dist=0.377)
+  Enriched: Navigation System - Touch Switch Self Check (w/ Navigation System) ←
+p.878 Screen Description (dist=0.440)
+  Enriched: Perform Steering Angle Setting in Calibration if needed ← p.1123 w/o
+Navigation System: (dist=0.287)
+  Enriched: GO TO VEHICLE STABILITY CONTROL SYSTEM ← p.1148 C164D; Wheel Speed 
+Sensor Malfunction; 2020 - 2021 MY GX460  (dist=0.364)
+  Enriched: Check if the No. 1 Room Light (for Rear) Turns On and Off Normally ←
+p.4910 LIGHTING SYSTEM (dist=0.418)
+  Enriched: REPLACE SIDE TELEVISION CAMERA ASSEMBLY RH ← p.1229 2. INSTALL SIDE 
+TURN SIGNAL LIGHT ASSEMBLY RH (dist=0.358)
+  Enriched: GO TO AIRBAG SYSTEM ← p.1147 C1647; G Sensor Failure; 2020 - 2021 MY
+GX460 [08/2019 - ] (dist=0.348)
+  Enriched: Diagnostic Mode - Signal Connection Check ← p.1186 "CHK" message(s) 
+are displayed on the SIGNAL CHECK screen.;  (dist=0.374)
+  Enriched: Check the Steering Wheel Installation Angle ← p.3395 Install in this
+direction (dist=0.343)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1099 (1) Video signals from the 
+front television camera assembly  (dist=0.510)
+  Enriched: Check the Screen Display Timer Function ← p.878 Screen Description 
+(dist=0.516)
+  Enriched: CHECK PARKING ASSIST ECU ← p.1156 C1684; Side Camera Current 
+Malfunction; 2020 - 2021 MY GX460 (dist=0.281)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1099 (1) Video signals from the 
+front television camera assembly  (dist=0.510)
+  Enriched: Remove upper radiator support seal ← p.1957 16. REMOVE NO. 1 
+RADIATOR SUPPORT (dist=0.275)
+  Enriched: Install upper radiator support seal ← p.1957 16. REMOVE NO. 1 
+RADIATOR SUPPORT (dist=0.335)
+  Enriched: INSPECT COMBINATION SWITCH ASSEMBLY [MULTI-TERRAIN MONITOR SWITCH] ←
+p.1089 MULTI-TERRAIN MONITOR SWITCH (dist=0.334)
+  Enriched: Adjust front television camera assembly ← p.1216 TELEVISION CAMERA 
+(for Front) (dist=0.417)
+  Enriched: ADJUST SETTINGS (CAMERA VIEW ADJUSTMENT) ← p.1122 Before checking 
+the adjustment screen, ensure that the check (dist=0.369)
+  Enriched: CHECK SIDE TELEVISION CAMERA ASSEMBLY LH ← p.1229 2. INSTALL SIDE 
+TURN SIGNAL LIGHT ASSEMBLY RH (dist=0.361)
+  Enriched: PERFORM SETTINGS (STEERING ANGLE SETTING) ← p.1123 w/o Navigation 
+System: (dist=0.280)
+  Enriched: PERFORM SETTINGS (CAMERA VIEW ADJUSTMENT [CALIBRATION], STEERING 
+ANGLE SETTING) ← p.1123 w/o Navigation System: (dist=0.304)
+  Enriched: Refer to Problem Symptoms Table ← p.1257 PROBLEM SYMPTOMS TABLE; 
+2016 - 2021 MY GX460 [08/2015 - ] (dist=0.380)
+  Enriched: REMOVE INSTRUMENT PANEL SAFETY PAD SUB-ASSEMBLY ← p.6798 41. REMOVE 
+NO. 1 INSTRUMENT PANEL SPEAKER PANEL SUB-ASSEMBLY (dist=0.282)
+  Enriched: CHECK SPEED SENSOR SIGNAL ← p.1389 CHECK TERMINAL VOLTAGE (RR+, RL+)
+(dist=0.393)
+  Enriched: Perform Simulation Method ← p.68 19. SYMPTOM SIMULATION (dist=0.485)
+  Enriched: INSTALL INSTRUMENT PANEL SAFETY PAD SUB-ASSEMBLY ← p.4858 
+INSTALLATION; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.337)
+  Enriched: CHECK SPEED SENSOR SIGNAL ← p.1389 CHECK TERMINAL VOLTAGE (RR+, RL+)
+(dist=0.393)
+  Enriched: GO TO SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Start 
+Function) ← p.5982 WIRELESS DOOR LOCK CONTROL SYSTEM (dist=0.315)
+  Enriched: Perform Troubleshooting ← p.1258 TERMINALS OF ECU; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.311)
+  Enriched: GO TO DTC (B2285) ← p.5709 (b) Connect the cable to the negative (-)
+battery terminal,  (dist=0.331)
+  Enriched: REMOVE SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5882 7. REMOVE 
+STEERING SENSOR (dist=0.311)
+  Enriched: INSPECT SPIRAL CABLE SUB-ASSEMBLY ← p.5886 Check Window (dist=0.372)
+  Enriched: ADJUST MULTI-TERRAIN MONITOR SYSTEM (w/ Multi-terrain Monitor) ← 
+p.1121 Before checking the markers on the adjustment screen, ensure (dist=0.465)
+  Enriched: INSTALL SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5886 Check Window 
+(dist=0.298)
+  Enriched: INSPECT SPIRAL CABLE SUB-ASSEMBLY ← p.5886 Check Window (dist=0.352)
+  Enriched: INSTALL SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5886 Check Window 
+(dist=0.322)
+  Enriched: INITIALIZE MULTI-TERRAIN MONITOR SYSTEM ← p.1102 INITIALIZATION; 
+2020 - 2021 MY GX460 [08/2019 - ] (dist=0.427)
+  Enriched: INITIALIZE MULTI-TERRAIN MONITOR SYSTEM (w/ Multi-terrain Monitor) ←
+p.1102 INITIALIZATION; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.439)
+  Enriched: REMOVE SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5882 7. REMOVE 
+STEERING SENSOR (dist=0.296)
+  Enriched: ADJUST MULTI-TERRAIN MONITOR SYSTEM ← p.1121 Before checking the 
+markers on the adjustment screen, ensure (dist=0.432)
+  Enriched: PERFORM CALIBRATION AFTER SENSOR REPLACEMENT ← p.1401 CAUTION / 
+NOTICE / HINT (dist=0.371)
+  Enriched: Downhill Assist Control Switch Check ← p.1444 Downhill Assist 
+Control Indicator Light Remains ON; 2020 - 2 (dist=0.303)
+  Enriched: INSPECT DOWNHILL ASSIST CONTROL SWITCH (COMBINATION SWITCH ASSEMBLY)
+← p.1293 DOWNHILL ASSIST CONTROL SWITCH (dist=0.326)
+  Enriched: Crawl ON/OFF Switch / Crawl Speed Selector Switch Check ← p.1373 (a)
+Perform the crawl ON/OFF switch / crawl speed selector s (dist=0.319)
+  Enriched: CHECK TEST MODE DTC ← p.1293 DOWNHILL ASSIST CONTROL SWITCH 
+(dist=0.346)
+  Enriched: DTC CHART ← p.6425 DETECTION ITEM (dist=0.363)
+  Enriched: DISABLE TRAC AND VSC CONTROLS FOR DYNAMOMETER TESTING ← p.1334 
+TESTER DISPLAY (dist=0.430)
+  Enriched: INSPECT CRAWL ON/OFF SWITCH / CRAWL SPEED SELECTOR SWITCH / 
+MULTI-TERRAIN SELECT MODE SWITCH (COMBINATION SWITCH ASSEMBLY) ← p.1373 (a) 
+Perform the crawl ON/OFF switch / crawl speed selector s (dist=0.353)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1328 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.327)
+  Enriched: CHECK TERMINAL VOLTAGE (IG2 TERMINAL) ← p.1389 CHECK TERMINAL 
+VOLTAGE (RR+, RL+) (dist=0.504)
+  Enriched: READ VALUE USING TECHSTREAM (FRONT SPEED SENSOR) ← p.2581 TECHSTREAM
+DISPLAY (dist=0.270)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1411 C1436; Yaw Rate Sensor 
+Malfunction; 2020 - 2021 MY GX460 [08 (dist=0.455)
+  Enriched: REPLACE YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.298)
+  Enriched: CHECK TEST MODE DTC ← p.1373 (a) Perform the crawl ON/OFF switch / 
+crawl speed selector s (dist=0.317)
+  Enriched: READ VALUE USING TECHSTREAM (REAR SPEED SENSOR) ← p.2581 TECHSTREAM 
+DISPLAY (dist=0.296)
+  Enriched: CHECK DTC (CAN COMMUNICATION SYSTEM) ← p.67 (NORMAL MODE) 
+(dist=0.301)
+  Enriched: INSTALL YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) CORRECTLY ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.335)
+  Enriched: REPLACE YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.298)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM (HOW TO PROCEED WITH TROUBLESHOOTING)
+← p.6118 GO TO CAN COMMUNICATION SYSTEM (dist=0.389)
+  Enriched: REPLACE MASTER CYLINDER SOLENOID ← p.1401 CAUTION / NOTICE / HINT 
+(dist=0.273)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM (HOW TO PROCEED WITH TROUBLESHOOTING)
+← p.6118 GO TO CAN COMMUNICATION SYSTEM (dist=0.389)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1124 A long beep will sound to 
+confirm that the adjustment values (dist=0.413)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.2931 REPLACE ECM (dist=0.515)
+  Enriched: GO TO ENGINE CONTROL SYSTEM (HOW TO PROCEED WITH TROUBLESHOOTING) ← 
+p.6452  (dist=0.346)
+  Enriched: ADJUST FRONT WHEEL ALIGNMENT OR STEERING POSITION ← p.3436 
+ADJUSTMENT; 2016 - 2021 MY GX460 [08/2015 - ] (dist=0.337)
+  Enriched: REPAIR CIRCUITS INDICATED BY OUTPUT DTCS ← p.1399 C1419,C1435; 
+Acceleration Sensor Internal Circuit; 2020 - 20 (dist=0.448)
+  Enriched: REPAIR OR REPLACE HARNESS OR CONNECTOR (GROUND CIRCUIT) ← p.969 
+REPAIR OR REPLACE HARNESS OR CONNECTOR (dist=0.339)
+  Enriched: REPLACE YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.298)
+  Enriched: INSPECT DOWNHILL ASSIST CONTROL SWITCH (COMBINATION SWITCH ASSEMBLY)
+← p.1293 DOWNHILL ASSIST CONTROL SWITCH (dist=0.326)
+  Enriched: INSPECT DOWNHILL ASSIST CONTROL SWITCH (COMBINATION SWITCH ASSEMBLY)
+← p.1293 DOWNHILL ASSIST CONTROL SWITCH (dist=0.326)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1346 (d) Turn the Techstream on. 
+(dist=0.445)
+  Enriched: REPAIR CIRCUITS INDICATED BY OUTPUT DTCS ← p.1415 (c) Start the 
+engine. (dist=0.395)
+  Enriched: REPAIR CIRCUITS INDICATED BY OUTPUT DTCS ← p.1399 C1419,C1435; 
+Acceleration Sensor Internal Circuit; 2020 - 20 (dist=0.450)
+  Enriched: REPLACE STEERING SENSOR ← p.5882 7. REMOVE STEERING SENSOR 
+(dist=0.340)
+  Enriched: CHECK CAN COMMUNICATION LINE ← p.3080 Component with harness 
+connected (dist=0.423)
+  Enriched: INSTALL DOOR SCUFF PLATE ASSEMBLY LH ← p.4988 INSTALLATION; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.325)
+  Enriched: INSTALL COWL SIDE TRIM BOARD LH ← p.4890 Mark Position (dist=0.386)
+  Enriched: REMOVE COWL SIDE TRIM BOARD LH ← p.4875 39. REMOVE DECK TRIM SIDE 
+PANEL ASSEMBLY RH (dist=0.346)
+  Enriched: INSTALL LOWER INSTRUMENT PANEL FINISH PANEL SUB-ASSEMBLY ← p.4859  
+(dist=0.305)
+  Enriched: REMOVE LOWER INSTRUMENT PANEL FINISH PANEL SUB-ASSEMBLY ← p.4850 17.
+REMOVE INSTRUMENT SIDE PANEL LH (dist=0.248)
+  Enriched: REPLACE BRAKE FLUID - Clear DTCs ← p.800 DTC CHECK / CLEAR; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.440)
+  Enriched: REPLACE BRAKE FLUID - Check and adjust fluid level ← p.1456 (u) 
+Check and adjust the brake fluid level (See page (dist=0.338)
+  Enriched: Install No. 2 Parking Brake Shoe Assembly with Parking Brake Shoe 
+Lever ← p.1487 8. REMOVE PARKING BRAKE SHOE ADJUSTING SCREW SET (dist=0.301)
+  Enriched: REMOVE DOOR SCUFF PLATE ASSEMBLY LH ← p.4871 (a) Using a 
+screwdriver, detach the 2 claws and remove the r (dist=0.277)
+  Enriched: Remove Rear Console Box Assembly ← p.6786 (a) Using a moulding 
+remover, detach the 8 clips and remove  (dist=0.269)
+  Enriched: Remove Lower No. 1 Instrument Panel Airbag Assembly ← p.3316 (c) 
+Attach the driver side junction block assembly with main (dist=0.333)
+  Enriched: Remove Transmission Floor Shift Assembly ← p.1512 Do not use excess 
+force when prying the transmission assembl (dist=0.352)
+  Enriched: Install Rear Console Box Assembly (w/ Refrigerated Cool Box) ← 
+p.1735 (i) Push the lock piece into the adjuster case and lock it. (dist=0.350)
+  Enriched: INSPECT COMBINATION METER ASSEMBLY ← p.6551 (1) Remove the 
+combination meter assembly with the connector (dist=0.472)
+  Enriched: Install Rear Console Box Assembly (w/o Refrigerated Cool Box) ← 
+p.4832 FRONT CONSOLE BOX (w/ Refrigerated Cool Box) (dist=0.365)
+  Enriched: Install Fuel Tank Sub-Assembly ← p.6329 4. INSTALL FUEL TANK MAIN 
+TUBE SUB-ASSEMBLY AND FUEL RETURN  (dist=0.308)
+  Enriched: Install Rear Console Box Assembly ← p.4831 INSTALLATION; 2020 - 2021
+MY GX460 [08/2019 - ] (dist=0.327)
+  Enriched: Install Transmission Floor Shift Assembly ← p.1723 INSTALLATION; 
+2016 - 2021 MY GX460 [08/2015 - ] (dist=0.387)
+  Enriched: Install Lower No. 1 Instrument Panel Airbag Assembly ← p.3316 (c) 
+Attach the driver side junction block assembly with main (dist=0.315)
+Enriched 146/146 nodes from cross-references.
+
+Building graph from extractions...
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{specification -> String("108 to 132 Ω"), condition -> String("Cable 
+disconnected from negative (-) battery terminal"), measurement -> String("R42-1 
+(CA2P) - R42-6 (CA2N)")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{guides -> Long(2), clips -> Long(3)}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{waveform_2 -> Map{ch1_terminal -> String("G125-8 (SOF) - G125-30 (E)"), 
+ch2_condition -> String("Engine on (IG), system on, shift lever in R"), 
+ch2_terminal -> String("G125-24 (SOR) - G125-30 (E)"), setting -> String("5 
+V/DIV., 1 msec./DIV."), ch1_condition -> String("Engine on (IG), system on, 
+shift lever not in P, vehicle speed < 10 km/h")}, waveform_1 -> 
+Map{measurement_terminal -> String("G125-14 (CBZ) - G125-13 (EF)"), note -> 
+String("Amplitude changes according to set volume"), condition -> String("Buzzer
+sounding"), setting -> String("2 V/DIV., 500 μs./DIV.")}}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{title -> String("Part and Sensor"), temp_id -> String("t16a"), instruction 
+-> String("Apply slight vibration with a finger to the part of the sensor 
+suspected to be the cause of the problem, and check whether or not the 
+malfunction occurs."), notice -> String("Applying strong vibration to relays may
+open them.")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{lf_output_power_interior -> String("94.4 dBuV/m at 3 m"), modulation_method 
+-> String("AM"), lf_output_power_exterior_rear_bumper -> String("95 dBuV/m at 3 
+m"), lf_output_power_exterior_door_handle -> String("95 dBuV/m at 3 m"), 
+frequency -> String("134.2 kHz")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{torque -> String("88 N·m {897 kgf·cm, 65 ft·lbf}"), component -> String("RH 
+and LH lock nuts")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{sub_steps -> List{Map{instruction -> String("Attach the clip and claw to 
+install the cowl side trim board LH."), order -> Long(1)}, Map{instruction -> 
+String("Install the clip."), order -> Long(2)}}}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{torque -> String("5.4 N·m {55 kgf·cm, 48 in·lbf}"), component -> String("2 
+cooler pipes bolts")}.}
+
+Graph built: 2533 nodes, 2204 relationships
+Unique nodes: 1334
+
+Storing chunks in PostgreSQL...
+Stored 77 chunks.
+
+Generating embeddings for 77 chunks...
+Generated 77 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 77 chunks.
+
+Ingestion complete!
+[3/15] Pages 1001-1500 DONE
+
+[4/15] Pages 1501-2000 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 492 pages with text.
+
+Created 60 chunks.
+
+60 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/60] chunk 7: 17 nodes, 17 rels
+  [2/60] chunk 8: 38 nodes, 12 rels
+  [3/60] chunk 1: 44 nodes, 35 rels
+  [4/60] chunk 5: 62 nodes, 12 rels
+  [5/60] chunk 3: 59 nodes, 58 rels
+  [6/60] chunk 6: 0 nodes, 0 rels
+  [7/60] chunk 4: 0 nodes, 0 rels
+  [8/60] chunk 2: 0 nodes, 0 rels
+  [9/60] chunk 15: 18 nodes, 16 rels
+  [10/60] chunk 13: 27 nodes, 20 rels
+  [11/60] chunk 12: 37 nodes, 35 rels
+  [12/60] chunk 14: 43 nodes, 46 rels
+  [13/60] chunk 11: 32 nodes, 24 rels
+  [14/60] chunk 10: 55 nodes, 24 rels
+  [15/60] chunk 18: 0 nodes, 0 rels
+  [16/60] chunk 23: 0 nodes, 0 rels
+  [17/60] chunk 24: 0 nodes, 0 rels
+  [18/60] chunk 25: 0 nodes, 0 rels
+  [19/60] chunk 26: 0 nodes, 0 rels
+  [20/60] chunk 27: 0 nodes, 0 rels
+  [21/60] chunk 28: 0 nodes, 0 rels
+  [22/60] chunk 29: 0 nodes, 0 rels
+  [23/60] chunk 30: 0 nodes, 0 rels
+  [24/60] chunk 31: 0 nodes, 0 rels
+  [25/60] chunk 32: 0 nodes, 0 rels
+  [26/60] chunk 33: 0 nodes, 0 rels
+  [27/60] chunk 34: 0 nodes, 0 rels
+  [28/60] chunk 35: 0 nodes, 0 rels
+  [29/60] chunk 36: 0 nodes, 0 rels
+  [30/60] chunk 37: 0 nodes, 0 rels
+  [31/60] chunk 38: 0 nodes, 0 rels
+  [32/60] chunk 39: 0 nodes, 0 rels
+  [33/60] chunk 40: 0 nodes, 0 rels
+  [34/60] chunk 41: 0 nodes, 0 rels
+  [35/60] chunk 42: 0 nodes, 0 rels
+  [36/60] chunk 43: 0 nodes, 0 rels
+  [37/60] chunk 44: 0 nodes, 0 rels
+  [38/60] chunk 45: 0 nodes, 0 rels
+  [39/60] chunk 46: 0 nodes, 0 rels
+  [40/60] chunk 47: 0 nodes, 0 rels
+  [41/60] chunk 48: 0 nodes, 0 rels
+  [42/60] chunk 49: 0 nodes, 0 rels
+  [43/60] chunk 50: 0 nodes, 0 rels
+  [44/60] chunk 51: 0 nodes, 0 rels
+  [45/60] chunk 52: 0 nodes, 0 rels
+  [46/60] chunk 53: 0 nodes, 0 rels
+  [47/60] chunk 54: 0 nodes, 0 rels
+  [48/60] chunk 55: 0 nodes, 0 rels
+  [49/60] chunk 56: 0 nodes, 0 rels
+  [50/60] chunk 57: 0 nodes, 0 rels
+  [51/60] chunk 58: 0 nodes, 0 rels
+  [52/60] chunk 59: 0 nodes, 0 rels
+  [53/60] chunk 60: 0 nodes, 0 rels
+  [54/60] chunk 19: 0 nodes, 0 rels
+  [55/60] chunk 20: 0 nodes, 0 rels
+  [56/60] chunk 21: 0 nodes, 0 rels
+  [57/60] chunk 22: 0 nodes, 0 rels
+  [58/60] chunk 9: 0 nodes, 0 rels
+  [59/60] chunk 17: 0 nodes, 0 rels
+  [60/60] chunk 16: 0 nodes, 0 rels
+  60/60 done (chunk 16: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+24 nodes with unresolved cross-references.
+Building page index for cross-reference search...
+Indexing 124 pages (7142 already done)...
+No text pages to index.
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCoqqe3Yvhwi6Cbghd'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCorLKppDuuW7t41mY'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCos5YS8xR8vdRmFE7'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCosa3WZpdQBqnWG3f'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCorahzuLU7ptz2c1U'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCospUswxpVVBZETwP'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCosaBwCRvMws7XUXZ'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCosaAv8X7NRWgHaXP'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp3F3ENCNXvaKLkCw'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp7DNW867TR6Mgqt7'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp7DEqiUxukUAWMyF'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp8wcjxebiX2tkV4y'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpBvMYYkfFX38Z6PW'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpDANGqxCRCdwicuA'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCp9C5gAXvYqTZyw3n'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpGdYz6HULMZdigFt'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpQpK4taQcTUNjyvg'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpFeNkeapYJtvdaAN'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpMM48c857L5Dxza6'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpTYb6GHur4GxkRnB'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpWGi9q52NWcFmBqN'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpXkwVp8sjqSwyDfk'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpaz33GTf3kefus2h'}
+Enrichment error: Error code: 400 - {'type': 'error', 'error': {'type': 
+'invalid_request_error', 'message': 'Your credit balance is too low to access 
+the Anthropic API. Please go to Plans & Billing to upgrade or purchase 
+credits.'}, 'request_id': 'req_011CYkpCpfT4YrWwuhvovUsW'}
+Enriched 0/24 nodes from cross-references.
+
+Building graph from extractions...
+
+Graph built: 432 nodes, 299 relationships
+Unique nodes: 356
+
+Storing chunks in PostgreSQL...
+Stored 60 chunks.
+
+Generating embeddings for 60 chunks...
+Generated 60 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 60 chunks.
+
+Ingestion complete!
+[4/15] Pages 1501-2000 DONE
+
+[5/15] Pages 2001-2500 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 494 pages with text.
+
+Created 135 chunks.
+
+Skipping 26 already-ingested chunks.
+109 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/109] chunk 8: 0 nodes, 0 rels
+  [2/109] chunk 3: 0 nodes, 0 rels
+  [3/109] chunk 2: 0 nodes, 0 rels
+  [4/109] chunk 7: 0 nodes, 0 rels
+  [5/109] chunk 5: 0 nodes, 0 rels
+  [6/109] chunk 1: 0 nodes, 0 rels
+  [7/109] chunk 4: 0 nodes, 0 rels
+  [8/109] chunk 6: 0 nodes, 0 rels
+  [9/109] chunk 16: 0 nodes, 0 rels
+  [10/109] chunk 10: 0 nodes, 0 rels
+  [11/109] chunk 13: 0 nodes, 0 rels
+  [12/109] chunk 12: 0 nodes, 0 rels
+  [13/109] chunk 9: 0 nodes, 0 rels
+  [14/109] chunk 11: 0 nodes, 0 rels
+  [15/109] chunk 14: 0 nodes, 0 rels
+  [16/109] chunk 17: 0 nodes, 0 rels
+  [17/109] chunk 15: 0 nodes, 0 rels
+  [18/109] chunk 18: 0 nodes, 0 rels
+  [19/109] chunk 19: 0 nodes, 0 rels
+  [20/109] chunk 21: 0 nodes, 0 rels
+  [21/109] chunk 20: 0 nodes, 0 rels
+  [22/109] chunk 23: 0 nodes, 0 rels
+  [23/109] chunk 22: 0 nodes, 0 rels
+  [24/109] chunk 24: 0 nodes, 0 rels
+  [25/109] chunk 26: 0 nodes, 0 rels
+  [26/109] chunk 25: 0 nodes, 0 rels
+  [27/109] chunk 28: 0 nodes, 0 rels
+  [28/109] chunk 27: 0 nodes, 0 rels
+  [29/109] chunk 29: 0 nodes, 0 rels
+  [30/109] chunk 31: 0 nodes, 0 rels
+  [31/109] chunk 30: 0 nodes, 0 rels
+  [32/109] chunk 32: 0 nodes, 0 rels
+  [33/109] chunk 34: 0 nodes, 0 rels
+  [34/109] chunk 33: 0 nodes, 0 rels
+  [35/109] chunk 35: 0 nodes, 0 rels
+  [36/109] chunk 36: 0 nodes, 0 rels
+  [37/109] chunk 37: 0 nodes, 0 rels
+  [38/109] chunk 39: 0 nodes, 0 rels
+  [39/109] chunk 40: 0 nodes, 0 rels
+  [40/109] chunk 41: 0 nodes, 0 rels
+  [41/109] chunk 38: 0 nodes, 0 rels
+  [42/109] chunk 43: 0 nodes, 0 rels
+  [43/109] chunk 42: 0 nodes, 0 rels
+  [44/109] chunk 45: 0 nodes, 0 rels
+  [45/109] chunk 47: 0 nodes, 0 rels
+  [46/109] chunk 46: 0 nodes, 0 rels
+  [47/109] chunk 48: 0 nodes, 0 rels
+  [48/109] chunk 50: 0 nodes, 0 rels
+  [49/109] chunk 49: 0 nodes, 0 rels
+  [50/109] chunk 52: 0 nodes, 0 rels
+  [51/109] chunk 44: 0 nodes, 0 rels
+  [52/109] chunk 53: 0 nodes, 0 rels
+  [53/109] chunk 51: 0 nodes, 0 rels
+  [54/109] chunk 56: 0 nodes, 0 rels
+  [55/109] chunk 55: 0 nodes, 0 rels
+  [56/109] chunk 54: 0 nodes, 0 rels
+  [57/109] chunk 58: 0 nodes, 0 rels
+  [58/109] chunk 59: 0 nodes, 0 rels
+  [59/109] chunk 60: 0 nodes, 0 rels
+  [60/109] chunk 61: 0 nodes, 0 rels
+  [61/109] chunk 57: 0 nodes, 0 rels
+  [62/109] chunk 62: 0 nodes, 0 rels
+  [63/109] chunk 65: 0 nodes, 0 rels
+  [64/109] chunk 63: 0 nodes, 0 rels
+  [65/109] chunk 66: 0 nodes, 0 rels
+  [66/109] chunk 67: 0 nodes, 0 rels
+  [67/109] chunk 64: 0 nodes, 0 rels
+  [68/109] chunk 69: 0 nodes, 0 rels
+  [69/109] chunk 68: 0 nodes, 0 rels
+  [70/109] chunk 71: 0 nodes, 0 rels
+  [71/109] chunk 70: 0 nodes, 0 rels
+  [72/109] chunk 72: 0 nodes, 0 rels
+  [73/109] chunk 74: 0 nodes, 0 rels
+  [74/109] chunk 73: 0 nodes, 0 rels
+  [75/109] chunk 75: 0 nodes, 0 rels
+  [76/109] chunk 76: 0 nodes, 0 rels
+  [77/109] chunk 79: 0 nodes, 0 rels
+  [78/109] chunk 78: 0 nodes, 0 rels
+  [79/109] chunk 80: 0 nodes, 0 rels
+  [80/109] chunk 81: 0 nodes, 0 rels
+  [81/109] chunk 83: 0 nodes, 0 rels
+  [82/109] chunk 82: 0 nodes, 0 rels
+  [83/109] chunk 84: 0 nodes, 0 rels
+  [84/109] chunk 85: 0 nodes, 0 rels
+  [85/109] chunk 77: 0 nodes, 0 rels
+  [86/109] chunk 87: 0 nodes, 0 rels
+  [87/109] chunk 86: 0 nodes, 0 rels
+  [88/109] chunk 88: 0 nodes, 0 rels
+  [89/109] chunk 89: 0 nodes, 0 rels
+  [90/109] chunk 91: 0 nodes, 0 rels
+  [91/109] chunk 90: 0 nodes, 0 rels
+  [92/109] chunk 92: 0 nodes, 0 rels
+  [93/109] chunk 93: 0 nodes, 0 rels
+  [94/109] chunk 95: 0 nodes, 0 rels
+  [95/109] chunk 94: 0 nodes, 0 rels
+  [96/109] chunk 97: 0 nodes, 0 rels
+  [97/109] chunk 96: 0 nodes, 0 rels
+  [98/109] chunk 100: 0 nodes, 0 rels
+  [99/109] chunk 101: 0 nodes, 0 rels
+  [100/109] chunk 103: 0 nodes, 0 rels
+  [101/109] chunk 105: 0 nodes, 0 rels
+  [102/109] chunk 104: 0 nodes, 0 rels
+  [103/109] chunk 102: 0 nodes, 0 rels
+  [104/109] chunk 98: 0 nodes, 0 rels
+  [105/109] chunk 107: 0 nodes, 0 rels
+  [106/109] chunk 99: 0 nodes, 0 rels
+  [107/109] chunk 108: 0 nodes, 0 rels
+  [108/109] chunk 109: 0 nodes, 0 rels
+  [109/109] chunk 106: 0 nodes, 0 rels
+  109/109 done (chunk 106: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 109 chunks.
+
+Generating embeddings for 109 chunks...
+Generated 109 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 109 chunks.
+
+Ingestion complete!
+[5/15] Pages 2001-2500 DONE
+
+[6/15] Pages 2501-3000 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 486 pages with text.
+
+Created 66 chunks.
+
+66 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/66] chunk 1: 0 nodes, 0 rels
+  [2/66] chunk 6: 0 nodes, 0 rels
+  [3/66] chunk 8: 0 nodes, 0 rels
+  [4/66] chunk 4: 0 nodes, 0 rels
+  [5/66] chunk 5: 0 nodes, 0 rels
+  [6/66] chunk 7: 0 nodes, 0 rels
+  [7/66] chunk 3: 0 nodes, 0 rels
+  [8/66] chunk 11: 0 nodes, 0 rels
+  [9/66] chunk 13: 0 nodes, 0 rels
+  [10/66] chunk 12: 0 nodes, 0 rels
+  [11/66] chunk 10: 0 nodes, 0 rels
+  [12/66] chunk 9: 0 nodes, 0 rels
+  [13/66] chunk 2: 0 nodes, 0 rels
+  [14/66] chunk 16: 0 nodes, 0 rels
+  [15/66] chunk 18: 0 nodes, 0 rels
+  [16/66] chunk 14: 0 nodes, 0 rels
+  [17/66] chunk 19: 0 nodes, 0 rels
+  [18/66] chunk 17: 0 nodes, 0 rels
+  [19/66] chunk 20: 0 nodes, 0 rels
+  [20/66] chunk 15: 0 nodes, 0 rels
+  [21/66] chunk 22: 0 nodes, 0 rels
+  [22/66] chunk 23: 0 nodes, 0 rels
+  [23/66] chunk 21: 0 nodes, 0 rels
+  [24/66] chunk 25: 0 nodes, 0 rels
+  [25/66] chunk 28: 0 nodes, 0 rels
+  [26/66] chunk 27: 0 nodes, 0 rels
+  [27/66] chunk 26: 0 nodes, 0 rels
+  [28/66] chunk 24: 0 nodes, 0 rels
+  [29/66] chunk 29: 0 nodes, 0 rels
+  [30/66] chunk 30: 0 nodes, 0 rels
+  [31/66] chunk 31: 0 nodes, 0 rels
+  [32/66] chunk 32: 0 nodes, 0 rels
+  [33/66] chunk 35: 0 nodes, 0 rels
+  [34/66] chunk 37: 0 nodes, 0 rels
+  [35/66] chunk 36: 0 nodes, 0 rels
+  [36/66] chunk 39: 0 nodes, 0 rels
+  [37/66] chunk 38: 0 nodes, 0 rels
+  [38/66] chunk 40: 0 nodes, 0 rels
+  [39/66] chunk 33: 0 nodes, 0 rels
+  [40/66] chunk 41: 0 nodes, 0 rels
+  [41/66] chunk 34: 0 nodes, 0 rels
+  [42/66] chunk 42: 0 nodes, 0 rels
+  [43/66] chunk 43: 0 nodes, 0 rels
+  [44/66] chunk 44: 0 nodes, 0 rels
+  [45/66] chunk 45: 0 nodes, 0 rels
+  [46/66] chunk 47: 0 nodes, 0 rels
+  [47/66] chunk 48: 0 nodes, 0 rels
+  [48/66] chunk 49: 0 nodes, 0 rels
+  [49/66] chunk 51: 0 nodes, 0 rels
+  [50/66] chunk 50: 0 nodes, 0 rels
+  [51/66] chunk 53: 0 nodes, 0 rels
+  [52/66] chunk 52: 0 nodes, 0 rels
+  [53/66] chunk 54: 0 nodes, 0 rels
+  [54/66] chunk 55: 0 nodes, 0 rels
+  [55/66] chunk 57: 0 nodes, 0 rels
+  [56/66] chunk 58: 0 nodes, 0 rels
+  [57/66] chunk 46: 0 nodes, 0 rels
+  [58/66] chunk 60: 0 nodes, 0 rels
+  [59/66] chunk 59: 0 nodes, 0 rels
+  [60/66] chunk 56: 0 nodes, 0 rels
+  [61/66] chunk 61: 0 nodes, 0 rels
+  [62/66] chunk 62: 0 nodes, 0 rels
+  [63/66] chunk 63: 0 nodes, 0 rels
+  [64/66] chunk 64: 0 nodes, 0 rels
+  [65/66] chunk 65: 0 nodes, 0 rels
+  [66/66] chunk 66: 0 nodes, 0 rels
+  66/66 done (chunk 66: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 66 chunks.
+
+Generating embeddings for 66 chunks...
+Generated 66 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 66 chunks.
+
+Ingestion complete!
+[6/15] Pages 2501-3000 DONE
+
+[7/15] Pages 3001-3500 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 496 pages with text.
+
+Created 111 chunks.
+
+111 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/111] chunk 1: 0 nodes, 0 rels
+  [2/111] chunk 3: 0 nodes, 0 rels
+  [3/111] chunk 2: 0 nodes, 0 rels
+  [4/111] chunk 4: 0 nodes, 0 rels
+  [5/111] chunk 7: 0 nodes, 0 rels
+  [6/111] chunk 6: 0 nodes, 0 rels
+  [7/111] chunk 8: 0 nodes, 0 rels
+  [8/111] chunk 5: 0 nodes, 0 rels
+  [9/111] chunk 12: 0 nodes, 0 rels
+  [10/111] chunk 9: 0 nodes, 0 rels
+  [11/111] chunk 10: 0 nodes, 0 rels
+  [12/111] chunk 14: 0 nodes, 0 rels
+  [13/111] chunk 13: 0 nodes, 0 rels
+  [14/111] chunk 17: 0 nodes, 0 rels
+  [15/111] chunk 15: 0 nodes, 0 rels
+  [16/111] chunk 18: 0 nodes, 0 rels
+  [17/111] chunk 19: 0 nodes, 0 rels
+  [18/111] chunk 16: 0 nodes, 0 rels
+  [19/111] chunk 20: 0 nodes, 0 rels
+  [20/111] chunk 21: 0 nodes, 0 rels
+  [21/111] chunk 11: 0 nodes, 0 rels
+  [22/111] chunk 22: 0 nodes, 0 rels
+  [23/111] chunk 24: 0 nodes, 0 rels
+  [24/111] chunk 25: 0 nodes, 0 rels
+  [25/111] chunk 26: 0 nodes, 0 rels
+  [26/111] chunk 23: 0 nodes, 0 rels
+  [27/111] chunk 29: 0 nodes, 0 rels
+  [28/111] chunk 30: 0 nodes, 0 rels
+  [29/111] chunk 32: 0 nodes, 0 rels
+  [30/111] chunk 33: 0 nodes, 0 rels
+  [31/111] chunk 31: 0 nodes, 0 rels
+  [32/111] chunk 28: 0 nodes, 0 rels
+  [33/111] chunk 34: 0 nodes, 0 rels
+  [34/111] chunk 35: 0 nodes, 0 rels
+  [35/111] chunk 36: 0 nodes, 0 rels
+  [36/111] chunk 27: 0 nodes, 0 rels
+  [37/111] chunk 38: 0 nodes, 0 rels
+  [38/111] chunk 39: 0 nodes, 0 rels
+  [39/111] chunk 37: 0 nodes, 0 rels
+  [40/111] chunk 40: 0 nodes, 0 rels
+  [41/111] chunk 41: 0 nodes, 0 rels
+  [42/111] chunk 42: 0 nodes, 0 rels
+  [43/111] chunk 43: 0 nodes, 0 rels
+  [44/111] chunk 44: 0 nodes, 0 rels
+  [45/111] chunk 45: 0 nodes, 0 rels
+  [46/111] chunk 46: 0 nodes, 0 rels
+  [47/111] chunk 47: 0 nodes, 0 rels
+  [48/111] chunk 49: 0 nodes, 0 rels
+  [49/111] chunk 52: 0 nodes, 0 rels
+  [50/111] chunk 51: 0 nodes, 0 rels
+  [51/111] chunk 54: 0 nodes, 0 rels
+  [52/111] chunk 55: 0 nodes, 0 rels
+  [53/111] chunk 48: 0 nodes, 0 rels
+  [54/111] chunk 53: 0 nodes, 0 rels
+  [55/111] chunk 50: 0 nodes, 0 rels
+  [56/111] chunk 56: 0 nodes, 0 rels
+  [57/111] chunk 58: 0 nodes, 0 rels
+  [58/111] chunk 59: 0 nodes, 0 rels
+  [59/111] chunk 57: 0 nodes, 0 rels
+  [60/111] chunk 60: 0 nodes, 0 rels
+  [61/111] chunk 62: 0 nodes, 0 rels
+  [62/111] chunk 63: 0 nodes, 0 rels
+  [63/111] chunk 64: 0 nodes, 0 rels
+  [64/111] chunk 66: 0 nodes, 0 rels
+  [65/111] chunk 65: 0 nodes, 0 rels
+  [66/111] chunk 61: 0 nodes, 0 rels
+  [67/111] chunk 67: 0 nodes, 0 rels
+  [68/111] chunk 68: 0 nodes, 0 rels
+  [69/111] chunk 69: 0 nodes, 0 rels
+  [70/111] chunk 71: 0 nodes, 0 rels
+  [71/111] chunk 70: 0 nodes, 0 rels
+  [72/111] chunk 73: 0 nodes, 0 rels
+  [73/111] chunk 72: 0 nodes, 0 rels
+  [74/111] chunk 74: 0 nodes, 0 rels
+  [75/111] chunk 77: 0 nodes, 0 rels
+  [76/111] chunk 75: 0 nodes, 0 rels
+  [77/111] chunk 78: 0 nodes, 0 rels
+  [78/111] chunk 81: 0 nodes, 0 rels
+  [79/111] chunk 79: 0 nodes, 0 rels
+  [80/111] chunk 82: 0 nodes, 0 rels
+  [81/111] chunk 80: 0 nodes, 0 rels
+  [82/111] chunk 84: 0 nodes, 0 rels
+  [83/111] chunk 85: 0 nodes, 0 rels
+  [84/111] chunk 83: 0 nodes, 0 rels
+  [85/111] chunk 86: 0 nodes, 0 rels
+  [86/111] chunk 87: 0 nodes, 0 rels
+  [87/111] chunk 88: 0 nodes, 0 rels
+  [88/111] chunk 90: 0 nodes, 0 rels
+  [89/111] chunk 76: 0 nodes, 0 rels
+  [90/111] chunk 91: 0 nodes, 0 rels
+  [91/111] chunk 92: 0 nodes, 0 rels
+  [92/111] chunk 89: 0 nodes, 0 rels
+  [93/111] chunk 94: 0 nodes, 0 rels
+  [94/111] chunk 96: 0 nodes, 0 rels
+  [95/111] chunk 95: 0 nodes, 0 rels
+  [96/111] chunk 93: 0 nodes, 0 rels
+  [97/111] chunk 98: 0 nodes, 0 rels
+  [98/111] chunk 97: 0 nodes, 0 rels
+  [99/111] chunk 100: 0 nodes, 0 rels
+  [100/111] chunk 99: 0 nodes, 0 rels
+  [101/111] chunk 103: 0 nodes, 0 rels
+  [102/111] chunk 101: 0 nodes, 0 rels
+  [103/111] chunk 102: 0 nodes, 0 rels
+  [104/111] chunk 104: 0 nodes, 0 rels
+  [105/111] chunk 105: 0 nodes, 0 rels
+  [106/111] chunk 107: 0 nodes, 0 rels
+  [107/111] chunk 111: 0 nodes, 0 rels
+  [108/111] chunk 106: 0 nodes, 0 rels
+  [109/111] chunk 110: 0 nodes, 0 rels
+  [110/111] chunk 109: 0 nodes, 0 rels
+  [111/111] chunk 108: 0 nodes, 0 rels
+  111/111 done (chunk 108: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 111 chunks.
+
+Generating embeddings for 111 chunks...
+Generated 111 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 111 chunks.
+
+Ingestion complete!
+[7/15] Pages 3001-3500 DONE
+
+[8/15] Pages 3501-4000 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 488 pages with text.
+
+Created 61 chunks.
+
+61 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/61] chunk 2: 0 nodes, 0 rels
+  [2/61] chunk 5: 0 nodes, 0 rels
+  [3/61] chunk 7: 0 nodes, 0 rels
+  [4/61] chunk 1: 0 nodes, 0 rels
+  [5/61] chunk 6: 0 nodes, 0 rels
+  [6/61] chunk 8: 0 nodes, 0 rels
+  [7/61] chunk 4: 0 nodes, 0 rels
+  [8/61] chunk 3: 0 nodes, 0 rels
+  [9/61] chunk 9: 0 nodes, 0 rels
+  [10/61] chunk 11: 0 nodes, 0 rels
+  [11/61] chunk 13: 0 nodes, 0 rels
+  [12/61] chunk 17: 0 nodes, 0 rels
+  [13/61] chunk 18: 0 nodes, 0 rels
+  [14/61] chunk 15: 0 nodes, 0 rels
+  [15/61] chunk 14: 0 nodes, 0 rels
+  [16/61] chunk 16: 0 nodes, 0 rels
+  [17/61] chunk 19: 0 nodes, 0 rels
+  [18/61] chunk 12: 0 nodes, 0 rels
+  [19/61] chunk 10: 0 nodes, 0 rels
+  [20/61] chunk 20: 0 nodes, 0 rels
+  [21/61] chunk 22: 0 nodes, 0 rels
+  [22/61] chunk 23: 0 nodes, 0 rels
+  [23/61] chunk 21: 0 nodes, 0 rels
+  [24/61] chunk 26: 0 nodes, 0 rels
+  [25/61] chunk 24: 0 nodes, 0 rels
+  [26/61] chunk 28: 0 nodes, 0 rels
+  [27/61] chunk 29: 0 nodes, 0 rels
+  [28/61] chunk 30: 0 nodes, 0 rels
+  [29/61] chunk 25: 0 nodes, 0 rels
+  [30/61] chunk 32: 0 nodes, 0 rels
+  [31/61] chunk 33: 0 nodes, 0 rels
+  [32/61] chunk 31: 0 nodes, 0 rels
+  [33/61] chunk 34: 0 nodes, 0 rels
+  [34/61] chunk 35: 0 nodes, 0 rels
+  [35/61] chunk 37: 0 nodes, 0 rels
+  [36/61] chunk 38: 0 nodes, 0 rels
+  [37/61] chunk 36: 0 nodes, 0 rels
+  [38/61] chunk 40: 0 nodes, 0 rels
+  [39/61] chunk 41: 0 nodes, 0 rels
+  [40/61] chunk 42: 0 nodes, 0 rels
+  [41/61] chunk 39: 0 nodes, 0 rels
+  [42/61] chunk 44: 0 nodes, 0 rels
+  [43/61] chunk 43: 0 nodes, 0 rels
+  [44/61] chunk 45: 0 nodes, 0 rels
+  [45/61] chunk 27: 0 nodes, 0 rels
+  [46/61] chunk 46: 0 nodes, 0 rels
+  [47/61] chunk 47: 0 nodes, 0 rels
+  [48/61] chunk 48: 0 nodes, 0 rels
+  [49/61] chunk 50: 0 nodes, 0 rels
+  [50/61] chunk 49: 0 nodes, 0 rels
+  [51/61] chunk 53: 0 nodes, 0 rels
+  [52/61] chunk 52: 0 nodes, 0 rels
+  [53/61] chunk 54: 0 nodes, 0 rels
+  [54/61] chunk 55: 0 nodes, 0 rels
+  [55/61] chunk 57: 0 nodes, 0 rels
+  [56/61] chunk 56: 0 nodes, 0 rels
+  [57/61] chunk 51: 0 nodes, 0 rels
+  [58/61] chunk 59: 0 nodes, 0 rels
+  [59/61] chunk 58: 0 nodes, 0 rels
+  [60/61] chunk 60: 0 nodes, 0 rels
+  [61/61] chunk 61: 0 nodes, 0 rels
+  61/61 done (chunk 61: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 61 chunks.
+
+Generating embeddings for 61 chunks...
+Generated 61 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 61 chunks.
+
+Ingestion complete!
+[8/15] Pages 3501-4000 DONE
+
+[9/15] Pages 4001-4500 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 486 pages with text.
+
+Created 72 chunks.
+
+72 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/72] chunk 6: 0 nodes, 0 rels
+  [2/72] chunk 4: 0 nodes, 0 rels
+  [3/72] chunk 3: 0 nodes, 0 rels
+  [4/72] chunk 8: 0 nodes, 0 rels
+  [5/72] chunk 7: 0 nodes, 0 rels
+  [6/72] chunk 5: 0 nodes, 0 rels
+  [7/72] chunk 2: 0 nodes, 0 rels
+  [8/72] chunk 1: 0 nodes, 0 rels
+  [9/72] chunk 11: 0 nodes, 0 rels
+  [10/72] chunk 13: 0 nodes, 0 rels
+  [11/72] chunk 9: 0 nodes, 0 rels
+  [12/72] chunk 14: 0 nodes, 0 rels
+  [13/72] chunk 17: 0 nodes, 0 rels
+  [14/72] chunk 12: 0 nodes, 0 rels
+  [15/72] chunk 16: 0 nodes, 0 rels
+  [16/72] chunk 10: 0 nodes, 0 rels
+  [17/72] chunk 18: 0 nodes, 0 rels
+  [18/72] chunk 19: 0 nodes, 0 rels
+  [19/72] chunk 15: 0 nodes, 0 rels
+  [20/72] chunk 20: 0 nodes, 0 rels
+  [21/72] chunk 21: 0 nodes, 0 rels
+  [22/72] chunk 22: 0 nodes, 0 rels
+  [23/72] chunk 23: 0 nodes, 0 rels
+  [24/72] chunk 25: 0 nodes, 0 rels
+  [25/72] chunk 24: 0 nodes, 0 rels
+  [26/72] chunk 26: 0 nodes, 0 rels
+  [27/72] chunk 27: 0 nodes, 0 rels
+  [28/72] chunk 28: 0 nodes, 0 rels
+  [29/72] chunk 29: 0 nodes, 0 rels
+  [30/72] chunk 30: 0 nodes, 0 rels
+  [31/72] chunk 31: 0 nodes, 0 rels
+  [32/72] chunk 33: 0 nodes, 0 rels
+  [33/72] chunk 35: 0 nodes, 0 rels
+  [34/72] chunk 36: 0 nodes, 0 rels
+  [35/72] chunk 37: 0 nodes, 0 rels
+  [36/72] chunk 38: 0 nodes, 0 rels
+  [37/72] chunk 32: 0 nodes, 0 rels
+  [38/72] chunk 39: 0 nodes, 0 rels
+  [39/72] chunk 40: 0 nodes, 0 rels
+  [40/72] chunk 34: 0 nodes, 0 rels
+  [41/72] chunk 41: 0 nodes, 0 rels
+  [42/72] chunk 42: 0 nodes, 0 rels
+  [43/72] chunk 43: 0 nodes, 0 rels
+  [44/72] chunk 44: 0 nodes, 0 rels
+  [45/72] chunk 45: 0 nodes, 0 rels
+  [46/72] chunk 46: 0 nodes, 0 rels
+  [47/72] chunk 47: 0 nodes, 0 rels
+  [48/72] chunk 48: 0 nodes, 0 rels
+  [49/72] chunk 50: 0 nodes, 0 rels
+  [50/72] chunk 51: 0 nodes, 0 rels
+  [51/72] chunk 49: 0 nodes, 0 rels
+  [52/72] chunk 52: 0 nodes, 0 rels
+  [53/72] chunk 54: 0 nodes, 0 rels
+  [54/72] chunk 53: 0 nodes, 0 rels
+  [55/72] chunk 56: 0 nodes, 0 rels
+  [56/72] chunk 57: 0 nodes, 0 rels
+  [57/72] chunk 58: 0 nodes, 0 rels
+  [58/72] chunk 59: 0 nodes, 0 rels
+  [59/72] chunk 60: 0 nodes, 0 rels
+  [60/72] chunk 61: 0 nodes, 0 rels
+  [61/72] chunk 63: 0 nodes, 0 rels
+  [62/72] chunk 64: 0 nodes, 0 rels
+  [63/72] chunk 62: 0 nodes, 0 rels
+  [64/72] chunk 65: 0 nodes, 0 rels
+  [65/72] chunk 67: 0 nodes, 0 rels
+  [66/72] chunk 68: 0 nodes, 0 rels
+  [67/72] chunk 66: 0 nodes, 0 rels
+  [68/72] chunk 55: 0 nodes, 0 rels
+  [69/72] chunk 71: 0 nodes, 0 rels
+  [70/72] chunk 72: 0 nodes, 0 rels
+  [71/72] chunk 70: 0 nodes, 0 rels
+  [72/72] chunk 69: 0 nodes, 0 rels
+  72/72 done (chunk 69: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 72 chunks.
+
+Generating embeddings for 72 chunks...
+Generated 72 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 72 chunks.
+
+Ingestion complete!
+[9/15] Pages 4001-4500 DONE
+
+[10/15] Pages 4501-5000 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 490 pages with text.
+
+Created 59 chunks.
+
+59 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/59] chunk 8: 0 nodes, 0 rels
+  [2/59] chunk 4: 0 nodes, 0 rels
+  [3/59] chunk 3: 0 nodes, 0 rels
+  [4/59] chunk 6: 0 nodes, 0 rels
+  [5/59] chunk 1: 0 nodes, 0 rels
+  [6/59] chunk 7: 0 nodes, 0 rels
+  [7/59] chunk 5: 0 nodes, 0 rels
+  [8/59] chunk 2: 0 nodes, 0 rels
+  [9/59] chunk 15: 0 nodes, 0 rels
+  [10/59] chunk 10: 0 nodes, 0 rels
+  [11/59] chunk 9: 0 nodes, 0 rels
+  [12/59] chunk 12: 0 nodes, 0 rels
+  [13/59] chunk 14: 0 nodes, 0 rels
+  [14/59] chunk 16: 0 nodes, 0 rels
+  [15/59] chunk 11: 0 nodes, 0 rels
+  [16/59] chunk 13: 0 nodes, 0 rels
+  [17/59] chunk 19: 0 nodes, 0 rels
+  [18/59] chunk 18: 0 nodes, 0 rels
+  [19/59] chunk 21: 0 nodes, 0 rels
+  [20/59] chunk 22: 0 nodes, 0 rels
+  [21/59] chunk 24: 0 nodes, 0 rels
+  [22/59] chunk 23: 0 nodes, 0 rels
+  [23/59] chunk 17: 0 nodes, 0 rels
+  [24/59] chunk 25: 0 nodes, 0 rels
+  [25/59] chunk 29: 0 nodes, 0 rels
+  [26/59] chunk 26: 0 nodes, 0 rels
+  [27/59] chunk 27: 0 nodes, 0 rels
+  [28/59] chunk 28: 0 nodes, 0 rels
+  [29/59] chunk 20: 0 nodes, 0 rels
+  [30/59] chunk 32: 0 nodes, 0 rels
+  [31/59] chunk 31: 0 nodes, 0 rels
+  [32/59] chunk 30: 0 nodes, 0 rels
+  [33/59] chunk 33: 0 nodes, 0 rels
+  [34/59] chunk 34: 0 nodes, 0 rels
+  [35/59] chunk 36: 0 nodes, 0 rels
+  [36/59] chunk 38: 0 nodes, 0 rels
+  [37/59] chunk 35: 0 nodes, 0 rels
+  [38/59] chunk 39: 0 nodes, 0 rels
+  [39/59] chunk 41: 0 nodes, 0 rels
+  [40/59] chunk 40: 0 nodes, 0 rels
+  [41/59] chunk 37: 0 nodes, 0 rels
+  [42/59] chunk 43: 0 nodes, 0 rels
+  [43/59] chunk 44: 0 nodes, 0 rels
+  [44/59] chunk 42: 0 nodes, 0 rels
+  [45/59] chunk 47: 0 nodes, 0 rels
+  [46/59] chunk 48: 0 nodes, 0 rels
+  [47/59] chunk 49: 0 nodes, 0 rels
+  [48/59] chunk 46: 0 nodes, 0 rels
+  [49/59] chunk 50: 0 nodes, 0 rels
+  [50/59] chunk 45: 0 nodes, 0 rels
+  [51/59] chunk 51: 0 nodes, 0 rels
+  [52/59] chunk 52: 0 nodes, 0 rels
+  [53/59] chunk 53: 0 nodes, 0 rels
+  [54/59] chunk 54: 0 nodes, 0 rels
+  [55/59] chunk 56: 0 nodes, 0 rels
+  [56/59] chunk 55: 0 nodes, 0 rels
+  [57/59] chunk 58: 0 nodes, 0 rels
+  [58/59] chunk 57: 0 nodes, 0 rels
+  [59/59] chunk 59: 0 nodes, 0 rels
+  59/59 done (chunk 59: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 59 chunks.
+
+Generating embeddings for 59 chunks...
+Generated 59 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 59 chunks.
+
+Ingestion complete!
+[10/15] Pages 4501-5000 DONE
+
+[11/15] Pages 5001-5500 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 485 pages with text.
+
+Created 58 chunks.
+
+58 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/58] chunk 3: 0 nodes, 0 rels
+  [2/58] chunk 6: 0 nodes, 0 rels
+  [3/58] chunk 7: 0 nodes, 0 rels
+  [4/58] chunk 8: 0 nodes, 0 rels
+  [5/58] chunk 2: 0 nodes, 0 rels
+  [6/58] chunk 4: 0 nodes, 0 rels
+  [7/58] chunk 5: 0 nodes, 0 rels
+  [8/58] chunk 1: 0 nodes, 0 rels
+  [9/58] chunk 9: 0 nodes, 0 rels
+  [10/58] chunk 12: 0 nodes, 0 rels
+  [11/58] chunk 17: 0 nodes, 0 rels
+  [12/58] chunk 11: 0 nodes, 0 rels
+  [13/58] chunk 10: 0 nodes, 0 rels
+  [14/58] chunk 16: 0 nodes, 0 rels
+  [15/58] chunk 13: 0 nodes, 0 rels
+  [16/58] chunk 15: 0 nodes, 0 rels
+  [17/58] chunk 19: 0 nodes, 0 rels
+  [18/58] chunk 20: 0 nodes, 0 rels
+  [19/58] chunk 18: 0 nodes, 0 rels
+  [20/58] chunk 21: 0 nodes, 0 rels
+  [21/58] chunk 22: 0 nodes, 0 rels
+  [22/58] chunk 14: 0 nodes, 0 rels
+  [23/58] chunk 23: 0 nodes, 0 rels
+  [24/58] chunk 24: 0 nodes, 0 rels
+  [25/58] chunk 25: 0 nodes, 0 rels
+  [26/58] chunk 27: 0 nodes, 0 rels
+  [27/58] chunk 29: 0 nodes, 0 rels
+  [28/58] chunk 26: 0 nodes, 0 rels
+  [29/58] chunk 31: 0 nodes, 0 rels
+  [30/58] chunk 28: 0 nodes, 0 rels
+  [31/58] chunk 30: 0 nodes, 0 rels
+  [32/58] chunk 33: 0 nodes, 0 rels
+  [33/58] chunk 34: 0 nodes, 0 rels
+  [34/58] chunk 32: 0 nodes, 0 rels
+  [35/58] chunk 35: 0 nodes, 0 rels
+  [36/58] chunk 36: 0 nodes, 0 rels
+  [37/58] chunk 38: 0 nodes, 0 rels
+  [38/58] chunk 37: 0 nodes, 0 rels
+  [39/58] chunk 39: 0 nodes, 0 rels
+  [40/58] chunk 41: 0 nodes, 0 rels
+  [41/58] chunk 40: 0 nodes, 0 rels
+  [42/58] chunk 42: 0 nodes, 0 rels
+  [43/58] chunk 43: 0 nodes, 0 rels
+  [44/58] chunk 45: 0 nodes, 0 rels
+  [45/58] chunk 46: 0 nodes, 0 rels
+  [46/58] chunk 47: 0 nodes, 0 rels
+  [47/58] chunk 49: 0 nodes, 0 rels
+  [48/58] chunk 51: 0 nodes, 0 rels
+  [49/58] chunk 48: 0 nodes, 0 rels
+  [50/58] chunk 44: 0 nodes, 0 rels
+  [51/58] chunk 50: 0 nodes, 0 rels
+  [52/58] chunk 52: 0 nodes, 0 rels
+  [53/58] chunk 53: 0 nodes, 0 rels
+  [54/58] chunk 54: 0 nodes, 0 rels
+  [55/58] chunk 55: 0 nodes, 0 rels
+  [56/58] chunk 56: 0 nodes, 0 rels
+  [57/58] chunk 58: 0 nodes, 0 rels
+  [58/58] chunk 57: 0 nodes, 0 rels
+  58/58 done (chunk 57: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 58 chunks.
+
+Generating embeddings for 58 chunks...
+Generated 58 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 58 chunks.
+
+Ingestion complete!
+[11/15] Pages 5001-5500 DONE
+
+[12/15] Pages 5501-6000 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 489 pages with text.
+
+Created 93 chunks.
+
+93 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/93] chunk 4: 0 nodes, 0 rels
+  [2/93] chunk 8: 0 nodes, 0 rels
+  [3/93] chunk 7: 0 nodes, 0 rels
+  [4/93] chunk 5: 0 nodes, 0 rels
+  [5/93] chunk 3: 0 nodes, 0 rels
+  [6/93] chunk 2: 0 nodes, 0 rels
+  [7/93] chunk 1: 0 nodes, 0 rels
+  [8/93] chunk 9: 0 nodes, 0 rels
+  [9/93] chunk 15: 0 nodes, 0 rels
+  [10/93] chunk 10: 0 nodes, 0 rels
+  [11/93] chunk 11: 0 nodes, 0 rels
+  [12/93] chunk 12: 0 nodes, 0 rels
+  [13/93] chunk 13: 0 nodes, 0 rels
+  [14/93] chunk 14: 0 nodes, 0 rels
+  [15/93] chunk 16: 0 nodes, 0 rels
+  [16/93] chunk 18: 0 nodes, 0 rels
+  [17/93] chunk 6: 0 nodes, 0 rels
+  [18/93] chunk 20: 0 nodes, 0 rels
+  [19/93] chunk 17: 0 nodes, 0 rels
+  [20/93] chunk 22: 0 nodes, 0 rels
+  [21/93] chunk 19: 0 nodes, 0 rels
+  [22/93] chunk 26: 0 nodes, 0 rels
+  [23/93] chunk 24: 0 nodes, 0 rels
+  [24/93] chunk 27: 0 nodes, 0 rels
+  [25/93] chunk 28: 0 nodes, 0 rels
+  [26/93] chunk 23: 0 nodes, 0 rels
+  [27/93] chunk 25: 0 nodes, 0 rels
+  [28/93] chunk 29: 0 nodes, 0 rels
+  [29/93] chunk 31: 0 nodes, 0 rels
+  [30/93] chunk 30: 0 nodes, 0 rels
+  [31/93] chunk 32: 0 nodes, 0 rels
+  [32/93] chunk 21: 0 nodes, 0 rels
+  [33/93] chunk 33: 0 nodes, 0 rels
+  [34/93] chunk 34: 0 nodes, 0 rels
+  [35/93] chunk 35: 0 nodes, 0 rels
+  [36/93] chunk 36: 0 nodes, 0 rels
+  [37/93] chunk 38: 0 nodes, 0 rels
+  [38/93] chunk 37: 0 nodes, 0 rels
+  [39/93] chunk 39: 0 nodes, 0 rels
+  [40/93] chunk 40: 0 nodes, 0 rels
+  [41/93] chunk 41: 0 nodes, 0 rels
+  [42/93] chunk 44: 0 nodes, 0 rels
+  [43/93] chunk 45: 0 nodes, 0 rels
+  [44/93] chunk 43: 0 nodes, 0 rels
+  [45/93] chunk 46: 0 nodes, 0 rels
+  [46/93] chunk 47: 0 nodes, 0 rels
+  [47/93] chunk 42: 0 nodes, 0 rels
+  [48/93] chunk 48: 0 nodes, 0 rels
+  [49/93] chunk 50: 0 nodes, 0 rels
+  [50/93] chunk 49: 0 nodes, 0 rels
+  [51/93] chunk 53: 0 nodes, 0 rels
+  [52/93] chunk 52: 0 nodes, 0 rels
+  [53/93] chunk 51: 0 nodes, 0 rels
+  [54/93] chunk 55: 0 nodes, 0 rels
+  [55/93] chunk 57: 0 nodes, 0 rels
+  [56/93] chunk 58: 0 nodes, 0 rels
+  [57/93] chunk 56: 0 nodes, 0 rels
+  [58/93] chunk 61: 0 nodes, 0 rels
+  [59/93] chunk 62: 0 nodes, 0 rels
+  [60/93] chunk 54: 0 nodes, 0 rels
+  [61/93] chunk 60: 0 nodes, 0 rels
+  [62/93] chunk 59: 0 nodes, 0 rels
+  [63/93] chunk 64: 0 nodes, 0 rels
+  [64/93] chunk 63: 0 nodes, 0 rels
+  [65/93] chunk 66: 0 nodes, 0 rels
+  [66/93] chunk 67: 0 nodes, 0 rels
+  [67/93] chunk 70: 0 nodes, 0 rels
+  [68/93] chunk 72: 0 nodes, 0 rels
+  [69/93] chunk 73: 0 nodes, 0 rels
+  [70/93] chunk 69: 0 nodes, 0 rels
+  [71/93] chunk 68: 0 nodes, 0 rels
+  [72/93] chunk 74: 0 nodes, 0 rels
+  [73/93] chunk 75: 0 nodes, 0 rels
+  [74/93] chunk 65: 0 nodes, 0 rels
+  [75/93] chunk 76: 0 nodes, 0 rels
+  [76/93] chunk 71: 0 nodes, 0 rels
+  [77/93] chunk 78: 0 nodes, 0 rels
+  [78/93] chunk 77: 0 nodes, 0 rels
+  [79/93] chunk 79: 0 nodes, 0 rels
+  [80/93] chunk 80: 0 nodes, 0 rels
+  [81/93] chunk 81: 0 nodes, 0 rels
+  [82/93] chunk 82: 0 nodes, 0 rels
+  [83/93] chunk 83: 0 nodes, 0 rels
+  [84/93] chunk 85: 0 nodes, 0 rels
+  [85/93] chunk 88: 0 nodes, 0 rels
+  [86/93] chunk 87: 0 nodes, 0 rels
+  [87/93] chunk 86: 0 nodes, 0 rels
+  [88/93] chunk 89: 0 nodes, 0 rels
+  [89/93] chunk 90: 0 nodes, 0 rels
+  [90/93] chunk 91: 0 nodes, 0 rels
+  [91/93] chunk 92: 0 nodes, 0 rels
+  [92/93] chunk 93: 0 nodes, 0 rels
+  [93/93] chunk 84: 0 nodes, 0 rels
+  93/93 done (chunk 84: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 93 chunks.
+
+Generating embeddings for 93 chunks...
+Generated 93 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 93 chunks.
+
+Ingestion complete!
+[12/15] Pages 5501-6000 DONE
+
+[13/15] Pages 6001-6500 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 498 pages with text.
+
+Created 152 chunks.
+
+152 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/152] chunk 8: 0 nodes, 0 rels
+  [2/152] chunk 4: 0 nodes, 0 rels
+  [3/152] chunk 2: 0 nodes, 0 rels
+  [4/152] chunk 5: 0 nodes, 0 rels
+  [5/152] chunk 1: 0 nodes, 0 rels
+  [6/152] chunk 3: 0 nodes, 0 rels
+  [7/152] chunk 7: 0 nodes, 0 rels
+  [8/152] chunk 6: 0 nodes, 0 rels
+  [9/152] chunk 9: 0 nodes, 0 rels
+  [10/152] chunk 12: 0 nodes, 0 rels
+  [11/152] chunk 10: 0 nodes, 0 rels
+  [12/152] chunk 13: 0 nodes, 0 rels
+  [13/152] chunk 11: 0 nodes, 0 rels
+  [14/152] chunk 15: 0 nodes, 0 rels
+  [15/152] chunk 14: 0 nodes, 0 rels
+  [16/152] chunk 17: 0 nodes, 0 rels
+  [17/152] chunk 16: 0 nodes, 0 rels
+  [18/152] chunk 18: 0 nodes, 0 rels
+  [19/152] chunk 21: 0 nodes, 0 rels
+  [20/152] chunk 22: 0 nodes, 0 rels
+  [21/152] chunk 23: 0 nodes, 0 rels
+  [22/152] chunk 19: 0 nodes, 0 rels
+  [23/152] chunk 20: 0 nodes, 0 rels
+  [24/152] chunk 25: 0 nodes, 0 rels
+  [25/152] chunk 26: 0 nodes, 0 rels
+  [26/152] chunk 24: 0 nodes, 0 rels
+  [27/152] chunk 28: 0 nodes, 0 rels
+  [28/152] chunk 30: 0 nodes, 0 rels
+  [29/152] chunk 29: 0 nodes, 0 rels
+  [30/152] chunk 31: 0 nodes, 0 rels
+  [31/152] chunk 32: 0 nodes, 0 rels
+  [32/152] chunk 33: 0 nodes, 0 rels
+  [33/152] chunk 27: 0 nodes, 0 rels
+  [34/152] chunk 34: 0 nodes, 0 rels
+  [35/152] chunk 35: 0 nodes, 0 rels
+  [36/152] chunk 36: 0 nodes, 0 rels
+  [37/152] chunk 38: 0 nodes, 0 rels
+  [38/152] chunk 39: 0 nodes, 0 rels
+  [39/152] chunk 40: 0 nodes, 0 rels
+  [40/152] chunk 42: 0 nodes, 0 rels
+  [41/152] chunk 41: 0 nodes, 0 rels
+  [42/152] chunk 43: 0 nodes, 0 rels
+  [43/152] chunk 45: 0 nodes, 0 rels
+  [44/152] chunk 47: 0 nodes, 0 rels
+  [45/152] chunk 48: 0 nodes, 0 rels
+  [46/152] chunk 49: 0 nodes, 0 rels
+  [47/152] chunk 37: 0 nodes, 0 rels
+  [48/152] chunk 44: 0 nodes, 0 rels
+  [49/152] chunk 50: 0 nodes, 0 rels
+  [50/152] chunk 52: 0 nodes, 0 rels
+  [51/152] chunk 51: 0 nodes, 0 rels
+  [52/152] chunk 53: 0 nodes, 0 rels
+  [53/152] chunk 56: 0 nodes, 0 rels
+  [54/152] chunk 54: 0 nodes, 0 rels
+  [55/152] chunk 46: 0 nodes, 0 rels
+  [56/152] chunk 60: 0 nodes, 0 rels
+  [57/152] chunk 61: 0 nodes, 0 rels
+  [58/152] chunk 57: 0 nodes, 0 rels
+  [59/152] chunk 62: 0 nodes, 0 rels
+  [60/152] chunk 55: 0 nodes, 0 rels
+  [61/152] chunk 59: 0 nodes, 0 rels
+  [62/152] chunk 64: 0 nodes, 0 rels
+  [63/152] chunk 63: 0 nodes, 0 rels
+  [64/152] chunk 65: 0 nodes, 0 rels
+  [65/152] chunk 58: 0 nodes, 0 rels
+  [66/152] chunk 66: 0 nodes, 0 rels
+  [67/152] chunk 69: 0 nodes, 0 rels
+  [68/152] chunk 68: 0 nodes, 0 rels
+  [69/152] chunk 70: 0 nodes, 0 rels
+  [70/152] chunk 67: 0 nodes, 0 rels
+  [71/152] chunk 72: 0 nodes, 0 rels
+  [72/152] chunk 74: 0 nodes, 0 rels
+  [73/152] chunk 71: 0 nodes, 0 rels
+  [74/152] chunk 75: 0 nodes, 0 rels
+  [75/152] chunk 73: 0 nodes, 0 rels
+  [76/152] chunk 77: 0 nodes, 0 rels
+  [77/152] chunk 76: 0 nodes, 0 rels
+  [78/152] chunk 78: 0 nodes, 0 rels
+  [79/152] chunk 79: 0 nodes, 0 rels
+  [80/152] chunk 80: 0 nodes, 0 rels
+  [81/152] chunk 82: 0 nodes, 0 rels
+  [82/152] chunk 83: 0 nodes, 0 rels
+  [83/152] chunk 84: 0 nodes, 0 rels
+  [84/152] chunk 81: 0 nodes, 0 rels
+  [85/152] chunk 86: 0 nodes, 0 rels
+  [86/152] chunk 89: 0 nodes, 0 rels
+  [87/152] chunk 88: 0 nodes, 0 rels
+  [88/152] chunk 90: 0 nodes, 0 rels
+  [89/152] chunk 91: 0 nodes, 0 rels
+  [90/152] chunk 93: 0 nodes, 0 rels
+  [91/152] chunk 94: 0 nodes, 0 rels
+  [92/152] chunk 95: 0 nodes, 0 rels
+  [93/152] chunk 97: 0 nodes, 0 rels
+  [94/152] chunk 96: 0 nodes, 0 rels
+  [95/152] chunk 85: 0 nodes, 0 rels
+  [96/152] chunk 92: 0 nodes, 0 rels
+  [97/152] chunk 98: 0 nodes, 0 rels
+  [98/152] chunk 100: 0 nodes, 0 rels
+  [99/152] chunk 101: 0 nodes, 0 rels
+  [100/152] chunk 87: 0 nodes, 0 rels
+  [101/152] chunk 103: 0 nodes, 0 rels
+  [102/152] chunk 102: 0 nodes, 0 rels
+  [103/152] chunk 104: 0 nodes, 0 rels
+  [104/152] chunk 106: 0 nodes, 0 rels
+  [105/152] chunk 105: 0 nodes, 0 rels
+  [106/152] chunk 107: 0 nodes, 0 rels
+  [107/152] chunk 108: 0 nodes, 0 rels
+  [108/152] chunk 111: 0 nodes, 0 rels
+  [109/152] chunk 109: 0 nodes, 0 rels
+  [110/152] chunk 110: 0 nodes, 0 rels
+  [111/152] chunk 113: 0 nodes, 0 rels
+  [112/152] chunk 99: 0 nodes, 0 rels
+  [113/152] chunk 114: 0 nodes, 0 rels
+  [114/152] chunk 112: 0 nodes, 0 rels
+  [115/152] chunk 115: 0 nodes, 0 rels
+  [116/152] chunk 118: 0 nodes, 0 rels
+  [117/152] chunk 116: 0 nodes, 0 rels
+  [118/152] chunk 122: 0 nodes, 0 rels
+  [119/152] chunk 119: 0 nodes, 0 rels
+  [120/152] chunk 121: 0 nodes, 0 rels
+  [121/152] chunk 120: 0 nodes, 0 rels
+  [122/152] chunk 117: 0 nodes, 0 rels
+  [123/152] chunk 123: 0 nodes, 0 rels
+  [124/152] chunk 126: 0 nodes, 0 rels
+  [125/152] chunk 127: 0 nodes, 0 rels
+  [126/152] chunk 125: 0 nodes, 0 rels
+  [127/152] chunk 128: 0 nodes, 0 rels
+  [128/152] chunk 129: 0 nodes, 0 rels
+  [129/152] chunk 130: 0 nodes, 0 rels
+  [130/152] chunk 132: 0 nodes, 0 rels
+  [131/152] chunk 131: 0 nodes, 0 rels
+  [132/152] chunk 134: 0 nodes, 0 rels
+  [133/152] chunk 136: 0 nodes, 0 rels
+  [134/152] chunk 133: 0 nodes, 0 rels
+  [135/152] chunk 135: 0 nodes, 0 rels
+  [136/152] chunk 138: 0 nodes, 0 rels
+  [137/152] chunk 139: 0 nodes, 0 rels
+  [138/152] chunk 137: 0 nodes, 0 rels
+  [139/152] chunk 140: 0 nodes, 0 rels
+  [140/152] chunk 141: 0 nodes, 0 rels
+  [141/152] chunk 143: 0 nodes, 0 rels
+  [142/152] chunk 142: 0 nodes, 0 rels
+  [143/152] chunk 144: 0 nodes, 0 rels
+  [144/152] chunk 145: 0 nodes, 0 rels
+  [145/152] chunk 147: 0 nodes, 0 rels
+  [146/152] chunk 149: 0 nodes, 0 rels
+  [147/152] chunk 146: 0 nodes, 0 rels
+  [148/152] chunk 151: 0 nodes, 0 rels
+  [149/152] chunk 150: 0 nodes, 0 rels
+  [150/152] chunk 148: 0 nodes, 0 rels
+  [151/152] chunk 152: 0 nodes, 0 rels
+  [152/152] chunk 124: 0 nodes, 0 rels
+  152/152 done (chunk 124: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 152 chunks.
+
+Generating embeddings for 152 chunks...
+Generated 152 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 152 chunks.
+
+Ingestion complete!
+[13/15] Pages 6001-6500 DONE
+
+[14/15] Pages 6501-7000 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 491 pages with text.
+
+Created 112 chunks.
+
+112 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/112] chunk 4: 0 nodes, 0 rels
+  [2/112] chunk 2: 0 nodes, 0 rels
+  [3/112] chunk 5: 0 nodes, 0 rels
+  [4/112] chunk 8: 0 nodes, 0 rels
+  [5/112] chunk 3: 0 nodes, 0 rels
+  [6/112] chunk 1: 0 nodes, 0 rels
+  [7/112] chunk 7: 0 nodes, 0 rels
+  [8/112] chunk 6: 0 nodes, 0 rels
+  [9/112] chunk 10: 0 nodes, 0 rels
+  [10/112] chunk 9: 0 nodes, 0 rels
+  [11/112] chunk 17: 0 nodes, 0 rels
+  [12/112] chunk 11: 0 nodes, 0 rels
+  [13/112] chunk 12: 0 nodes, 0 rels
+  [14/112] chunk 13: 0 nodes, 0 rels
+  [15/112] chunk 15: 0 nodes, 0 rels
+  [16/112] chunk 14: 0 nodes, 0 rels
+  [17/112] chunk 18: 0 nodes, 0 rels
+  [18/112] chunk 19: 0 nodes, 0 rels
+  [19/112] chunk 20: 0 nodes, 0 rels
+  [20/112] chunk 21: 0 nodes, 0 rels
+  [21/112] chunk 22: 0 nodes, 0 rels
+  [22/112] chunk 24: 0 nodes, 0 rels
+  [23/112] chunk 26: 0 nodes, 0 rels
+  [24/112] chunk 27: 0 nodes, 0 rels
+  [25/112] chunk 25: 0 nodes, 0 rels
+  [26/112] chunk 23: 0 nodes, 0 rels
+  [27/112] chunk 29: 0 nodes, 0 rels
+  [28/112] chunk 28: 0 nodes, 0 rels
+  [29/112] chunk 31: 0 nodes, 0 rels
+  [30/112] chunk 30: 0 nodes, 0 rels
+  [31/112] chunk 35: 0 nodes, 0 rels
+  [32/112] chunk 33: 0 nodes, 0 rels
+  [33/112] chunk 36: 0 nodes, 0 rels
+  [34/112] chunk 37: 0 nodes, 0 rels
+  [35/112] chunk 38: 0 nodes, 0 rels
+  [36/112] chunk 39: 0 nodes, 0 rels
+  [37/112] chunk 40: 0 nodes, 0 rels
+  [38/112] chunk 41: 0 nodes, 0 rels
+  [39/112] chunk 34: 0 nodes, 0 rels
+  [40/112] chunk 42: 0 nodes, 0 rels
+  [41/112] chunk 43: 0 nodes, 0 rels
+  [42/112] chunk 44: 0 nodes, 0 rels
+  [43/112] chunk 32: 0 nodes, 0 rels
+  [44/112] chunk 45: 0 nodes, 0 rels
+  [45/112] chunk 46: 0 nodes, 0 rels
+  [46/112] chunk 48: 0 nodes, 0 rels
+  [47/112] chunk 47: 0 nodes, 0 rels
+  [48/112] chunk 49: 0 nodes, 0 rels
+  [49/112] chunk 51: 0 nodes, 0 rels
+  [50/112] chunk 50: 0 nodes, 0 rels
+  [51/112] chunk 53: 0 nodes, 0 rels
+  [52/112] chunk 54: 0 nodes, 0 rels
+  [53/112] chunk 52: 0 nodes, 0 rels
+  [54/112] chunk 55: 0 nodes, 0 rels
+  [55/112] chunk 57: 0 nodes, 0 rels
+  [56/112] chunk 16: 0 nodes, 0 rels
+  [57/112] chunk 59: 0 nodes, 0 rels
+  [58/112] chunk 58: 0 nodes, 0 rels
+  [59/112] chunk 56: 0 nodes, 0 rels
+  [60/112] chunk 60: 0 nodes, 0 rels
+  [61/112] chunk 61: 0 nodes, 0 rels
+  [62/112] chunk 64: 0 nodes, 0 rels
+  [63/112] chunk 63: 0 nodes, 0 rels
+  [64/112] chunk 62: 0 nodes, 0 rels
+  [65/112] chunk 65: 0 nodes, 0 rels
+  [66/112] chunk 66: 0 nodes, 0 rels
+  [67/112] chunk 67: 0 nodes, 0 rels
+  [68/112] chunk 68: 0 nodes, 0 rels
+  [69/112] chunk 70: 0 nodes, 0 rels
+  [70/112] chunk 71: 0 nodes, 0 rels
+  [71/112] chunk 72: 0 nodes, 0 rels
+  [72/112] chunk 73: 0 nodes, 0 rels
+  [73/112] chunk 74: 0 nodes, 0 rels
+  [74/112] chunk 69: 0 nodes, 0 rels
+  [75/112] chunk 76: 0 nodes, 0 rels
+  [76/112] chunk 75: 0 nodes, 0 rels
+  [77/112] chunk 77: 0 nodes, 0 rels
+  [78/112] chunk 81: 0 nodes, 0 rels
+  [79/112] chunk 79: 0 nodes, 0 rels
+  [80/112] chunk 82: 0 nodes, 0 rels
+  [81/112] chunk 85: 0 nodes, 0 rels
+  [82/112] chunk 84: 0 nodes, 0 rels
+  [83/112] chunk 78: 0 nodes, 0 rels
+  [84/112] chunk 83: 0 nodes, 0 rels
+  [85/112] chunk 87: 0 nodes, 0 rels
+  [86/112] chunk 89: 0 nodes, 0 rels
+  [87/112] chunk 90: 0 nodes, 0 rels
+  [88/112] chunk 92: 0 nodes, 0 rels
+  [89/112] chunk 91: 0 nodes, 0 rels
+  [90/112] chunk 88: 0 nodes, 0 rels
+  [91/112] chunk 80: 0 nodes, 0 rels
+  [92/112] chunk 93: 0 nodes, 0 rels
+  [93/112] chunk 94: 0 nodes, 0 rels
+  [94/112] chunk 95: 0 nodes, 0 rels
+  [95/112] chunk 96: 0 nodes, 0 rels
+  [96/112] chunk 98: 0 nodes, 0 rels
+  [97/112] chunk 86: 0 nodes, 0 rels
+  [98/112] chunk 99: 0 nodes, 0 rels
+  [99/112] chunk 97: 0 nodes, 0 rels
+  [100/112] chunk 100: 0 nodes, 0 rels
+  [101/112] chunk 101: 0 nodes, 0 rels
+  [102/112] chunk 102: 0 nodes, 0 rels
+  [103/112] chunk 104: 0 nodes, 0 rels
+  [104/112] chunk 103: 0 nodes, 0 rels
+  [105/112] chunk 105: 0 nodes, 0 rels
+  [106/112] chunk 106: 0 nodes, 0 rels
+  [107/112] chunk 110: 0 nodes, 0 rels
+  [108/112] chunk 108: 0 nodes, 0 rels
+  [109/112] chunk 111: 0 nodes, 0 rels
+  [110/112] chunk 112: 0 nodes, 0 rels
+  [111/112] chunk 107: 0 nodes, 0 rels
+  [112/112] chunk 109: 0 nodes, 0 rels
+  112/112 done (chunk 109: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 112 chunks.
+
+Generating embeddings for 112 chunks...
+Generated 112 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 112 chunks.
+
+Ingestion complete!
+[14/15] Pages 6501-7000 DONE
+
+[15/15] Pages 7001-7266 ...
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 265 pages with text.
+
+Created 99 chunks.
+
+Skipping 4 already-ingested chunks.
+95 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/95] chunk 4: 0 nodes, 0 rels
+  [2/95] chunk 2: 0 nodes, 0 rels
+  [3/95] chunk 8: 0 nodes, 0 rels
+  [4/95] chunk 3: 0 nodes, 0 rels
+  [5/95] chunk 1: 0 nodes, 0 rels
+  [6/95] chunk 7: 0 nodes, 0 rels
+  [7/95] chunk 6: 0 nodes, 0 rels
+  [8/95] chunk 9: 0 nodes, 0 rels
+  [9/95] chunk 14: 0 nodes, 0 rels
+  [10/95] chunk 13: 0 nodes, 0 rels
+  [11/95] chunk 12: 0 nodes, 0 rels
+  [12/95] chunk 10: 0 nodes, 0 rels
+  [13/95] chunk 11: 0 nodes, 0 rels
+  [14/95] chunk 16: 0 nodes, 0 rels
+  [15/95] chunk 17: 0 nodes, 0 rels
+  [16/95] chunk 19: 0 nodes, 0 rels
+  [17/95] chunk 18: 0 nodes, 0 rels
+  [18/95] chunk 20: 0 nodes, 0 rels
+  [19/95] chunk 15: 0 nodes, 0 rels
+  [20/95] chunk 22: 0 nodes, 0 rels
+  [21/95] chunk 21: 0 nodes, 0 rels
+  [22/95] chunk 23: 0 nodes, 0 rels
+  [23/95] chunk 25: 0 nodes, 0 rels
+  [24/95] chunk 24: 0 nodes, 0 rels
+  [25/95] chunk 27: 0 nodes, 0 rels
+  [26/95] chunk 26: 0 nodes, 0 rels
+  [27/95] chunk 28: 0 nodes, 0 rels
+  [28/95] chunk 30: 0 nodes, 0 rels
+  [29/95] chunk 31: 0 nodes, 0 rels
+  [30/95] chunk 29: 0 nodes, 0 rels
+  [31/95] chunk 32: 0 nodes, 0 rels
+  [32/95] chunk 33: 0 nodes, 0 rels
+  [33/95] chunk 34: 0 nodes, 0 rels
+  [34/95] chunk 35: 0 nodes, 0 rels
+  [35/95] chunk 36: 0 nodes, 0 rels
+  [36/95] chunk 37: 0 nodes, 0 rels
+  [37/95] chunk 38: 0 nodes, 0 rels
+  [38/95] chunk 39: 0 nodes, 0 rels
+  [39/95] chunk 40: 0 nodes, 0 rels
+  [40/95] chunk 41: 0 nodes, 0 rels
+  [41/95] chunk 43: 0 nodes, 0 rels
+  [42/95] chunk 42: 0 nodes, 0 rels
+  [43/95] chunk 44: 0 nodes, 0 rels
+  [44/95] chunk 45: 0 nodes, 0 rels
+  [45/95] chunk 46: 0 nodes, 0 rels
+  [46/95] chunk 47: 0 nodes, 0 rels
+  [47/95] chunk 49: 0 nodes, 0 rels
+  [48/95] chunk 48: 0 nodes, 0 rels
+  [49/95] chunk 50: 0 nodes, 0 rels
+  [50/95] chunk 51: 0 nodes, 0 rels
+  [51/95] chunk 53: 0 nodes, 0 rels
+  [52/95] chunk 54: 0 nodes, 0 rels
+  [53/95] chunk 52: 0 nodes, 0 rels
+  [54/95] chunk 57: 0 nodes, 0 rels
+  [55/95] chunk 58: 0 nodes, 0 rels
+  [56/95] chunk 56: 0 nodes, 0 rels
+  [57/95] chunk 59: 0 nodes, 0 rels
+  [58/95] chunk 60: 0 nodes, 0 rels
+  [59/95] chunk 61: 0 nodes, 0 rels
+  [60/95] chunk 62: 0 nodes, 0 rels
+  [61/95] chunk 55: 0 nodes, 0 rels
+  [62/95] chunk 63: 0 nodes, 0 rels
+  [63/95] chunk 64: 0 nodes, 0 rels
+  [64/95] chunk 66: 0 nodes, 0 rels
+  [65/95] chunk 65: 0 nodes, 0 rels
+  [66/95] chunk 69: 0 nodes, 0 rels
+  [67/95] chunk 67: 0 nodes, 0 rels
+  [68/95] chunk 70: 0 nodes, 0 rels
+  [69/95] chunk 68: 0 nodes, 0 rels
+  [70/95] chunk 73: 0 nodes, 0 rels
+  [71/95] chunk 72: 0 nodes, 0 rels
+  [72/95] chunk 71: 0 nodes, 0 rels
+  [73/95] chunk 74: 0 nodes, 0 rels
+  [74/95] chunk 75: 0 nodes, 0 rels
+  [75/95] chunk 76: 0 nodes, 0 rels
+  [76/95] chunk 77: 0 nodes, 0 rels
+  [77/95] chunk 79: 0 nodes, 0 rels
+  [78/95] chunk 78: 0 nodes, 0 rels
+  [79/95] chunk 80: 0 nodes, 0 rels
+  [80/95] chunk 81: 0 nodes, 0 rels
+  [81/95] chunk 82: 0 nodes, 0 rels
+  [82/95] chunk 84: 0 nodes, 0 rels
+  [83/95] chunk 83: 0 nodes, 0 rels
+  [84/95] chunk 85: 0 nodes, 0 rels
+  [85/95] chunk 87: 0 nodes, 0 rels
+  [86/95] chunk 88: 0 nodes, 0 rels
+  [87/95] chunk 89: 0 nodes, 0 rels
+  [88/95] chunk 86: 0 nodes, 0 rels
+  [89/95] chunk 92: 0 nodes, 0 rels
+  [90/95] chunk 91: 0 nodes, 0 rels
+  [91/95] chunk 90: 0 nodes, 0 rels
+  [92/95] chunk 93: 0 nodes, 0 rels
+  [93/95] chunk 95: 0 nodes, 0 rels
+  [94/95] chunk 94: 0 nodes, 0 rels
+  [95/95] chunk 5: 0 nodes, 0 rels
+  95/95 done (chunk 5: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 95 chunks.
+
+Generating embeddings for 95 chunks...
+Generated 95 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 95 chunks.
+
+Ingestion complete!
+[15/15] Pages 7001-7266 DONE
+
+=== Ingestion complete ===
+Logs in: /home/varjitt/workspace/connected-diagnostics/ingest_logs

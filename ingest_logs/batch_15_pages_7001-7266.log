@@ -1,0 +1,133 @@
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 265 pages with text.
+
+Created 99 chunks.
+
+Skipping 4 already-ingested chunks.
+95 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/95] chunk 4: 0 nodes, 0 rels
+  [2/95] chunk 2: 0 nodes, 0 rels
+  [3/95] chunk 8: 0 nodes, 0 rels
+  [4/95] chunk 3: 0 nodes, 0 rels
+  [5/95] chunk 1: 0 nodes, 0 rels
+  [6/95] chunk 7: 0 nodes, 0 rels
+  [7/95] chunk 6: 0 nodes, 0 rels
+  [8/95] chunk 9: 0 nodes, 0 rels
+  [9/95] chunk 14: 0 nodes, 0 rels
+  [10/95] chunk 13: 0 nodes, 0 rels
+  [11/95] chunk 12: 0 nodes, 0 rels
+  [12/95] chunk 10: 0 nodes, 0 rels
+  [13/95] chunk 11: 0 nodes, 0 rels
+  [14/95] chunk 16: 0 nodes, 0 rels
+  [15/95] chunk 17: 0 nodes, 0 rels
+  [16/95] chunk 19: 0 nodes, 0 rels
+  [17/95] chunk 18: 0 nodes, 0 rels
+  [18/95] chunk 20: 0 nodes, 0 rels
+  [19/95] chunk 15: 0 nodes, 0 rels
+  [20/95] chunk 22: 0 nodes, 0 rels
+  [21/95] chunk 21: 0 nodes, 0 rels
+  [22/95] chunk 23: 0 nodes, 0 rels
+  [23/95] chunk 25: 0 nodes, 0 rels
+  [24/95] chunk 24: 0 nodes, 0 rels
+  [25/95] chunk 27: 0 nodes, 0 rels
+  [26/95] chunk 26: 0 nodes, 0 rels
+  [27/95] chunk 28: 0 nodes, 0 rels
+  [28/95] chunk 30: 0 nodes, 0 rels
+  [29/95] chunk 31: 0 nodes, 0 rels
+  [30/95] chunk 29: 0 nodes, 0 rels
+  [31/95] chunk 32: 0 nodes, 0 rels
+  [32/95] chunk 33: 0 nodes, 0 rels
+  [33/95] chunk 34: 0 nodes, 0 rels
+  [34/95] chunk 35: 0 nodes, 0 rels
+  [35/95] chunk 36: 0 nodes, 0 rels
+  [36/95] chunk 37: 0 nodes, 0 rels
+  [37/95] chunk 38: 0 nodes, 0 rels
+  [38/95] chunk 39: 0 nodes, 0 rels
+  [39/95] chunk 40: 0 nodes, 0 rels
+  [40/95] chunk 41: 0 nodes, 0 rels
+  [41/95] chunk 43: 0 nodes, 0 rels
+  [42/95] chunk 42: 0 nodes, 0 rels
+  [43/95] chunk 44: 0 nodes, 0 rels
+  [44/95] chunk 45: 0 nodes, 0 rels
+  [45/95] chunk 46: 0 nodes, 0 rels
+  [46/95] chunk 47: 0 nodes, 0 rels
+  [47/95] chunk 49: 0 nodes, 0 rels
+  [48/95] chunk 48: 0 nodes, 0 rels
+  [49/95] chunk 50: 0 nodes, 0 rels
+  [50/95] chunk 51: 0 nodes, 0 rels
+  [51/95] chunk 53: 0 nodes, 0 rels
+  [52/95] chunk 54: 0 nodes, 0 rels
+  [53/95] chunk 52: 0 nodes, 0 rels
+  [54/95] chunk 57: 0 nodes, 0 rels
+  [55/95] chunk 58: 0 nodes, 0 rels
+  [56/95] chunk 56: 0 nodes, 0 rels
+  [57/95] chunk 59: 0 nodes, 0 rels
+  [58/95] chunk 60: 0 nodes, 0 rels
+  [59/95] chunk 61: 0 nodes, 0 rels
+  [60/95] chunk 62: 0 nodes, 0 rels
+  [61/95] chunk 55: 0 nodes, 0 rels
+  [62/95] chunk 63: 0 nodes, 0 rels
+  [63/95] chunk 64: 0 nodes, 0 rels
+  [64/95] chunk 66: 0 nodes, 0 rels
+  [65/95] chunk 65: 0 nodes, 0 rels
+  [66/95] chunk 69: 0 nodes, 0 rels
+  [67/95] chunk 67: 0 nodes, 0 rels
+  [68/95] chunk 70: 0 nodes, 0 rels
+  [69/95] chunk 68: 0 nodes, 0 rels
+  [70/95] chunk 73: 0 nodes, 0 rels
+  [71/95] chunk 72: 0 nodes, 0 rels
+  [72/95] chunk 71: 0 nodes, 0 rels
+  [73/95] chunk 74: 0 nodes, 0 rels
+  [74/95] chunk 75: 0 nodes, 0 rels
+  [75/95] chunk 76: 0 nodes, 0 rels
+  [76/95] chunk 77: 0 nodes, 0 rels
+  [77/95] chunk 79: 0 nodes, 0 rels
+  [78/95] chunk 78: 0 nodes, 0 rels
+  [79/95] chunk 80: 0 nodes, 0 rels
+  [80/95] chunk 81: 0 nodes, 0 rels
+  [81/95] chunk 82: 0 nodes, 0 rels
+  [82/95] chunk 84: 0 nodes, 0 rels
+  [83/95] chunk 83: 0 nodes, 0 rels
+  [84/95] chunk 85: 0 nodes, 0 rels
+  [85/95] chunk 87: 0 nodes, 0 rels
+  [86/95] chunk 88: 0 nodes, 0 rels
+  [87/95] chunk 89: 0 nodes, 0 rels
+  [88/95] chunk 86: 0 nodes, 0 rels
+  [89/95] chunk 92: 0 nodes, 0 rels
+  [90/95] chunk 91: 0 nodes, 0 rels
+  [91/95] chunk 90: 0 nodes, 0 rels
+  [92/95] chunk 93: 0 nodes, 0 rels
+  [93/95] chunk 95: 0 nodes, 0 rels
+  [94/95] chunk 94: 0 nodes, 0 rels
+  [95/95] chunk 5: 0 nodes, 0 rels
+  95/95 done (chunk 5: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+No unresolved cross-references found.
+
+Building graph from extractions...
+
+Graph built: 0 nodes, 0 relationships
+Unique nodes: 0
+
+Storing chunks in PostgreSQL...
+Stored 95 chunks.
+
+Generating embeddings for 95 chunks...
+Generated 95 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 95 chunks.
+
+Ingestion complete!

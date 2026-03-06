@@ -1,0 +1,445 @@
+
+Ingesting: /home/varjitt/Downloads/2016-2021 Lexus GX460 Repair Manual 
+(RM27D0U).pdf
+Vehicle: Lexus GX460 (2016-2021)
+
+Initializing databases...
+PostgreSQL ready.
+Databases ready.
+
+
+Extracted 495 pages with text.
+
+Created 77 chunks.
+
+77 new chunks to process.
+
+Creating vehicle nodes...
+Created 6 vehicle nodes.
+
+  [1/77] chunk 3: 20 nodes, 18 rels
+  [2/77] chunk 6: 27 nodes, 21 rels
+  [3/77] chunk 2: 56 nodes, 7 rels
+  [4/77] chunk 4: 0 nodes, 0 rels
+  [5/77] chunk 5: 0 nodes, 0 rels
+  [6/77] chunk 7: 0 nodes, 0 rels
+  [7/77] chunk 8: 111 nodes, 25 rels
+  [8/77] chunk 1: 0 nodes, 0 rels
+  [9/77] chunk 13: 0 nodes, 0 rels
+  [10/77] chunk 11: 38 nodes, 32 rels
+  [11/77] chunk 9: 34 nodes, 24 rels
+  [12/77] chunk 12: 0 nodes, 0 rels
+  [13/77] chunk 10: 18 nodes, 11 rels
+  [14/77] chunk 14: 0 nodes, 0 rels
+  [15/77] chunk 15: 0 nodes, 0 rels
+  [16/77] chunk 23: 17 nodes, 21 rels
+  [17/77] chunk 21: 52 nodes, 14 rels
+  [18/77] chunk 16: 46 nodes, 37 rels
+  [19/77] chunk 17: 29 nodes, 28 rels
+  [20/77] chunk 22: 0 nodes, 0 rels
+  [21/77] chunk 18: 0 nodes, 0 rels
+  [22/77] chunk 19: 65 nodes, 43 rels
+  [23/77] chunk 20: 0 nodes, 0 rels
+  [24/77] chunk 29: 52 nodes, 44 rels
+  [25/77] chunk 28: 35 nodes, 27 rels
+  [26/77] chunk 25: 27 nodes, 24 rels
+  [27/77] chunk 26: 35 nodes, 34 rels
+  [28/77] chunk 27: 0 nodes, 0 rels
+  [29/77] chunk 31: 0 nodes, 0 rels
+  [30/77] chunk 30: 0 nodes, 0 rels
+  [31/77] chunk 35: 42 nodes, 33 rels
+  [32/77] chunk 24: 34 nodes, 28 rels
+  [33/77] chunk 33: 0 nodes, 0 rels
+  [34/77] chunk 37: 0 nodes, 0 rels
+  [35/77] chunk 34: 0 nodes, 0 rels
+  [36/77] chunk 36: 0 nodes, 0 rels
+  [37/77] chunk 32: 46 nodes, 40 rels
+  [38/77] chunk 40: 27 nodes, 25 rels
+  [39/77] chunk 39: 25 nodes, 19 rels
+  [40/77] chunk 46: 33 nodes, 33 rels
+  [41/77] chunk 47: 26 nodes, 24 rels
+  [42/77] chunk 42: 0 nodes, 0 rels
+  [43/77] chunk 43: 0 nodes, 0 rels
+  [44/77] chunk 38: 0 nodes, 0 rels
+  [45/77] chunk 41: 0 nodes, 0 rels
+  [46/77] chunk 52: 34 nodes, 32 rels
+  [47/77] chunk 45: 33 nodes, 19 rels
+  [48/77] chunk 49: 0 nodes, 0 rels
+  [49/77] chunk 44: 36 nodes, 26 rels
+  [50/77] chunk 53: 0 nodes, 0 rels
+  [51/77] chunk 51: 44 nodes, 16 rels
+  [52/77] chunk 48: 60 nodes, 28 rels
+  [53/77] chunk 50: 0 nodes, 0 rels
+  [54/77] chunk 54: 10 nodes, 10 rels
+  [55/77] chunk 59: 29 nodes, 40 rels
+  [56/77] chunk 57: 34 nodes, 46 rels
+  [57/77] chunk 55: 0 nodes, 0 rels
+  [58/77] chunk 58: 0 nodes, 0 rels
+  [59/77] chunk 56: 0 nodes, 0 rels
+  [60/77] chunk 62: 0 nodes, 0 rels
+  [61/77] chunk 64: 35 nodes, 41 rels
+  [62/77] chunk 61: 38 nodes, 39 rels
+  [63/77] chunk 60: 0 nodes, 0 rels
+  [64/77] chunk 66: 0 nodes, 0 rels
+  [65/77] chunk 65: 53 nodes, 51 rels
+  [66/77] chunk 63: 0 nodes, 0 rels
+  [67/77] chunk 67: 0 nodes, 0 rels
+  [68/77] chunk 72: 48 nodes, 34 rels
+  [69/77] chunk 73: 0 nodes, 0 rels
+  [70/77] chunk 70: 52 nodes, 44 rels
+  [71/77] chunk 71: 0 nodes, 0 rels
+  [72/77] chunk 69: 0 nodes, 0 rels
+  [73/77] chunk 74: 0 nodes, 0 rels
+  [74/77] chunk 75: 0 nodes, 0 rels
+  [75/77] chunk 68: 0 nodes, 0 rels
+  [76/77] chunk 77: 36 nodes, 24 rels
+  [77/77] chunk 76: 0 nodes, 0 rels
+  77/77 done (chunk 76: 0 nodes, 0 rels) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100%
+146 nodes with unresolved cross-references.
+Building page index for cross-reference search...
+Indexing 124 pages (7142 already done)...
+No text pages to index.
+  Enriched: Proceed to Test Mode ← p.7015 Set the reflector so that its center 
+is 874.5 mm (2.87 ft.)  (dist=0.256)
+  Enriched: Use Simulation Method to Check ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.421)
+  Enriched: REPLACE STEERING SENSOR ← p.5882 7. REMOVE STEERING SENSOR 
+(dist=0.340)
+  Enriched: Proceed to Test Mode (Blind Spot Monitor Beam Axis Inspection) ← 
+p.7015 Set the reflector so that its center is 874.5 mm (2.87 ft.)  (dist=0.256)
+  Enriched: Check Installation Condition ← p.999 ALLOWABLE RANGE (dist=0.293)
+  Enriched: Check Installation Condition ← p.999 ALLOWABLE RANGE (dist=0.296)
+  Enriched: Remove Front No. 2 Console Box Insert ← p.6784 6.10:8.0.50 
+(dist=0.321)
+  Enriched: Check for Open or Short in CAN Bus Wires (Blind Spot Monitor Sensor 
+LH) ← p.1035 Front view of wire harness connector (dist=0.274)
+  Enriched: Remove Center Instrument Cluster Finish Panel Garnish ← p.4851 
+Center Instrument Cluster Finish Panel (dist=0.264)
+  Enriched: Remove Instrument Side Panel RH ← p.6793 6.10:8.0.50 (dist=0.290)
+  Enriched: Perform Beam Axis Confirmation ← p.995 OPERATION CHECK; 2021 MY 
+GX460 [08/2020 - ] (dist=0.264)
+  Enriched: Remove Instrument Panel Finish Panel End RH ← p.4849 REMOVAL; 2020 -
+2021 MY GX460 [08/2019 - ] (dist=0.311)
+  Enriched: Go to CAN Communication System ← p.6118 GO TO CAN COMMUNICATION 
+SYSTEM (dist=0.421)
+  Enriched: Remove Lower No. 2 Instrument Panel Airbag Assembly ← p.6798 41. 
+REMOVE NO. 1 INSTRUMENT PANEL SPEAKER PANEL SUB-ASSEMBLY (dist=0.269)
+  Enriched: Perform Beam Axis Confirmation ← p.995 OPERATION CHECK; 2021 MY 
+GX460 [08/2020 - ] (dist=0.264)
+  Enriched: Remove Lower Instrument Cover LH ← p.6796 Protective Tape 
+(dist=0.325)
+  Enriched: Remove Instrument Panel Box Door Cover ← p.4852 Protective Tape 
+(dist=0.286)
+  Enriched: Remove No. 2 Instrument Panel Register Assembly ← p.853 14. REMOVE 
+NO. 3 INSTRUMENT PANEL REGISTER ASSEMBLY (dist=0.241)
+  Enriched: Remove No. 2 Instrument Panel Under Cover Sub-Assembly ← p.4850 17. 
+REMOVE INSTRUMENT SIDE PANEL LH (dist=0.268)
+  Enriched: Remove Instrument Panel Box Assembly ← p.4850 17. REMOVE INSTRUMENT 
+SIDE PANEL LH (dist=0.253)
+  Enriched: Check SRS Warning Light ← p.3795 (a) Initialize the power window 
+control system (See page (dist=0.329)
+  Enriched: SYMPTOM SIMULATION ← p.1055 Communication malfunction indication 
+(dist=0.477)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING - Terminals of ECU ← p.1062 
+TERMINALS OF ECU; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.301)
+  Enriched: DETECTION RANGE MEASUREMENT - Front Corner Sensors ← p.1057 
+Multi-information Display (dist=0.416)
+  Enriched: DETECTION RANGE MEASUREMENT - Front Center Sensors ← p.1055 
+Communication malfunction indication (dist=0.394)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING - Operation Check ← p.1054 
+OPERATION CHECK; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.362)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING - Data List / Active Test ← 
+p.1134 DATA LIST / ACTIVE TEST; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.395)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1061 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.371)
+  Enriched: ADJUST, REPAIR OR REPLACE IN ACCORDANCE WITH PROBLEM SYMPTOMS TABLE 
+← p.3539  (dist=0.411)
+  Enriched: DETECTION RANGE MEASUREMENT - Rear Corner Sensors ← p.1057 
+Multi-information Display (dist=0.396)
+  Enriched: REFER TO DIAGNOSTIC TROUBLE CODE CHART ← p.1067 DIAGNOSTIC TROUBLE 
+CODE CHART; 2020 - 2021 MY GX460 [08/2019 (dist=0.277)
+  Enriched: PERFORM CONFIRMATION TEST ← p.1055 Communication malfunction 
+indication (dist=0.390)
+  Enriched: DETECTION RANGE MEASUREMENT - Rear Center Sensors ← p.999 ALLOWABLE 
+RANGE (dist=0.385)
+  Enriched: CLEAN PARK SONAR SENSOR ← p.1061 PROBLEM SYMPTOMS TABLE; 2020 - 2021
+MY GX460 [08/2019 - ] (dist=0.528)
+  Enriched: Troubleshoot Frozen Indication ← p.1061 PROBLEM SYMPTOMS TABLE; 2020
+- 2021 MY GX460 [08/2019 - ] (dist=0.489)
+  Enriched: TROUBLESHOOT OPEN CIRCUIT IN ULTRASONIC SENSOR ← p.1081  
+(dist=0.514)
+  Enriched: INSTALL NO. 2 SWITCH HOLE BASE ← p.5069 INSTALLATION; 2020 - 2021 MY
+GX460 [08/2019 - ] (dist=0.485)
+  Enriched: CHECK NAVIGATION SYSTEM ← p.1130 DIAGNOSTIC MODE (dist=0.387)
+  Enriched: CHECK COMMUNICATION FUNCTION OF CAN COMMUNICATION SYSTEM ← p.6127 
+CAUTION / NOTICE / HINT (dist=0.337)
+  Enriched: CHECK AUDIO AND VISUAL SYSTEM ← p.540 (b) USB audio system 
+compatible devices (dist=0.408)
+  Enriched: CHECK NAVIGATION SYSTEM ← p.1130 DIAGNOSTIC MODE (dist=0.385)
+  Enriched: Troubleshoot Open Circuit Malfunction ← p.1138 DTC C1611 is not 
+output. (dist=0.317)
+  Enriched: Perform System Calibration ← p.1103 CALIBRATION; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.428)
+  Enriched: CHECK FOR DTC ← p.1543 Even if the following procedure is not 
+performed, permanent  (dist=0.271)
+  Enriched: CHECK AUDIO AND VISUAL SYSTEM ← p.540 (b) USB audio system 
+compatible devices (dist=0.392)
+  Enriched: Correct Steering Angle Neutral Point ← p.1123 w/o Navigation System:
+(dist=0.385)
+  Enriched: Diagnostic Mode - Signal Connection Check (CAMERA SW check) ← p.1130
+DIAGNOSTIC MODE (dist=0.343)
+  Enriched: Diagnostic Mode - Signal Connection Check (SHIFT check) ← p.1130 
+DIAGNOSTIC MODE (dist=0.386)
+  Enriched: Audio and Visual System - Touch Switch Self Check (w/o Navigation 
+System) ← p.544 (1) Touch the display anywhere in the open area to perform t 
+(dist=0.404)
+  Enriched: ECU Power Source Circuit Check ← p.5148 ECU Power Source Circuit; 
+2020 - 2021 MY GX460 [08/2019 - ] (dist=0.389)
+  Enriched: OVERALL ANALYSIS AND TROUBLESHOOTING ← p.4030 (a) Operation Check. 
+(dist=0.315)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1125 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.398)
+  Enriched: Diagnostic Mode - Signal Connection Check (CAN check) ← p.6898 Front
+view of DLC3 (dist=0.377)
+  Enriched: Navigation System - Touch Switch Self Check (w/ Navigation System) ←
+p.878 Screen Description (dist=0.440)
+  Enriched: Perform Steering Angle Setting in Calibration if needed ← p.1123 w/o
+Navigation System: (dist=0.287)
+  Enriched: GO TO VEHICLE STABILITY CONTROL SYSTEM ← p.1148 C164D; Wheel Speed 
+Sensor Malfunction; 2020 - 2021 MY GX460  (dist=0.364)
+  Enriched: Check if the No. 1 Room Light (for Rear) Turns On and Off Normally ←
+p.4910 LIGHTING SYSTEM (dist=0.418)
+  Enriched: REPLACE SIDE TELEVISION CAMERA ASSEMBLY RH ← p.1229 2. INSTALL SIDE 
+TURN SIGNAL LIGHT ASSEMBLY RH (dist=0.358)
+  Enriched: GO TO AIRBAG SYSTEM ← p.1147 C1647; G Sensor Failure; 2020 - 2021 MY
+GX460 [08/2019 - ] (dist=0.348)
+  Enriched: Diagnostic Mode - Signal Connection Check ← p.1186 "CHK" message(s) 
+are displayed on the SIGNAL CHECK screen.;  (dist=0.374)
+  Enriched: Check the Steering Wheel Installation Angle ← p.3395 Install in this
+direction (dist=0.343)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1099 (1) Video signals from the 
+front television camera assembly  (dist=0.510)
+  Enriched: Check the Screen Display Timer Function ← p.878 Screen Description 
+(dist=0.516)
+  Enriched: CHECK PARKING ASSIST ECU ← p.1156 C1684; Side Camera Current 
+Malfunction; 2020 - 2021 MY GX460 (dist=0.281)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1099 (1) Video signals from the 
+front television camera assembly  (dist=0.510)
+  Enriched: Remove upper radiator support seal ← p.1957 16. REMOVE NO. 1 
+RADIATOR SUPPORT (dist=0.275)
+  Enriched: Install upper radiator support seal ← p.1957 16. REMOVE NO. 1 
+RADIATOR SUPPORT (dist=0.335)
+  Enriched: INSPECT COMBINATION SWITCH ASSEMBLY [MULTI-TERRAIN MONITOR SWITCH] ←
+p.1089 MULTI-TERRAIN MONITOR SWITCH (dist=0.334)
+  Enriched: Adjust front television camera assembly ← p.1216 TELEVISION CAMERA 
+(for Front) (dist=0.417)
+  Enriched: ADJUST SETTINGS (CAMERA VIEW ADJUSTMENT) ← p.1122 Before checking 
+the adjustment screen, ensure that the check (dist=0.369)
+  Enriched: CHECK SIDE TELEVISION CAMERA ASSEMBLY LH ← p.1229 2. INSTALL SIDE 
+TURN SIGNAL LIGHT ASSEMBLY RH (dist=0.361)
+  Enriched: PERFORM SETTINGS (STEERING ANGLE SETTING) ← p.1123 w/o Navigation 
+System: (dist=0.280)
+  Enriched: PERFORM SETTINGS (CAMERA VIEW ADJUSTMENT [CALIBRATION], STEERING 
+ANGLE SETTING) ← p.1123 w/o Navigation System: (dist=0.304)
+  Enriched: Refer to Problem Symptoms Table ← p.1257 PROBLEM SYMPTOMS TABLE; 
+2016 - 2021 MY GX460 [08/2015 - ] (dist=0.380)
+  Enriched: REMOVE INSTRUMENT PANEL SAFETY PAD SUB-ASSEMBLY ← p.6798 41. REMOVE 
+NO. 1 INSTRUMENT PANEL SPEAKER PANEL SUB-ASSEMBLY (dist=0.282)
+  Enriched: CHECK SPEED SENSOR SIGNAL ← p.1389 CHECK TERMINAL VOLTAGE (RR+, RL+)
+(dist=0.393)
+  Enriched: Perform Simulation Method ← p.68 19. SYMPTOM SIMULATION (dist=0.485)
+  Enriched: INSTALL INSTRUMENT PANEL SAFETY PAD SUB-ASSEMBLY ← p.4858 
+INSTALLATION; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.337)
+  Enriched: CHECK SPEED SENSOR SIGNAL ← p.1389 CHECK TERMINAL VOLTAGE (RR+, RL+)
+(dist=0.393)
+  Enriched: GO TO SMART ACCESS SYSTEM WITH PUSH-BUTTON START (for Start 
+Function) ← p.5982 WIRELESS DOOR LOCK CONTROL SYSTEM (dist=0.315)
+  Enriched: Perform Troubleshooting ← p.1258 TERMINALS OF ECU; 2020 - 2021 MY 
+GX460 [08/2019 - ] (dist=0.311)
+  Enriched: GO TO DTC (B2285) ← p.5709 (b) Connect the cable to the negative (-)
+battery terminal,  (dist=0.331)
+  Enriched: REMOVE SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5882 7. REMOVE 
+STEERING SENSOR (dist=0.311)
+  Enriched: INSPECT SPIRAL CABLE SUB-ASSEMBLY ← p.5886 Check Window (dist=0.372)
+  Enriched: ADJUST MULTI-TERRAIN MONITOR SYSTEM (w/ Multi-terrain Monitor) ← 
+p.1121 Before checking the markers on the adjustment screen, ensure (dist=0.465)
+  Enriched: INSTALL SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5886 Check Window 
+(dist=0.298)
+  Enriched: INSPECT SPIRAL CABLE SUB-ASSEMBLY ← p.5886 Check Window (dist=0.352)
+  Enriched: INSTALL SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5886 Check Window 
+(dist=0.322)
+  Enriched: INITIALIZE MULTI-TERRAIN MONITOR SYSTEM ← p.1102 INITIALIZATION; 
+2020 - 2021 MY GX460 [08/2019 - ] (dist=0.427)
+  Enriched: INITIALIZE MULTI-TERRAIN MONITOR SYSTEM (w/ Multi-terrain Monitor) ←
+p.1102 INITIALIZATION; 2020 - 2021 MY GX460 [08/2019 - ] (dist=0.439)
+  Enriched: REMOVE SPIRAL CABLE WITH SENSOR SUB-ASSEMBLY ← p.5882 7. REMOVE 
+STEERING SENSOR (dist=0.296)
+  Enriched: ADJUST MULTI-TERRAIN MONITOR SYSTEM ← p.1121 Before checking the 
+markers on the adjustment screen, ensure (dist=0.432)
+  Enriched: PERFORM CALIBRATION AFTER SENSOR REPLACEMENT ← p.1401 CAUTION / 
+NOTICE / HINT (dist=0.371)
+  Enriched: Downhill Assist Control Switch Check ← p.1444 Downhill Assist 
+Control Indicator Light Remains ON; 2020 - 2 (dist=0.303)
+  Enriched: INSPECT DOWNHILL ASSIST CONTROL SWITCH (COMBINATION SWITCH ASSEMBLY)
+← p.1293 DOWNHILL ASSIST CONTROL SWITCH (dist=0.326)
+  Enriched: Crawl ON/OFF Switch / Crawl Speed Selector Switch Check ← p.1373 (a)
+Perform the crawl ON/OFF switch / crawl speed selector s (dist=0.319)
+  Enriched: CHECK TEST MODE DTC ← p.1293 DOWNHILL ASSIST CONTROL SWITCH 
+(dist=0.346)
+  Enriched: DTC CHART ← p.6425 DETECTION ITEM (dist=0.363)
+  Enriched: DISABLE TRAC AND VSC CONTROLS FOR DYNAMOMETER TESTING ← p.1334 
+TESTER DISPLAY (dist=0.430)
+  Enriched: INSPECT CRAWL ON/OFF SWITCH / CRAWL SPEED SELECTOR SWITCH / 
+MULTI-TERRAIN SELECT MODE SWITCH (COMBINATION SWITCH ASSEMBLY) ← p.1373 (a) 
+Perform the crawl ON/OFF switch / crawl speed selector s (dist=0.353)
+  Enriched: PROBLEM SYMPTOMS TABLE ← p.1328 PROBLEM SYMPTOMS TABLE; 2020 - 2021 
+MY GX460 [08/2019 - ] (dist=0.327)
+  Enriched: CHECK TERMINAL VOLTAGE (IG2 TERMINAL) ← p.1389 CHECK TERMINAL 
+VOLTAGE (RR+, RL+) (dist=0.504)
+  Enriched: READ VALUE USING TECHSTREAM (FRONT SPEED SENSOR) ← p.2581 TECHSTREAM
+DISPLAY (dist=0.270)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1411 C1436; Yaw Rate Sensor 
+Malfunction; 2020 - 2021 MY GX460 [08 (dist=0.455)
+  Enriched: REPLACE YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.298)
+  Enriched: CHECK TEST MODE DTC ← p.1373 (a) Perform the crawl ON/OFF switch / 
+crawl speed selector s (dist=0.317)
+  Enriched: READ VALUE USING TECHSTREAM (REAR SPEED SENSOR) ← p.2581 TECHSTREAM 
+DISPLAY (dist=0.296)
+  Enriched: CHECK DTC (CAN COMMUNICATION SYSTEM) ← p.67 (NORMAL MODE) 
+(dist=0.301)
+  Enriched: INSTALL YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) CORRECTLY ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.335)
+  Enriched: REPLACE YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.298)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM (HOW TO PROCEED WITH TROUBLESHOOTING)
+← p.6118 GO TO CAN COMMUNICATION SYSTEM (dist=0.389)
+  Enriched: REPLACE MASTER CYLINDER SOLENOID ← p.1401 CAUTION / NOTICE / HINT 
+(dist=0.273)
+  Enriched: GO TO CAN COMMUNICATION SYSTEM (HOW TO PROCEED WITH TROUBLESHOOTING)
+← p.6118 GO TO CAN COMMUNICATION SYSTEM (dist=0.389)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1124 A long beep will sound to 
+confirm that the adjustment values (dist=0.413)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.2931 REPLACE ECM (dist=0.515)
+  Enriched: GO TO ENGINE CONTROL SYSTEM (HOW TO PROCEED WITH TROUBLESHOOTING) ← 
+p.6452  (dist=0.346)
+  Enriched: ADJUST FRONT WHEEL ALIGNMENT OR STEERING POSITION ← p.3436 
+ADJUSTMENT; 2016 - 2021 MY GX460 [08/2015 - ] (dist=0.337)
+  Enriched: REPAIR CIRCUITS INDICATED BY OUTPUT DTCS ← p.1399 C1419,C1435; 
+Acceleration Sensor Internal Circuit; 2020 - 20 (dist=0.448)
+  Enriched: REPAIR OR REPLACE HARNESS OR CONNECTOR (GROUND CIRCUIT) ← p.969 
+REPAIR OR REPLACE HARNESS OR CONNECTOR (dist=0.339)
+  Enriched: REPLACE YAW RATE AND ACCELERATION SENSOR (CENTER AIRBAG SENSOR 
+ASSEMBLY) ← p.5652 REPLACE CENTER AIRBAG SENSOR ASSEMBLY (dist=0.298)
+  Enriched: INSPECT DOWNHILL ASSIST CONTROL SWITCH (COMBINATION SWITCH ASSEMBLY)
+← p.1293 DOWNHILL ASSIST CONTROL SWITCH (dist=0.326)
+  Enriched: INSPECT DOWNHILL ASSIST CONTROL SWITCH (COMBINATION SWITCH ASSEMBLY)
+← p.1293 DOWNHILL ASSIST CONTROL SWITCH (dist=0.326)
+  Enriched: USE SIMULATION METHOD TO CHECK ← p.1346 (d) Turn the Techstream on. 
+(dist=0.445)
+  Enriched: REPAIR CIRCUITS INDICATED BY OUTPUT DTCS ← p.1415 (c) Start the 
+engine. (dist=0.395)
+  Enriched: REPAIR CIRCUITS INDICATED BY OUTPUT DTCS ← p.1399 C1419,C1435; 
+Acceleration Sensor Internal Circuit; 2020 - 20 (dist=0.450)
+  Enriched: REPLACE STEERING SENSOR ← p.5882 7. REMOVE STEERING SENSOR 
+(dist=0.340)
+  Enriched: CHECK CAN COMMUNICATION LINE ← p.3080 Component with harness 
+connected (dist=0.423)
+  Enriched: INSTALL DOOR SCUFF PLATE ASSEMBLY LH ← p.4988 INSTALLATION; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.325)
+  Enriched: INSTALL COWL SIDE TRIM BOARD LH ← p.4890 Mark Position (dist=0.386)
+  Enriched: REMOVE COWL SIDE TRIM BOARD LH ← p.4875 39. REMOVE DECK TRIM SIDE 
+PANEL ASSEMBLY RH (dist=0.346)
+  Enriched: INSTALL LOWER INSTRUMENT PANEL FINISH PANEL SUB-ASSEMBLY ← p.4859  
+(dist=0.305)
+  Enriched: REMOVE LOWER INSTRUMENT PANEL FINISH PANEL SUB-ASSEMBLY ← p.4850 17.
+REMOVE INSTRUMENT SIDE PANEL LH (dist=0.248)
+  Enriched: REPLACE BRAKE FLUID - Clear DTCs ← p.800 DTC CHECK / CLEAR; 2016 - 
+2021 MY GX460 [08/2015 - ] (dist=0.440)
+  Enriched: REPLACE BRAKE FLUID - Check and adjust fluid level ← p.1456 (u) 
+Check and adjust the brake fluid level (See page (dist=0.338)
+  Enriched: Install No. 2 Parking Brake Shoe Assembly with Parking Brake Shoe 
+Lever ← p.1487 8. REMOVE PARKING BRAKE SHOE ADJUSTING SCREW SET (dist=0.301)
+  Enriched: REMOVE DOOR SCUFF PLATE ASSEMBLY LH ← p.4871 (a) Using a 
+screwdriver, detach the 2 claws and remove the r (dist=0.277)
+  Enriched: Remove Rear Console Box Assembly ← p.6786 (a) Using a moulding 
+remover, detach the 8 clips and remove  (dist=0.269)
+  Enriched: Remove Lower No. 1 Instrument Panel Airbag Assembly ← p.3316 (c) 
+Attach the driver side junction block assembly with main (dist=0.333)
+  Enriched: Remove Transmission Floor Shift Assembly ← p.1512 Do not use excess 
+force when prying the transmission assembl (dist=0.352)
+  Enriched: Install Rear Console Box Assembly (w/ Refrigerated Cool Box) ← 
+p.1735 (i) Push the lock piece into the adjuster case and lock it. (dist=0.350)
+  Enriched: INSPECT COMBINATION METER ASSEMBLY ← p.6551 (1) Remove the 
+combination meter assembly with the connector (dist=0.472)
+  Enriched: Install Rear Console Box Assembly (w/o Refrigerated Cool Box) ← 
+p.4832 FRONT CONSOLE BOX (w/ Refrigerated Cool Box) (dist=0.365)
+  Enriched: Install Fuel Tank Sub-Assembly ← p.6329 4. INSTALL FUEL TANK MAIN 
+TUBE SUB-ASSEMBLY AND FUEL RETURN  (dist=0.308)
+  Enriched: Install Rear Console Box Assembly ← p.4831 INSTALLATION; 2020 - 2021
+MY GX460 [08/2019 - ] (dist=0.327)
+  Enriched: Install Transmission Floor Shift Assembly ← p.1723 INSTALLATION; 
+2016 - 2021 MY GX460 [08/2015 - ] (dist=0.387)
+  Enriched: Install Lower No. 1 Instrument Panel Airbag Assembly ← p.3316 (c) 
+Attach the driver side junction block assembly with main (dist=0.315)
+Enriched 146/146 nodes from cross-references.
+
+Building graph from extractions...
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{specification -> String("108 to 132 Ω"), condition -> String("Cable 
+disconnected from negative (-) battery terminal"), measurement -> String("R42-1 
+(CA2P) - R42-6 (CA2N)")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{guides -> Long(2), clips -> Long(3)}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{waveform_2 -> Map{ch1_terminal -> String("G125-8 (SOF) - G125-30 (E)"), 
+ch2_condition -> String("Engine on (IG), system on, shift lever in R"), 
+ch2_terminal -> String("G125-24 (SOR) - G125-30 (E)"), setting -> String("5 
+V/DIV., 1 msec./DIV."), ch1_condition -> String("Engine on (IG), system on, 
+shift lever not in P, vehicle speed < 10 km/h")}, waveform_1 -> 
+Map{measurement_terminal -> String("G125-14 (CBZ) - G125-13 (EF)"), note -> 
+String("Amplitude changes according to set volume"), condition -> String("Buzzer
+sounding"), setting -> String("2 V/DIV., 500 μs./DIV.")}}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{title -> String("Part and Sensor"), temp_id -> String("t16a"), instruction 
+-> String("Apply slight vibration with a finger to the part of the sensor 
+suspected to be the cause of the problem, and check whether or not the 
+malfunction occurs."), notice -> String("Applying strong vibration to relays may
+open them.")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{lf_output_power_interior -> String("94.4 dBuV/m at 3 m"), modulation_method 
+-> String("AM"), lf_output_power_exterior_rear_bumper -> String("95 dBuV/m at 3 
+m"), lf_output_power_exterior_door_handle -> String("95 dBuV/m at 3 m"), 
+frequency -> String("134.2 kHz")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{torque -> String("88 N·m {897 kgf·cm, 65 ft·lbf}"), component -> String("RH 
+and LH lock nuts")}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{sub_steps -> List{Map{instruction -> String("Attach the clip and claw to 
+install the cowl side trim board LH."), order -> Long(1)}, Map{instruction -> 
+String("Install the clip."), order -> Long(2)}}}.}
+Graph build error: {code: Neo.ClientError.Statement.TypeError} {message: 
+Property values can only be of primitive types or arrays thereof. Encountered: 
+Map{torque -> String("5.4 N·m {55 kgf·cm, 48 in·lbf}"), component -> String("2 
+cooler pipes bolts")}.}
+
+Graph built: 2533 nodes, 2204 relationships
+Unique nodes: 1334
+
+Storing chunks in PostgreSQL...
+Stored 77 chunks.
+
+Generating embeddings for 77 chunks...
+Generated 77 embeddings.
+
+Writing embeddings to PostgreSQL...
+Embedded 77 chunks.
+
+Ingestion complete!

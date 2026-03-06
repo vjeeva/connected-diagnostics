@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "connected-diagnostics"
+version = "0.1.0"
+description = "Automotive diagnostic knowledge system"
+authors = []
+packages = [{include = "backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+neo4j = "^5.0"
+sqlalchemy = {version = "^2.0", extras = ["asyncio"]}
+asyncpg = "^0.29"
+pgvector = "^0.3"
+psycopg2-binary = "^2.9"
+anthropic = ">=0.40"
+openai = "^1.0"
+pdfplumber = "^0.11"
+pydantic-settings = "^2.0"
+rich = "^13.0"
+click = "^8.0"
+alembic = "^1.13"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
