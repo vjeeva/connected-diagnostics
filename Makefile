@@ -8,7 +8,7 @@ else
   DOCKER := docker
 endif
 
-.PHONY: setup setup-deps setup-pyenv setup-venv install db-up db-down migrate migration ingest chat clean
+.PHONY: setup setup-deps setup-pyenv setup-venv install db-up db-down migrate migration ingest chat qa clean
 
 ## setup: Full setup — system deps, pyenv, virtualenv, dependencies, done.
 setup: setup-deps setup-pyenv setup-venv install
@@ -98,12 +98,9 @@ migrate:
 migration:
 	$(ALEMBIC) revision --autogenerate -m "$(msg)"
 
-## ingest: Ingest the Lexus GX460 service manual
+## ingest: Ingest the Lexus GX460 service manual (batched at 500 pages by default)
 ingest:
-	$(PYTHON) -m backend.cli.ingest \
-		--pdf ~/Downloads/"2016-2021 Lexus GX460 Repair Manual (RM27D0U).pdf" \
-		--make Lexus --model GX460 \
-		--year-start 2016 --year-end 2021
+	$(PYTHON) -m backend.cli.ingest --pdf ~/Downloads/"2016-2021 Lexus GX460 Repair Manual (RM27D0U).pdf" --make Lexus --model GX460 --year-start 2016 --year-end 2021
 
 ## ingest-dry: Dry run — parse and chunk only, no LLM calls
 ingest-dry:
@@ -183,14 +180,6 @@ qa-history:
 ## qa-compare: Compare last two QA runs for pages 2400-2500
 qa-compare:
 	$(PYTHON) -m backend.cli.qa compare --start-page 2400 --end-page 2500
-
-## enrich: Run all post-ingestion graph enrichment (pinouts + procedures)
-enrich:
-	$(PYTHON) -m backend.cli.enrich all
-
-## enrich-dry: Dry-run enrichment (show what would be linked)
-enrich-dry:
-	$(PYTHON) -m backend.cli.enrich all --dry-run
 
 ## chat: Start diagnostic chat
 chat:

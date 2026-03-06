@@ -45,6 +45,15 @@ def _get_unembedded_chunk_ids(engine) -> list[tuple[str, str]]:
     return [(str(row[0]), row[1]) for row in rows]
 
 
+def _get_pdf_page_count(pdf_path: str) -> int:
+    """Get total page count from a PDF without reading all content."""
+    import fitz
+    doc = fitz.open(pdf_path)
+    count = doc.page_count
+    doc.close()
+    return count
+
+
 @click.command()
 @click.option("--pdf", required=True, help="Path to the service manual PDF")
 @click.option("--make", required=True, help="Vehicle make (e.g. Lexus)")
@@ -53,14 +62,73 @@ def _get_unembedded_chunk_ids(engine) -> list[tuple[str, str]]:
 @click.option("--year-end", required=True, type=int, help="Last model year covered")
 @click.option("--start-page", default=1, type=int, help="First page to process")
 @click.option("--end-page", default=None, type=int, help="Last page to process (default: all)")
+@click.option("--batch-size", default=500, type=int, help="Process PDF in batches of N pages (default: 500, use 0 to disable)")
 @click.option("--dry-run", is_flag=True, help="Parse and chunk only, skip LLM extraction")
 @click.option("--reextract", is_flag=True, help="Re-run LLM extraction on existing chunks from Postgres (skips PDF parsing)")
 @click.option("--ocr", is_flag=True, help="Use Claude vision to OCR image-only pages")
 @click.option("--extract-missing", is_flag=True, help="Extract only chunks that have no graph nodes yet (safe, non-destructive)")
 def ingest(pdf: str, make: str, model: str, year_start: int, year_end: int,
-           start_page: int, end_page: int | None, dry_run: bool, reextract: bool, ocr: bool,
-           extract_missing: bool):
+           start_page: int, end_page: int | None, batch_size: int | None,
+           dry_run: bool, reextract: bool, ocr: bool, extract_missing: bool):
     """Ingest a service manual PDF into the knowledge graph and vector store."""
+
+    if batch_size and batch_size > 0:
+        _run_batched(pdf, make, model, year_start, year_end,
+                     start_page, end_page, batch_size, dry_run, reextract, ocr, extract_missing)
+        return
+
+    _run_single(pdf, make, model, year_start, year_end,
+                start_page, end_page, dry_run, reextract, ocr, extract_missing)
+
+
+def _run_batched(pdf: str, make: str, model: str, year_start: int, year_end: int,
+                 start_page: int, end_page: int | None, batch_size: int,
+                 dry_run: bool, reextract: bool, ocr: bool, extract_missing: bool):
+    """Process a PDF in batches, calling _run_single for each batch."""
+    total_pages = _get_pdf_page_count(pdf)
+    effective_end = min(end_page or total_pages, total_pages)
+    effective_start = max(start_page, 1)
+
+    total_batches = ((effective_end - effective_start) // batch_size) + 1
+    console.print(f"\n[bold]Batched Ingestion:[/bold] {pdf}")
+    console.print(f"[bold]Vehicle:[/bold] {make} {model} ({year_start}-{year_end})")
+    console.print(f"[bold]Pages:[/bold] {effective_start}-{effective_end} ({total_pages} total)")
+    console.print(f"[bold]Batch size:[/bold] {batch_size} pages ({total_batches} batches)\n")
+
+    batch_num = 0
+    current = effective_start
+    failed_batches = []
+
+    while current <= effective_end:
+        batch_end = min(current + batch_size - 1, effective_end)
+        batch_num += 1
+
+        console.print(f"\n[bold cyan]━━━ Batch {batch_num}/{total_batches}: pages {current}-{batch_end} ━━━[/bold cyan]")
+        try:
+            _run_single(pdf, make, model, year_start, year_end,
+                        current, batch_end, dry_run, reextract, ocr, extract_missing)
+        except Exception as e:
+            console.print(f"[red]Batch {batch_num} FAILED: {e}[/red]")
+            failed_batches.append((current, batch_end, str(e)))
+
+        current = batch_end + 1
+
+    # Summary
+    console.print(f"\n[bold]━━━ Batched Ingestion Summary ━━━[/bold]")
+    console.print(f"Completed: {total_batches - len(failed_batches)}/{total_batches} batches")
+    if failed_batches:
+        console.print(f"[red]Failed batches:[/red]")
+        for s, e, err in failed_batches:
+            console.print(f"  [red]Pages {s}-{e}: {err}[/red]")
+        console.print("[dim]Re-run with the same command to retry — already-ingested chunks are skipped automatically.[/dim]")
+    else:
+        console.print("[bold green]All batches completed successfully![/bold green]")
+
+
+def _run_single(pdf: str, make: str, model: str, year_start: int, year_end: int,
+                start_page: int, end_page: int | None, dry_run: bool, reextract: bool,
+                ocr: bool, extract_missing: bool):
+    """Ingest a single page range from a PDF."""
 
     console.print(f"\n[bold]Ingesting:[/bold] {pdf}")
     console.print(f"[bold]Vehicle:[/bold] {make} {model} ({year_start}-{year_end})\n")
