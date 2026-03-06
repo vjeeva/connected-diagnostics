@@ -184,6 +184,14 @@ qa-history:
 qa-compare:
 	$(PYTHON) -m backend.cli.qa compare --start-page 2400 --end-page 2500
 
+## enrich: Run all post-ingestion graph enrichment (pinouts + procedures)
+enrich:
+	$(PYTHON) -m backend.cli.enrich all
+
+## enrich-dry: Dry-run enrichment (show what would be linked)
+enrich-dry:
+	$(PYTHON) -m backend.cli.enrich all --dry-run
+
 ## chat: Start diagnostic chat
 chat:
 	$(PYTHON) -m backend.cli.chat --vehicle "2017 Lexus GX460"

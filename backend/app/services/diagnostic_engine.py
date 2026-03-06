@@ -108,13 +108,13 @@ def _search_procedure_context(node: dict, problem_title: str = "") -> str:
     if not _ACTION_RE.search(node_text):
         return ""
 
-    # Search for removal/access/disassembly procedures
+    # Semantic searches for removal/access procedures
+    # Include "valve body" as a common parent assembly term — solenoids,
+    # sensors, and other internals are accessed through the valve body
     search_queries = [
-        f"{title} removal procedure steps",
-        f"{title} disassembly access drain",
+        f"{title} removal procedure disassembly valve body",
+        f"{title} {problem_title} removal access drain",
     ]
-    if problem_title:
-        search_queries.append(f"{problem_title} removal replacement procedure")
 
     chunks = []
     existing_ids: set[str] = set()
@@ -251,7 +251,6 @@ def get_node_children(node_id: str) -> list[dict]:
         child["_node_type"] = r.get("node_type", "")
         child["_condition"] = r.get("condition", "")
         child["_confidence"] = r.get("confidence", 0)
-        child["_display_order"] = r.get("display_order", 0)
         children.append(child)
     return children
 
@@ -448,24 +447,22 @@ def continue_session(state: SessionState, user_input: str, on_token=None, on_sta
                     chunks.append(sc)
                     existing_ids.add(sc["id"])
 
-        # 4. Proactive procedure search — if the conversation involves
-        #    physical work, search for removal/access procedures
+        # 4. Proactive procedure search — when user or assistant mentions
+        #    physical work, search specifically for removal/access procedures
         _status("Searching for procedures...")
-        procedure_context = ""
-        if current:
-            procedure_context = _search_procedure_context(current, title)
-        if not procedure_context and assistant_context:
-            # Build a pseudo-node from the assistant's last message so
-            # _search_procedure_context can extract component names
-            procedure_context = _search_procedure_context(
-                {"title": assistant_context[:200], "instruction": ""},
-                title,
-            )
+        combined_context = f"{user_input} {assistant_context}"
+        if _ACTION_RE.search(combined_context):
+            # Build focused removal query using problem description (has
+            # subsystem context like "Transmission") + end of assistant context
+            # (has component names like "solenoid S1") + assembly keywords
+            removal_q = f"{description} {assistant_context[-150:]} removal procedure disassembly valve body"
+            for rc in search_chunks(removal_q, limit=5):
+                if rc["id"] not in existing_ids:
+                    chunks.append(rc)
+                    existing_ids.add(rc["id"])
 
         _q = f"{user_input} {assistant_context} {title}"
         chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], _q) for c in chunks[:8]) if chunks else ""
-        if procedure_context:
-            chunk_context = chunk_context + "\n\n---\n\n" + procedure_context if chunk_context else procedure_context
 
         context_msg = f"[SERVICE MANUAL REFERENCE — not from user]:\n{chunk_context}\n\n" if chunk_context else ""
         response = _chat_or_stream(
@@ -572,25 +569,25 @@ def continue_session(state: SessionState, user_input: str, on_token=None, on_sta
         # No match found — search chunks for context and ask LLM to clarify
         _status("Searching chunks database...")
         search_context = _effective_search_query(user_input, state.messages)
-        chunks = search_chunks(search_context, limit=3)
-        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], f"{user_input} {search_context}") for c in chunks) if chunks else ""
+        chunks = search_chunks(search_context, limit=5)
+        existing_ids = {c["id"] for c in chunks}
 
-        # Also search for removal/access procedures from current context
+        # Also search for removal/access procedures if conversation involves physical work
         _status("Searching for procedures...")
-        procedure_context = _search_procedure_context(current, "") if current else ""
-        if not procedure_context:
-            assistant_tail = ""
-            for msg in reversed(state.messages):
-                if msg["role"] == "assistant":
-                    assistant_tail = msg["content"][-200:]
-                    break
-            if assistant_tail:
-                procedure_context = _search_procedure_context(
-                    {"title": assistant_tail, "instruction": ""}, "",
-                )
-        if procedure_context:
-            chunk_context = chunk_context + "\n\n---\n\n" + procedure_context if chunk_context else procedure_context
+        assistant_tail = ""
+        for msg in reversed(state.messages):
+            if msg["role"] == "assistant":
+                assistant_tail = msg["content"][-500:]
+                break
+        if _ACTION_RE.search(f"{user_input} {assistant_tail}"):
+            current_desc = current.get("description", "") if current else ""
+            removal_q = f"{current_desc} {assistant_tail[-150:]} removal procedure disassembly valve body"
+            for rc in search_chunks(removal_q, limit=5):
+                if rc["id"] not in existing_ids:
+                    chunks.append(rc)
+                    existing_ids.add(rc["id"])
 
+        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], f"{user_input} {search_context}") for c in chunks) if chunks else ""
         context_msg = f"[SERVICE MANUAL REFERENCE — not from user]:\n{chunk_context}\n\n" if chunk_context else ""
         response = _chat_or_stream(
             on_token,

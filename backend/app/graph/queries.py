@@ -20,8 +20,7 @@ RETURN p
 NODE_CHILDREN = """
 MATCH (n {id: $node_id})-[r:LEADS_TO]->(child)
 RETURN child, r.condition AS condition, r.confidence AS confidence,
-       coalesce(r.display_order, 0) AS display_order, labels(child)[0] AS node_type
-ORDER BY coalesce(r.display_order, 0)
+       labels(child)[0] AS node_type
 """
 
 # Get solution with its steps and parts
