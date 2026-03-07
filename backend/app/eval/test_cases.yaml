@@ -1,0 +1,151 @@
+# Eval test cases for the diagnostic chat system.
+#
+# Each test case defines:
+#   id:     unique identifier (used in CLI filtering and results)
+#   name:   human-readable description
+#   tags:   for filtering (e.g. --tag work_order)
+#   turns:  list of user messages sent in sequence
+#           (first goes to start_session, rest to continue_session)
+#   checks: list of pass/fail criteria applied to the FINAL response
+#
+# Check types:
+#   regex_present  — final response MUST match this pattern
+#   regex_absent   — final response must NOT match this pattern
+#   parts_present  — these OEM part numbers must appear in the response
+#   min_lines      — response must be at least N lines (catches empty/stub responses)
+#   llm_judge      — an LLM evaluates the response against freeform criteria
+#                    (costs tokens — use sparingly for things regex can't catch)
+
+- id: p2714_work_order_parts
+  name: "P2714 work order includes real part numbers and prices"
+  tags: [work_order, parts]
+  turns:
+    - "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+  checks:
+    - type: regex_absent
+      pattern: "OEM#?\\s*TBD|OEM Part #\\s*\\|\\s*TBD|\\|\\s*TBD\\s*\\|"
+      message: "Work order has TBD part numbers — parts catalog data was not used"
+    - type: parts_present
+      parts: ["3529034010"]
+      message: "Missing solenoid OEM part number 3529034010 ($293.23)"
+    - type: parts_present
+      parts: ["3516860010"]
+      message: "Missing oil pan gasket OEM part number 3516860010 ($35.58)"
+    - type: regex_present
+      pattern: "\\$293"
+      message: "Solenoid price $293.23 not shown — catalog data not used"
+    - type: regex_present
+      pattern: "\\$35\\.5"
+      message: "Oil pan gasket price $35.58 not shown"
+
+- id: p2714_work_order_atf
+  name: "P2714 work order includes ATF drain and refill"
+  tags: [work_order, fluids]
+  turns:
+    - "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+  checks:
+    - type: regex_present
+      pattern: "(?i)drain.*(?:atf|fluid|transmission)"
+      message: "Missing ATF drain step"
+    - type: regex_present
+      pattern: "(?i)(?:refill|fill|replenish).*(?:atf|fluid|transmission)"
+      message: "Missing ATF refill step — draining fluid requires refilling it"
+    - type: regex_present
+      pattern: "(?i)(?:ATF\\s*WS|Toyota\\s*Genuine|Dexron)"
+      message: "Missing ATF type specification"
+
+- id: p2714_work_order_gaskets
+  name: "P2714 work order includes gaskets and seals"
+  tags: [work_order, parts]
+  turns:
+    - "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+  checks:
+    - type: regex_present
+      pattern: "(?i)gasket"
+      message: "Work order missing gasket — oil pan removal always needs new gasket"
+    - type: regex_present
+      pattern: "(?i)o.?ring|strainer"
+      message: "Work order missing O-ring for oil strainer"
+    - type: regex_present
+      pattern: "(?i)filter|strainer"
+      message: "Work order missing transmission oil filter/strainer"
+
+- id: p2714_work_order_labor
+  name: "P2714 work order has detailed labor breakdown"
+  tags: [work_order, labor]
+  turns:
+    - "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+  checks:
+    - type: regex_present
+      pattern: "(?i)(?:raise|lift|hoist).*vehicle"
+      message: "Missing vehicle lift step — transmission work requires raised vehicle"
+    - type: regex_present
+      pattern: "(?i)(?:remove|drop).*(?:oil pan|pan)"
+      message: "Missing oil pan removal step"
+    - type: regex_present
+      pattern: "(?i)(?:remove|disconnect).*(?:harness|connector|wire)"
+      message: "Missing harness/connector disconnect step"
+    - type: llm_judge
+      criteria: "The work order breaks labor into at least 3 task groups with individual minute estimates for each subtask. Total labor is between 4-10 hours for a professional shop. Each task group header time equals the sum of its subtask times."
+      message: "Labor breakdown is missing detail or has unrealistic times"
+
+- id: p2714_work_order_format
+  name: "P2714 work order follows the required format"
+  tags: [work_order, format]
+  turns:
+    - "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+  checks:
+    - type: regex_present
+      pattern: "WORK ORDER"
+      message: "Missing WORK ORDER header"
+    - type: regex_present
+      pattern: "TASK BREAKDOWN"
+      message: "Missing TASK BREAKDOWN section"
+    - type: regex_present
+      pattern: "PARTS REQUIRED"
+      message: "Missing PARTS REQUIRED section"
+    - type: regex_present
+      pattern: "SUMMARY"
+      message: "Missing SUMMARY section"
+    - type: regex_present
+      pattern: "\\$[\\d,]+\\.\\d{2}"
+      message: "No dollar amounts found — prices missing"
+    - type: min_lines
+      count: 30
+      message: "Work order too short — expected detailed breakdown"
+
+- id: p2714_work_order_torque
+  name: "P2714 work order includes torque specs from manual"
+  tags: [work_order, specs]
+  turns:
+    - "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+  checks:
+    - type: regex_present
+      pattern: "(?i)N[·.]?m|ft[·.]?lb"
+      message: "No torque specifications found — manual has torque values that should be included"
+
+- id: p2714_work_order_atf_no_double_drain
+  name: "P2714 work order does not double-count ATF drain in refill-only line item"
+  tags: [work_order, fluids, labor]
+  turns:
+    - "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+  checks:
+    - type: llm_judge
+      criteria: "Count how many task groups contain a subtask that performs ATF draining (e.g. 'drain ATF', 'drain transmission fluid', 'drain fluid'). A task group that says 'drain' in its TITLE but whose subtasks are about vehicle access, pan removal, or disassembly counts as ONE drain occurrence — that is fine. FAIL only if draining appears as a subtask action in TWO OR MORE separate task groups (i.e. the same drain work is listed twice with separate labor time). If drain subtasks appear in exactly one task group, PASS. If there is no separate refill group at all (drain and refill combined), also PASS."
+      message: "Work order double-counts ATF drain — drain labor appears in multiple task groups"
+
+- id: p2714_diagnosis_basic
+  name: "P2714 diagnosis starts correctly"
+  tags: [diagnosis]
+  turns:
+    - "2017 Lexus GX460 throwing P2714, shift solenoid SLT performance issue"
+  checks:
+    - type: regex_present
+      pattern: "(?i)P2714|solenoid|SLT|shift"
+      message: "Response doesn't acknowledge the P2714 DTC"
+    - type: regex_absent
+      pattern: "(?i)I don.t have|no (relevant )?information|not in (my|the) (database|system)"
+      message: "System claims to have no info on P2714 — graph search failed"
+    - type: min_lines
+      count: 1
+      message: "Response too short for a diagnostic start"

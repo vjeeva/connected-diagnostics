@@ -1,0 +1,348 @@
+[
+  {
+    "timestamp": "2026-03-07T04:46:34.441570",
+    "cases_run": 1,
+    "passed": 0,
+    "failed": 1,
+    "errors": 0,
+    "duration_s": 31.6,
+    "filter": {
+      "case": "p2714_diagnosis_basic",
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_diagnosis_basic",
+        "messages": [
+          "Response too short for a diagnostic start"
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-07T04:48:10.844518",
+    "cases_run": 7,
+    "passed": 0,
+    "failed": 7,
+    "errors": 0,
+    "duration_s": 74.3,
+    "filter": {
+      "case": null,
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_work_order_parts",
+        "messages": [
+          "Missing solenoid OEM part number 3529034010 ($293.23)",
+          "Missing oil pan gasket OEM part number 3516860010 ($35.58)",
+          "Solenoid price $293.23 not shown \u2014 catalog data not used",
+          "Oil pan gasket price $35.58 not shown"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf",
+        "messages": [
+          "Missing ATF type specification"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_gaskets",
+        "messages": [
+          "Work order missing gasket \u2014 oil pan removal always needs new gasket",
+          "Work order missing O-ring for oil strainer",
+          "Work order missing transmission oil filter/strainer"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_labor",
+        "messages": [
+          "Missing vehicle lift step \u2014 transmission work requires raised vehicle",
+          "Missing oil pan removal step",
+          "Missing harness/connector disconnect step",
+          "Labor breakdown is missing detail or has unrealistic times"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_format",
+        "messages": [
+          "Missing TASK BREAKDOWN section",
+          "Missing PARTS REQUIRED section",
+          "Missing SUMMARY section",
+          "No dollar amounts found \u2014 prices missing",
+          "Work order too short \u2014 expected detailed breakdown"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_torque",
+        "messages": [
+          "No torque specifications found \u2014 manual has torque values that should be included"
+        ]
+      },
+      {
+        "test_id": "p2714_diagnosis_basic",
+        "messages": [
+          "Response too short for a diagnostic start"
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-07T04:56:00.134389",
+    "cases_run": 8,
+    "passed": 1,
+    "failed": 7,
+    "errors": 0,
+    "duration_s": 45.4,
+    "filter": {
+      "case": null,
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_work_order_parts",
+        "messages": [
+          "Missing solenoid OEM part number 3529034010 ($293.23)",
+          "Missing oil pan gasket OEM part number 3516860010 ($35.58)",
+          "Solenoid price $293.23 not shown \u2014 catalog data not used",
+          "Oil pan gasket price $35.58 not shown"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf",
+        "messages": [
+          "Missing ATF drain step",
+          "Missing ATF refill step \u2014 draining fluid requires refilling it",
+          "Missing ATF type specification"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_gaskets",
+        "messages": [
+          "Work order missing gasket \u2014 oil pan removal always needs new gasket",
+          "Work order missing O-ring for oil strainer",
+          "Work order missing transmission oil filter/strainer"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_labor",
+        "messages": [
+          "Missing vehicle lift step \u2014 transmission work requires raised vehicle",
+          "Missing oil pan removal step",
+          "Missing harness/connector disconnect step",
+          "Labor breakdown is missing detail or has unrealistic times"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_format",
+        "messages": [
+          "Missing TASK BREAKDOWN section",
+          "Missing PARTS REQUIRED section",
+          "Missing SUMMARY section",
+          "No dollar amounts found \u2014 prices missing",
+          "Work order too short \u2014 expected detailed breakdown"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_torque",
+        "messages": [
+          "No torque specifications found \u2014 manual has torque values that should be included"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf_no_double_drain",
+        "messages": [
+          "Work order double-counts ATF drain \u2014 a refill-only line item should not include drain steps or drain labor"
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-07T05:03:59.891763",
+    "cases_run": 8,
+    "passed": 1,
+    "failed": 7,
+    "errors": 0,
+    "duration_s": 45.2,
+    "filter": {
+      "case": null,
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_work_order_parts",
+        "messages": [
+          "Missing solenoid OEM part number 3529034010 ($293.23)",
+          "Missing oil pan gasket OEM part number 3516860010 ($35.58)",
+          "Solenoid price $293.23 not shown \u2014 catalog data not used",
+          "Oil pan gasket price $35.58 not shown"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf",
+        "messages": [
+          "Missing ATF drain step",
+          "Missing ATF refill step \u2014 draining fluid requires refilling it",
+          "Missing ATF type specification"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_gaskets",
+        "messages": [
+          "Work order missing gasket \u2014 oil pan removal always needs new gasket",
+          "Work order missing O-ring for oil strainer",
+          "Work order missing transmission oil filter/strainer"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_labor",
+        "messages": [
+          "Missing vehicle lift step \u2014 transmission work requires raised vehicle",
+          "Missing oil pan removal step",
+          "Missing harness/connector disconnect step",
+          "Labor breakdown is missing detail or has unrealistic times"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_format",
+        "messages": [
+          "Missing TASK BREAKDOWN section",
+          "Missing PARTS REQUIRED section",
+          "Missing SUMMARY section",
+          "No dollar amounts found \u2014 prices missing",
+          "Work order too short \u2014 expected detailed breakdown"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_torque",
+        "messages": [
+          "No torque specifications found \u2014 manual has torque values that should be included"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf_no_double_drain",
+        "messages": [
+          "Work order double-counts ATF drain \u2014 a refill-only line item should not include drain steps or drain labor"
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-07T05:14:39.673083",
+    "cases_run": 8,
+    "passed": 5,
+    "failed": 3,
+    "errors": 0,
+    "duration_s": 114.8,
+    "filter": {
+      "case": null,
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_work_order_parts",
+        "messages": [
+          "Work order has TBD part numbers \u2014 parts catalog data was not used"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_labor",
+        "messages": [
+          "Missing harness/connector disconnect step",
+          "Labor breakdown is missing detail or has unrealistic times"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf_no_double_drain",
+        "messages": [
+          "Work order double-counts ATF drain \u2014 a refill-only line item should not include drain steps or drain labor"
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-07T05:19:16.638730",
+    "cases_run": 8,
+    "passed": 5,
+    "failed": 3,
+    "errors": 0,
+    "duration_s": 126.3,
+    "filter": {
+      "case": null,
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_work_order_labor",
+        "messages": [
+          "Labor breakdown is missing detail or has unrealistic times"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_torque",
+        "messages": [
+          "No torque specifications found \u2014 manual has torque values that should be included"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf_no_double_drain",
+        "messages": [
+          "Work order double-counts ATF drain \u2014 a refill-only line item should not include drain steps or drain labor"
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-07T05:25:14.048676",
+    "cases_run": 8,
+    "passed": 5,
+    "failed": 3,
+    "errors": 0,
+    "duration_s": 152.2,
+    "filter": {
+      "case": null,
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_work_order_labor",
+        "messages": [
+          "Labor breakdown is missing detail or has unrealistic times"
+        ]
+      },
+      {
+        "test_id": "p2714_work_order_atf_no_double_drain",
+        "messages": [
+          "Work order double-counts ATF drain \u2014 a refill-only line item should not include drain steps or drain labor"
+        ]
+      },
+      {
+        "test_id": "p2714_diagnosis_basic",
+        "messages": [
+          "Response too short for a diagnostic start"
+        ]
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-07T05:34:34.209679",
+    "cases_run": 8,
+    "passed": 7,
+    "failed": 1,
+    "errors": 0,
+    "duration_s": 114.9,
+    "filter": {
+      "case": null,
+      "tag": null
+    },
+    "failures": [
+      {
+        "test_id": "p2714_work_order_labor",
+        "messages": [
+          "Missing harness/connector disconnect step",
+          "Labor breakdown is missing detail or has unrealistic times"
+        ]
+      }
+    ]
+  }
+]

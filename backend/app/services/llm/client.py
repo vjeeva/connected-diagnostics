@@ -142,9 +142,9 @@ def interpret(
     max_tokens: int = 256,
     temperature: float = 0.0,
 ) -> str:
-    """Send an interpret/classification request. Uses a smaller/faster model."""
+    """Send an interpret/classification request. Uses the light model by default."""
     provider = settings.interpret_provider or settings.chat_provider
-    mdl = model or settings.interpret_model or settings.chat_model
+    mdl = model or settings.interpret_model or settings.light_model
     return _call_with_retry(
         provider=provider,
         model=mdl,

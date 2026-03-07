@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+
 import click
 from rich.console import Console
 from rich.panel import Panel
@@ -12,9 +14,19 @@ from backend.app.services.diagnostic_engine import (
     continue_session,
     start_session,
 )
+from backend.app.services.contribution_service import submit_contribution
 from backend.app.services.estimate_service import format_estimate, generate_estimate
+from backend.app.services.shop_rules import save_rule
 
 console = Console()
+
+# Detect corrective feedback from the tech
+_CORRECTION_RE = re.compile(
+    r'\b(this is wrong|this isn.?t right|you forgot|you missed|always need|'
+    r'should (also|always|include)|missing .*(atf|fluid|gasket|part|step|drain)|'
+    r'never forget|that.?s not|incorrect|you need to add)\b',
+    re.IGNORECASE,
+)
 
 
 def print_welcome():
@@ -81,9 +93,52 @@ def print_path(state: SessionState):
     console.print(f"[dim]Path: {path_str}[/dim]")
 
 
+def _handle_correction(user_input: str, state: SessionState | None, user_id: str | None):
+    """When a tech corrects the output, save it and offer to edit the wording."""
+    console.print()
+    console.print("[yellow]Noted — saving that correction.[/yellow]")
+    edit_input = console.input("[bold yellow]Want to edit the wording? (enter to keep, or type new):[/bold yellow] ").strip()
+
+    rule_text = edit_input if edit_input else user_input
+
+    content = {
+        "rule_text": rule_text,
+        "category": "work_order",
+        "scope": "global",
+        "scope_value": None,
+        "source_session": state.session_id if state else None,
+    }
+
+    if user_id:
+        try:
+            result = submit_contribution(
+                user_id=user_id,
+                contribution_type="shop_rule",
+                target_node_id=None,
+                content=content,
+            )
+            if result["status"] == "published":
+                console.print(f"[green]Correction saved. Future outputs will follow this.[/green]")
+            else:
+                console.print(f"[yellow]Correction submitted for review. A trusted tech needs to approve it.[/yellow]")
+        except (PermissionError, ValueError) as e:
+            console.print(f"[red]{e}[/red]")
+    else:
+        rule_id = save_rule(
+            rule_text=rule_text,
+            category="work_order",
+            scope="global",
+            source_session=state.session_id if state else None,
+            status="pending_review",
+        )
+        console.print(f"[yellow]Correction submitted for review (ID: {rule_id[:8]}).[/yellow]")
+    console.print()
+
+
 @click.command()
 @click.option("--vehicle", default=None, help="Vehicle info (e.g. '2017 Lexus GX460')")
-def chat_cli(vehicle: str | None):
+@click.option("--user-id", default=None, help="Your user ID (enables contribution workflow)")
+def chat_cli(vehicle: str | None, user_id: str | None):
     """Start a diagnostic chat session."""
     print_welcome()
 
@@ -148,6 +203,10 @@ def chat_cli(vehicle: str | None):
                 else:
                     # Response already streamed to terminal
                     print_path(state)
+
+                # Detect corrective feedback and save it
+                if _CORRECTION_RE.search(user_input):
+                    _handle_correction(user_input, state, user_id)
 
         except KeyboardInterrupt:
             console.print("\n[dim]Session interrupted.[/dim]")

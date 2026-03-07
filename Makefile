@@ -181,6 +181,34 @@ qa-history:
 qa-compare:
 	$(PYTHON) -m backend.cli.qa compare --start-page 2400 --end-page 2500
 
+## scrape-parts: Scrape OEM parts catalog for the Lexus GX460
+scrape-parts:
+	$(PYTHON) -m backend.cli.scrape_parts --make Lexus --model GX-460 --year 2017 --year-start 2016 --year-end 2021
+
+## scrape-parts-dry: Preview parts scraping without storing
+scrape-parts-dry:
+	$(PYTHON) -m backend.cli.scrape_parts --make Lexus --model GX-460 --year 2017 --year-start 2016 --year-end 2021 --dry-run
+
+## scrape-parts-transmission: Scrape only transmission parts
+scrape-parts-transmission:
+	$(PYTHON) -m backend.cli.scrape_parts --make Lexus --model GX-460 --year 2017 --year-start 2016 --year-end 2021 --category Transmission-and-Driveline --with-details
+
+## eval: Run eval test suite
+eval:
+	$(PYTHON) -m backend.cli.eval run
+
+## eval-verbose: Run eval with full output on failures
+eval-verbose:
+	$(PYTHON) -m backend.cli.eval run -v
+
+## eval-history: Show eval run history
+eval-history:
+	$(PYTHON) -m backend.cli.eval history
+
+## eval-compare: Compare last two eval runs
+eval-compare:
+	$(PYTHON) -m backend.cli.eval compare
+
 ## chat: Start diagnostic chat
 chat:
 	$(PYTHON) -m backend.cli.chat --vehicle "2017 Lexus GX460"

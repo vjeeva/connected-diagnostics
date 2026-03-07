@@ -90,7 +90,7 @@ def update_reputation(user_id: str, delta: int) -> int:
 # Contribution creation
 # ---------------------------------------------------------------------------
 
-VALID_CONTRIBUTION_TYPES = {"new_node", "alternative", "annotation", "attachment", "cost_update"}
+VALID_CONTRIBUTION_TYPES = {"new_node", "alternative", "annotation", "attachment", "cost_update", "shop_rule"}
 
 
 def submit_contribution(
@@ -128,8 +128,8 @@ def submit_contribution(
         if trust_level in ("expert", "admin"):
             status = "published"
         elif trust_level == "trusted":
-            # Annotations and cost updates publish directly for trusted
-            if contribution_type in ("annotation", "cost_update", "attachment"):
+            # Annotations, cost updates, and shop rules publish directly for trusted
+            if contribution_type in ("annotation", "cost_update", "attachment", "shop_rule"):
                 status = "published"
             else:
                 status = "pending_review"
@@ -197,6 +197,8 @@ def _apply_contribution(
         return _apply_new_node(target_node_id, content, user)
     elif contribution_type == "cost_update":
         return _apply_cost_update(target_node_id, content, user)
+    elif contribution_type == "shop_rule":
+        return _apply_shop_rule(content, user)
     return None
 
 
@@ -309,6 +311,20 @@ def _apply_cost_update(target_node_id: str, content: dict, user: dict) -> None:
                 f"MATCH (n {{id: $node_id}}) SET {set_clause}",
                 {"node_id": target_node_id, **updates},
             )
+    return None
+
+
+def _apply_shop_rule(content: dict, user: dict) -> None:
+    """Write a shop rule to the shop_rules table as active."""
+    from backend.app.services.shop_rules import save_rule
+    save_rule(
+        rule_text=content.get("rule_text", ""),
+        category=content.get("category", "work_order"),
+        scope=content.get("scope", "global"),
+        scope_value=content.get("scope_value"),
+        contributed_by=user["display_name"],
+        source_session=content.get("source_session"),
+    )
     return None
 
 

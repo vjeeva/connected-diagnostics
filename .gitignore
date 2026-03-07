@@ -8,3 +8,4 @@ build/
 .mypy_cache/
 *.log
 ingest_logs/
+cookies.json

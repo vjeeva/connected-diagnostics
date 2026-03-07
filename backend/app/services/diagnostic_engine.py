@@ -8,6 +8,7 @@ import uuid
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 
+from backend.app.core.config import settings
 from backend.app.db.neo4j_client import run_query
 from backend.app.graph import queries
 from backend.app.services.llm.client import chat, chat_stream, interpret
@@ -16,7 +17,9 @@ from backend.app.services.llm.prompts import (
     INTERPRET_SYSTEM,
     VEHICLE_EXTRACT_SYSTEM,
 )
+from backend.app.services.parts_catalog import get_parts_for_work_order
 from backend.app.services.search_service import search_chunks, search_chunks_keyword
+from backend.app.services.shop_rules import get_rules_for_prompt
 
 
 def _extract_relevant_window(chunk_text: str, query: str, window: int = 6000) -> str:
@@ -80,8 +83,10 @@ _AFFIRMATIVES = frozenset({
 })
 
 
-def _chat_or_stream(on_token, **kwargs) -> str:
+def _chat_or_stream(on_token, model: str | None = None, **kwargs) -> str:
     """Call chat() or chat_stream() depending on whether a streaming callback is set."""
+    if model:
+        kwargs["model"] = model
     if on_token:
         parts = []
         for chunk in chat_stream(**kwargs):
@@ -95,6 +100,54 @@ _ACTION_RE = re.compile(
     r'\b(remov|replac|disassembl|disconnect|drain|unbolt|detach|'
     r'install|reassembl|measur|inspect|access)\w*\b', re.IGNORECASE
 )
+
+_WORK_ORDER_RE = re.compile(
+    r'\b(work\s*order|estimate|quote|invoice|parts\s*list|cost|price|how\s*much)\b',
+    re.IGNORECASE,
+)
+
+_WO_DIRECTIVE = (
+    "\n\n[SYSTEM DIRECTIVE: Generate the COMPLETE work order NOW using the WORK ORDER "
+    "FORMAT from your instructions. Do NOT ask for confirmation or clarification. "
+    "Include ALL sections: TASK BREAKDOWN, PARTS REQUIRED, and SUMMARY. "
+    "CRITICAL REQUIREMENTS: "
+    "1) Every subtask bullet MUST end with (XX min) time estimate. "
+    "2) MATH CHECK: Add up all subtask minutes in each task group. Convert to hours. "
+    "The task group header MUST show that exact sum. Example: if subtasks are 15+15+20+10=60 min, "
+    "header must say 1.0 hrs. Do the arithmetic for EVERY group. "
+    "3) Only list parts with real OEM part numbers from the PARTS CATALOG DATA — NEVER use TBD. "
+    "4) ATF drain goes in the access/disassembly task group ONLY. The ATF Refill task group "
+    "must contain ONLY refill/fill steps — never mention draining in that group. "
+    "5) Include explicit subtasks for: raise vehicle on lift, disconnect harness/connectors, "
+    "remove oil pan, drain ATF. "
+    "6) Include ACTUAL torque values with units (e.g. '7.0 N·m', '10 N·m', '21 N·m') "
+    "from the service manual context for every reassembly step. Do NOT say 'per manual specs' — "
+    "write the actual number and unit. "
+    "Start output with 'WORK ORDER —'.]"
+)
+
+# Common automotive component terms to extract from conversation context
+_COMPONENT_RE = re.compile(
+    r'\b(?:shift\s+)?solenoid\s+(?:valve\s+)?[A-Z0-9]+\b'
+    r'|\b(?:valve\s+body|oil\s+pan|oil\s+strainer|gasket|o-ring|'
+    r'transmission\s+fluid|atf|sensor|filter|seal|bearing|clutch|'
+    r'torque\s+converter|cooler|hose|connector|wire\s+harness)\b',
+    re.IGNORECASE,
+)
+
+
+def _extract_component_names(text: str) -> list[str]:
+    """Extract component names from conversation context for parts catalog lookup."""
+    matches = _COMPONENT_RE.findall(text)
+    # Deduplicate while preserving order, normalize to title case
+    seen = set()
+    names = []
+    for m in matches:
+        key = m.strip().upper()
+        if key not in seen and len(key) > 2:
+            seen.add(key)
+            names.append(m.strip())
+    return names
 
 
 def _search_procedure_context(node: dict, problem_title: str = "") -> str:
@@ -290,13 +343,50 @@ def start_session(user_input: str, on_token=None, on_status=None) -> tuple[Sessi
         # No graph matches — use search context for LLM response
         _status("Searching chunks database...")
         chunks = search_chunks(problem_desc, limit=5)
+
+        # Work orders need extra searches for procedures, torque, parts
+        if _WORK_ORDER_RE.search(user_input):
+            existing_ids = {c["id"] for c in chunks}
+            wo_queries = [
+                f"{problem_desc} removal installation procedure steps",
+                f"{problem_desc} torque specification fluid capacity ATF",
+                f"{problem_desc} parts required OEM part number",
+            ]
+            with ThreadPoolExecutor(max_workers=len(wo_queries)) as pool:
+                futures = [pool.submit(search_chunks, q, None, 3) for q in wo_queries]
+                for f in as_completed(futures):
+                    for rc in f.result():
+                        if rc["id"] not in existing_ids:
+                            chunks.append(rc)
+                            existing_ids.add(rc["id"])
+
         context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], problem_desc) for c in chunks) if chunks else "No relevant information found."
 
+        context_msg = f"[SERVICE MANUAL REFERENCE — not from user]:\n{context}\n\n"
+
+        # Parts lookup for work orders
+        if _WORK_ORDER_RE.search(user_input):
+            _status("Looking up parts catalog...")
+            component_names = _extract_component_names(f"{problem_desc} {user_input}")
+            vehicle = state.vehicle_info
+            parts_context = get_parts_for_work_order(
+                component_names,
+                make=vehicle.get("make", ""),
+                model=vehicle.get("model", ""),
+                year=vehicle.get("year"),
+            )
+            if parts_context:
+                context_msg += f"{parts_context}\n\n"
+
+        tech_rules = get_rules_for_prompt()
+        if tech_rules:
+            context_msg += f"{tech_rules}\n\n"
         response = _chat_or_stream(
             on_token,
+            model=settings.chat_model,  # strong: no graph match, open-ended reasoning
             system=DIAGNOSTIC_SYSTEM,
             messages=[
-                {"role": "user", "content": f"[SERVICE MANUAL REFERENCE — not from user]:\n{context}\n\nUser's problem: {user_input}"}
+                {"role": "user", "content": f"{context_msg}User's problem: {user_input}{_WO_DIRECTIVE if _WORK_ORDER_RE.search(user_input) else ''}"}
             ],
         )
         state.messages.append({"role": "user", "content": user_input})
@@ -351,8 +441,24 @@ def start_session(user_input: str, on_token=None, on_status=None) -> tuple[Sessi
             if rc["id"] not in existing_ids:
                 chunks.append(rc)
 
+        # 4. Work order — also search for parts, torque specs, fluid capacity
+        if _WORK_ORDER_RE.search(user_input):
+            wo_queries = [
+                f"{prob_desc} {prob_title} parts required OEM part number",
+                f"{prob_desc} {prob_title} torque specification fluid capacity ATF",
+                f"{prob_desc} {prob_title} removal installation procedure steps",
+            ]
+            existing_ids = {c["id"] for c in chunks}
+            with ThreadPoolExecutor(max_workers=len(wo_queries)) as pool:
+                futures = [pool.submit(search_chunks, q, None, 3) for q in wo_queries]
+                for f in as_completed(futures):
+                    for rc in f.result():
+                        if rc["id"] not in existing_ids:
+                            chunks.append(rc)
+                            existing_ids.add(rc["id"])
+
         _q = f"{prob_desc} {prob_title}"
-        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], _q) for c in chunks[:8]) if chunks else ""
+        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], _q) for c in chunks[:10]) if chunks else ""
 
     context = (
         f"Problem identified: {problem.get('title', '')}\n"
@@ -362,11 +468,65 @@ def start_session(user_input: str, on_token=None, on_status=None) -> tuple[Sessi
     if chunk_context:
         context += f"\n\nDetailed procedure from service manual:\n{chunk_context}"
 
+    # Work orders need chunk context even when graph children exist —
+    # graph nodes only have titles, but work orders need procedures, torque specs, parts
+    if _WORK_ORDER_RE.search(user_input):
+        _status("Searching for procedures and specifications...")
+        prob_title = problem.get('title', '')
+        prob_desc = problem.get('description', '')
+        wo_chunks: list[dict] = []
+        wo_existing_ids: set[str] = set()
+        wo_queries = [
+            f"{prob_desc} {prob_title} removal installation procedure steps",
+            f"{prob_desc} {prob_title} torque specification fluid capacity ATF",
+            f"{prob_desc} {prob_title} parts required OEM part number",
+        ]
+        with ThreadPoolExecutor(max_workers=len(wo_queries)) as pool:
+            futures = [pool.submit(search_chunks, q, None, 3) for q in wo_queries]
+            for f in as_completed(futures):
+                for rc in f.result():
+                    if rc["id"] not in wo_existing_ids:
+                        wo_chunks.append(rc)
+                        wo_existing_ids.add(rc["id"])
+        if wo_chunks:
+            _q = f"{prob_desc} {prob_title} removal torque parts"
+            wo_context = "\n\n---\n\n".join(
+                _extract_relevant_window(c["chunk_text"], _q)
+                for c in wo_chunks[:8]
+            )
+            context += f"\n\nDetailed procedure from service manual:\n{wo_context}"
+
+    # Inject technician corrections
+    tech_rules = get_rules_for_prompt()
+    if tech_rules:
+        context += f"\n\n{tech_rules}"
+
+    # Use strong model for work orders, light for graph traversal
+    is_wo = _WORK_ORDER_RE.search(user_input)
+    use_model = settings.chat_model if is_wo else settings.light_model
+
+    # Parts lookup for work orders
+    if is_wo:
+        _status("Looking up parts catalog...")
+        prob_title = problem.get("title", "")
+        prob_desc = problem.get("description", "")
+        component_names = _extract_component_names(f"{prob_title} {prob_desc} {user_input}")
+        vehicle = state.vehicle_info
+        parts_data = get_parts_for_work_order(
+            component_names,
+            make=vehicle.get("make", ""),
+            model=vehicle.get("model", ""),
+            year=vehicle.get("year"),
+        )
+        if parts_data:
+            context += f"\n\n{parts_data}"
+
     response = _chat_or_stream(
         on_token,
+        model=use_model,
         system=DIAGNOSTIC_SYSTEM,
         messages=[
-            {"role": "user", "content": f"[SERVICE MANUAL REFERENCE — not from user]:\n{context}\n\nUser said: {user_input}"},
+            {"role": "user", "content": f"[SERVICE MANUAL REFERENCE — not from user]:\n{context}\n\nUser said: {user_input}{_WO_DIRECTIVE if is_wo else ''}"},
         ],
     )
 
@@ -461,14 +621,50 @@ def continue_session(state: SessionState, user_input: str, on_token=None, on_sta
                     chunks.append(rc)
                     existing_ids.add(rc["id"])
 
+        # 5. Work order / estimate request — search aggressively for parts,
+        #    removal procedures, torque specs, and fluid capacities
+        parts_context = ""
+        if _WORK_ORDER_RE.search(f"{user_input} {assistant_context}"):
+            _status("Gathering parts and procedures for work order...")
+            wo_queries = [
+                f"{description} {title} parts required OEM part number",
+                f"{description} {title} torque specification fluid capacity",
+                f"{description} {title} removal installation procedure steps",
+            ]
+            with ThreadPoolExecutor(max_workers=len(wo_queries)) as pool:
+                futures = [pool.submit(search_chunks, q, None, 3) for q in wo_queries]
+                for f in as_completed(futures):
+                    for rc in f.result():
+                        if rc["id"] not in existing_ids:
+                            chunks.append(rc)
+                            existing_ids.add(rc["id"])
+
+            # Look up OEM part numbers and prices from the local parts catalog
+            _status("Looking up parts catalog...")
+            component_names = _extract_component_names(f"{title} {description} {assistant_context}")
+            vehicle = state.vehicle_info
+            parts_context = get_parts_for_work_order(
+                component_names,
+                make=vehicle.get("make", ""),
+                model=vehicle.get("model", ""),
+                year=vehicle.get("year"),
+            )
+
         _q = f"{user_input} {assistant_context} {title}"
-        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], _q) for c in chunks[:8]) if chunks else ""
+        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], _q) for c in chunks[:10]) if chunks else ""
 
         context_msg = f"[SERVICE MANUAL REFERENCE — not from user]:\n{chunk_context}\n\n" if chunk_context else ""
+        if parts_context:
+            context_msg += f"{parts_context}\n\n"
+        # Inject technician corrections
+        tech_rules = get_rules_for_prompt()
+        if tech_rules:
+            context_msg += f"{tech_rules}\n\n"
         response = _chat_or_stream(
             on_token,
+            model=settings.chat_model,  # strong: dead-end, open-ended reasoning
             system=DIAGNOSTIC_SYSTEM,
-            messages=state.messages + [{"role": "user", "content": f"{context_msg}User said: {user_input}"}],
+            messages=state.messages + [{"role": "user", "content": f"{context_msg}User said: {user_input}{_WO_DIRECTIVE if _WORK_ORDER_RE.search(user_input) else ''}"}],
         )
         state.messages.append({"role": "user", "content": user_input})
         state.messages.append({"role": "assistant", "content": response})
@@ -558,19 +754,89 @@ def continue_session(state: SessionState, user_input: str, on_token=None, on_sta
         if procedure_context:
             context += f"\n\nComponent access/removal procedure from service manual:\n{procedure_context}"
 
+        # Work order search — gather parts, specs, procedures
+        if _WORK_ORDER_RE.search(user_input):
+            _status("Gathering parts and procedures for work order...")
+            node_title = matched_node.get("title", "")
+            wo_queries = [
+                f"{prob_title} {node_title} parts required OEM part number",
+                f"{prob_title} {node_title} torque specification fluid capacity",
+                f"{prob_title} {node_title} removal installation procedure steps",
+            ]
+            wo_chunks = []
+            with ThreadPoolExecutor(max_workers=len(wo_queries)) as pool:
+                futures = [pool.submit(search_chunks, q, None, 3) for q in wo_queries]
+                for f in as_completed(futures):
+                    wo_chunks.extend(f.result())
+            if wo_chunks:
+                wo_context = "\n\n---\n\n".join(
+                    _extract_relevant_window(c["chunk_text"], f"{prob_title} {node_title} parts torque")
+                    for c in wo_chunks[:6]
+                )
+                context += f"\n\nParts and specifications from service manual:\n{wo_context}"
+
+            # Look up OEM part numbers from local parts catalog
+            _status("Looking up parts catalog...")
+            component_names = _extract_component_names(f"{prob_title} {node_title} {procedure_context}")
+            vehicle = state.vehicle_info
+            parts_data = get_parts_for_work_order(
+                component_names,
+                make=vehicle.get("make", ""),
+                model=vehicle.get("model", ""),
+                year=vehicle.get("year"),
+            )
+            if parts_data:
+                context += f"\n\n{parts_data}"
+
+        # Inject technician corrections
+        tech_rules = get_rules_for_prompt()
+        if tech_rules:
+            context += f"\n\n{tech_rules}"
+
+        # Strong model for work orders (need reasoning), light for graph traversal
+        use_model = settings.chat_model if _WORK_ORDER_RE.search(user_input) else settings.light_model
         response = _chat_or_stream(
             on_token,
+            model=use_model,
             system=DIAGNOSTIC_SYSTEM,
             messages=[
-                {"role": "user", "content": f"[SERVICE MANUAL REFERENCE — not from user]:\n{context}\n\nUser said: {user_input}"}
+                {"role": "user", "content": f"[SERVICE MANUAL REFERENCE — not from user]:\n{context}\n\nUser said: {user_input}{_WO_DIRECTIVE if _WORK_ORDER_RE.search(user_input) else ''}"}
             ],
         )
     else:
-        # No match found — search chunks for context and ask LLM to clarify
+        # No match found — user may have redirected, disagreed, or asked
+        # something outside the graph tree. Search based on their actual
+        # intent, not just the current node.
         _status("Searching chunks database...")
+
+        # Use the problem context + user's actual words for search
+        prob_node = get_node(state.problem_neo4j_id) if state.problem_neo4j_id else None
+        prob_title = prob_node.get("title", "") if prob_node else ""
+        prob_desc = prob_node.get("description", "") if prob_node else ""
+
         search_context = _effective_search_query(user_input, state.messages)
-        chunks = search_chunks(search_context, limit=5)
-        existing_ids = {c["id"] for c in chunks}
+        search_qs = [
+            search_context,
+            f"{prob_title} {user_input}",
+            f"{prob_desc} {user_input}",
+        ]
+        chunks = []
+        existing_ids: set[str] = set()
+        with ThreadPoolExecutor(max_workers=len(search_qs)) as pool:
+            futures = [pool.submit(search_chunks, q, None, 3) for q in search_qs]
+            for f in as_completed(futures):
+                for rc in f.result():
+                    if rc["id"] not in existing_ids:
+                        chunks.append(rc)
+                        existing_ids.add(rc["id"])
+
+        # Also keyword search for DTC codes from the problem
+        dtc_codes = re.findall(r'[PBCUp]\d{4}', prob_title)
+        for code in dtc_codes:
+            for kc in search_chunks_keyword(code, limit=2):
+                if kc["id"] not in existing_ids:
+                    chunks.append(kc)
+                    existing_ids.add(kc["id"])
 
         # Also search for removal/access procedures if conversation involves physical work
         _status("Searching for procedures...")
@@ -587,12 +853,47 @@ def continue_session(state: SessionState, user_input: str, on_token=None, on_sta
                     chunks.append(rc)
                     existing_ids.add(rc["id"])
 
-        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], f"{user_input} {search_context}") for c in chunks) if chunks else ""
+        # Work order search — gather parts, specs, procedures
+        parts_context = ""
+        if _WORK_ORDER_RE.search(f"{user_input} {assistant_tail}"):
+            _status("Gathering parts and procedures for work order...")
+            wo_queries = [
+                f"{prob_desc} {prob_title} parts required OEM part number",
+                f"{prob_desc} {prob_title} torque specification fluid capacity",
+                f"{prob_desc} {prob_title} removal installation procedure steps",
+            ]
+            with ThreadPoolExecutor(max_workers=len(wo_queries)) as pool:
+                futures = [pool.submit(search_chunks, q, None, 3) for q in wo_queries]
+                for f in as_completed(futures):
+                    for rc in f.result():
+                        if rc["id"] not in existing_ids:
+                            chunks.append(rc)
+                            existing_ids.add(rc["id"])
+
+            # Look up OEM part numbers from local parts catalog
+            _status("Looking up parts catalog...")
+            component_names = _extract_component_names(f"{prob_title} {prob_desc} {assistant_tail}")
+            vehicle = state.vehicle_info
+            parts_context = get_parts_for_work_order(
+                component_names,
+                make=vehicle.get("make", ""),
+                model=vehicle.get("model", ""),
+                year=vehicle.get("year"),
+            )
+
+        chunk_context = "\n\n---\n\n".join(_extract_relevant_window(c["chunk_text"], f"{user_input} {search_context}") for c in chunks[:10]) if chunks else ""
         context_msg = f"[SERVICE MANUAL REFERENCE — not from user]:\n{chunk_context}\n\n" if chunk_context else ""
+        if parts_context:
+            context_msg += f"{parts_context}\n\n"
+        # Inject technician corrections
+        tech_rules = get_rules_for_prompt()
+        if tech_rules:
+            context_msg += f"{tech_rules}\n\n"
         response = _chat_or_stream(
             on_token,
+            model=settings.chat_model,  # strong: no match, user redirected, open-ended
             system=DIAGNOSTIC_SYSTEM,
-            messages=state.messages + [{"role": "user", "content": f"{context_msg}User said: {user_input}"}],
+            messages=state.messages + [{"role": "user", "content": f"{context_msg}User said: {user_input}{_WO_DIRECTIVE if _WORK_ORDER_RE.search(user_input) else ''}"}],
         )
 
     state.messages.append({"role": "user", "content": user_input})

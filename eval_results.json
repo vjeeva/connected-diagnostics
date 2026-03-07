@@ -1,0 +1,290 @@
+[
+  {
+    "test_id": "p2714_work_order_parts",
+    "name": "P2714 work order includes real part numbers and prices",
+    "status": "PASS",
+    "turns": [
+      "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+    ],
+    "final_output": "WORK ORDER \u2014 2017 GX460 \u2014 P2714 Shift Solenoid Stuck Off\n====================================================\n\nTASK BREAKDOWN\n--------------\n\n1. Transmission Access & Preparation \u2014 1.0 hrs\n   \u2022 Raise vehicle on lift (15 min)\n   \u2022 Remove underbody shields/covers to access transmission area (10 min)\n   \u2022 Drain ATF from transmission (15 min)\n   \u2022 Remove transmission oil pan to access valve body (20 min)\n\n2. Shift Solenoid S2 Removal & Bench Testing \u2014 0.7 hrs\n   \u2022 Remove shift solenoid valve S2 from valve body (15 min)\n   \u2022 Measure S2 resistance (5 min)\n   \u2022 Apply 12 V to S2 and verify it moves and makes an operating noise (5 min)\n   \u2022 If defective, replace shift solenoid valve S2 (15 min)\n\n3. Valve Body Access, Reassembly & S2 Reinstallation \u2014 0.9 hrs\n   \u2022 Reinstall shift solenoid valve S2 into valve body (15 min)\n   \u2022 Reinstall valve body assembly with associated gaskets/seals (20 min)\n   \u2022 Reinstall transmission oil pan sub-assembly with new gasket and bolts (20 min)\n\n4. ATF Refill \u2014 1.0 hrs\n   \u2022 Refill ATF WS to proper level using overflow-fill method (20 min)\n   \u2022 Confirm fluid level and top off as needed (15 min)\n   \u2022 Check for leaks and secure lines/hoses (10 min)\n   \u2022 Verify ATF temperature/flow condition and finalize fill (15 min)\n\n5. Final System Check & Test Drive \u2014 0.5 hrs\n   \u2022 Start engine, cycle through gears, and verify shift pattern in D/S positions (10 min)\n   \u2022 Road test to confirm normal operation and absence of slipping/harsh shifts (15 min)\n   \u2022 Clear codes (if any) and confirm no MIL illumination (5 min)\n   \u2022 Post-test data check and final documentation (5 min)\n\nPARTS REQUIRED\n--------------\n  Part Description          | OEM Part #     | Qty | Unit Price  | Total\n  \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n  Automatic Transmission Control Solenoid (Shift Solenoid S2) | 3529034010 | 1 | $293.23 | $293.23\n  Gasket, Automatic Transmission Oil Pan | 3516860010 | 1 | $35.58  | $35.58\n  Ring, O For Oil Strainer | 9030131014 | 1 | $4.81   | $4.81\n  Transmission Oil Filter | 3533060070 | 1 | $67.51  | $67.51\n  (Notes: ATF WS is required for refill but is not listed in catalog data here. If you supply ATF WS separately, add it as a separate line item with the OEM spec and price.)\n\nSUMMARY\n-------\n Labour:\n   Transmission Access & Preparation      1.0 hrs\n   Shift Solenoid S2 Removal & Bench Test  0.7 hrs\n   Valve Body Access & Reassembly          0.9 hrs\n   ATF Refill                               1.0 hrs\n   Final Check & Test Drive                 0.5 hrs\n   \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   Total Labour                          4.1 hrs \u00d7 $100.00/hr = $410.00\n\n Parts:\n   Automatic Transmission Control Solenoid    $293.23\n   Oil Pan Gasket                               $35.58\n   Oil Strainer O-Ring                           $4.81\n   Transmission Oil Filter                        $67.51\n   Subtotal                                      $401.13\n\n  Subtotal                                              $811.13\n  Tax (13%)                                             $105.45\n  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  TOTAL                                                 $916.58\n\nNotes and assumptions:\n- This work order targets addressing a suspected S2 solenoid fault contributing to a P2714-like condition by replacing the shift solenoid S2 and reseating the valve body as needed per service procedures.\n- ATF drain is performed in the Access & Preparation group; ATF refill is a separate group per guidelines.\n- Torque figures explicitly used from service manual context where applicable:\n  \u2022 Oil Pan bolts: install with 7.0 N\u00b7m torque (per oil pan reinstallation guidance)\n  \u2022 Transmission wire connector bolt: 5.4 N\u00b7m (for securing the transmission wire harness)\n  \u2022 Any other bolts referenced in these steps should be torqued to their respective values per the manual when reassembling the related components.\n\nIf you\u2019d like, I can adjust the work order for a different labor rate, tax rate, or include additional items (e.g., wheel alignment, battery/systems checks, or a formal DTC clear report).",
+    "checks": [
+      {
+        "check_type": "regex_absent",
+        "passed": true,
+        "message": "Work order has TBD part numbers \u2014 parts catalog data was not used",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "parts_present",
+        "passed": true,
+        "message": "Missing solenoid OEM part number 3529034010 ($293.23)",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "parts_present",
+        "passed": true,
+        "message": "Missing oil pan gasket OEM part number 3516860010 ($35.58)",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Solenoid price $293.23 not shown \u2014 catalog data not used",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Oil pan gasket price $35.58 not shown",
+        "evidence": "",
+        "fix_hint": ""
+      }
+    ],
+    "error": "",
+    "duration_s": 98.62259531021118
+  },
+  {
+    "test_id": "p2714_work_order_atf",
+    "name": "P2714 work order includes ATF drain and refill",
+    "status": "PASS",
+    "turns": [
+      "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+    ],
+    "final_output": "WORK ORDER \u2014 2017 GX460 \u2014 P2714 Shift Solenoid Stuck Off\n====================================================\n\nTASK BREAKDOWN\n--------------\n\n1. Transmission Access & Preparation \u2014 1.0 hrs\n   \u2022 Raise vehicle on lift (15 min)\n   \u2022 Remove underbody shields/covers to access transmission area (10 min)\n   \u2022 Drain ATF from transmission (15 min)\n   \u2022 Remove transmission oil pan to access valve body (20 min)\n\n2. Shift Solenoid S2 Removal & Bench Testing \u2014 0.7 hrs\n   \u2022 Remove shift solenoid valve S2 from valve body (15 min)\n   \u2022 Measure S2 resistance (5 min)\n   \u2022 Apply 12 V to S2 and verify it moves and makes an operating noise (5 min)\n   \u2022 If defective, replace shift solenoid valve S2 (15 min)\n\n3. Valve Body Access, Reassembly & S2 Reinstallation \u2014 0.9 hrs\n   \u2022 Reinstall shift solenoid valve S2 into valve body (15 min)\n   \u2022 Reinstall valve body assembly with associated gaskets/seals (20 min)\n   \u2022 Reinstall transmission oil pan sub-assembly with new gasket and bolts (20 min)\n\n4. ATF Refill \u2014 1.0 hrs\n   \u2022 Refill ATF WS to proper level using overflow-fill method (20 min)\n   \u2022 Confirm fluid level and top off as needed (15 min)\n   \u2022 Check for leaks and secure lines/hoses (10 min)\n   \u2022 Verify ATF temperature/flow condition and finalize fill (15 min)\n\n5. Final System Check & Test Drive \u2014 0.5 hrs\n   \u2022 Start engine, cycle through gears, and verify shift pattern in D/S positions (10 min)\n   \u2022 Road test to confirm normal operation and absence of slipping/harsh shifts (15 min)\n   \u2022 Clear codes (if any) and confirm no MIL illumination (5 min)\n   \u2022 Post-test data check and final documentation (5 min)\n\nPARTS REQUIRED\n--------------\n  Part Description          | OEM Part #     | Qty | Unit Price  | Total\n  \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n  Automatic Transmission Control Solenoid (Shift Solenoid S2) | 3529034010 | 1 | $293.23 | $293.23\n  Gasket, Automatic Transmission Oil Pan | 3516860010 | 1 | $35.58  | $35.58\n  Ring, O For Oil Strainer | 9030131014 | 1 | $4.81   | $4.81\n  Transmission Oil Filter | 3533060070 | 1 | $67.51  | $67.51\n  (Notes: ATF WS is required for refill but is not listed in catalog data here. If you supply ATF WS separately, add it as a separate line item with the OEM spec and price.)\n\nSUMMARY\n-------\n Labour:\n   Transmission Access & Preparation      1.0 hrs\n   Shift Solenoid S2 Removal & Bench Test  0.7 hrs\n   Valve Body Access & Reassembly          0.9 hrs\n   ATF Refill                               1.0 hrs\n   Final Check & Test Drive                 0.5 hrs\n   \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   Total Labour                          4.1 hrs \u00d7 $100.00/hr = $410.00\n\n Parts:\n   Automatic Transmission Control Solenoid    $293.23\n   Oil Pan Gasket                               $35.58\n   Oil Strainer O-Ring                           $4.81\n   Transmission Oil Filter                        $67.51\n   Subtotal                                      $401.13\n\n  Subtotal                                              $811.13\n  Tax (13%)                                             $105.45\n  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  TOTAL                                                 $916.58\n\nNotes and assumptions:\n- This work order targets addressing a suspected S2 solenoid fault contributing to a P2714-like condition by replacing the shift solenoid S2 and reseating the valve body as needed per service procedures.\n- ATF drain is performed in the Access & Preparation group; ATF refill is a separate group per guidelines.\n- Torque figures explicitly used from service manual context where applicable:\n  \u2022 Oil Pan bolts: install with 7.0 N\u00b7m torque (per oil pan reinstallation guidance)\n  \u2022 Transmission wire connector bolt: 5.4 N\u00b7m (for securing the transmission wire harness)\n  \u2022 Any other bolts referenced in these steps should be torqued to their respective values per the manual when reassembling the related components.\n\nIf you\u2019d like, I can adjust the work order for a different labor rate, tax rate, or include additional items (e.g., wheel alignment, battery/systems checks, or a formal DTC clear report).",
+    "checks": [
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing ATF drain step",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing ATF refill step \u2014 draining fluid requires refilling it",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing ATF type specification",
+        "evidence": "",
+        "fix_hint": ""
+      }
+    ],
+    "error": "",
+    "duration_s": 98.62259531021118
+  },
+  {
+    "test_id": "p2714_work_order_gaskets",
+    "name": "P2714 work order includes gaskets and seals",
+    "status": "PASS",
+    "turns": [
+      "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+    ],
+    "final_output": "WORK ORDER \u2014 2017 GX460 \u2014 P2714 Shift Solenoid Stuck Off\n====================================================\n\nTASK BREAKDOWN\n--------------\n\n1. Transmission Access & Preparation \u2014 1.0 hrs\n   \u2022 Raise vehicle on lift (15 min)\n   \u2022 Remove underbody shields/covers to access transmission area (10 min)\n   \u2022 Drain ATF from transmission (15 min)\n   \u2022 Remove transmission oil pan to access valve body (20 min)\n\n2. Shift Solenoid S2 Removal & Bench Testing \u2014 0.7 hrs\n   \u2022 Remove shift solenoid valve S2 from valve body (15 min)\n   \u2022 Measure S2 resistance (5 min)\n   \u2022 Apply 12 V to S2 and verify it moves and makes an operating noise (5 min)\n   \u2022 If defective, replace shift solenoid valve S2 (15 min)\n\n3. Valve Body Access, Reassembly & S2 Reinstallation \u2014 0.9 hrs\n   \u2022 Reinstall shift solenoid valve S2 into valve body (15 min)\n   \u2022 Reinstall valve body assembly with associated gaskets/seals (20 min)\n   \u2022 Reinstall transmission oil pan sub-assembly with new gasket and bolts (20 min)\n\n4. ATF Refill \u2014 1.0 hrs\n   \u2022 Refill ATF WS to proper level using overflow-fill method (20 min)\n   \u2022 Confirm fluid level and top off as needed (15 min)\n   \u2022 Check for leaks and secure lines/hoses (10 min)\n   \u2022 Verify ATF temperature/flow condition and finalize fill (15 min)\n\n5. Final System Check & Test Drive \u2014 0.5 hrs\n   \u2022 Start engine, cycle through gears, and verify shift pattern in D/S positions (10 min)\n   \u2022 Road test to confirm normal operation and absence of slipping/harsh shifts (15 min)\n   \u2022 Clear codes (if any) and confirm no MIL illumination (5 min)\n   \u2022 Post-test data check and final documentation (5 min)\n\nPARTS REQUIRED\n--------------\n  Part Description          | OEM Part #     | Qty | Unit Price  | Total\n  \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n  Automatic Transmission Control Solenoid (Shift Solenoid S2) | 3529034010 | 1 | $293.23 | $293.23\n  Gasket, Automatic Transmission Oil Pan | 3516860010 | 1 | $35.58  | $35.58\n  Ring, O For Oil Strainer | 9030131014 | 1 | $4.81   | $4.81\n  Transmission Oil Filter | 3533060070 | 1 | $67.51  | $67.51\n  (Notes: ATF WS is required for refill but is not listed in catalog data here. If you supply ATF WS separately, add it as a separate line item with the OEM spec and price.)\n\nSUMMARY\n-------\n Labour:\n   Transmission Access & Preparation      1.0 hrs\n   Shift Solenoid S2 Removal & Bench Test  0.7 hrs\n   Valve Body Access & Reassembly          0.9 hrs\n   ATF Refill                               1.0 hrs\n   Final Check & Test Drive                 0.5 hrs\n   \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   Total Labour                          4.1 hrs \u00d7 $100.00/hr = $410.00\n\n Parts:\n   Automatic Transmission Control Solenoid    $293.23\n   Oil Pan Gasket                               $35.58\n   Oil Strainer O-Ring                           $4.81\n   Transmission Oil Filter                        $67.51\n   Subtotal                                      $401.13\n\n  Subtotal                                              $811.13\n  Tax (13%)                                             $105.45\n  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  TOTAL                                                 $916.58\n\nNotes and assumptions:\n- This work order targets addressing a suspected S2 solenoid fault contributing to a P2714-like condition by replacing the shift solenoid S2 and reseating the valve body as needed per service procedures.\n- ATF drain is performed in the Access & Preparation group; ATF refill is a separate group per guidelines.\n- Torque figures explicitly used from service manual context where applicable:\n  \u2022 Oil Pan bolts: install with 7.0 N\u00b7m torque (per oil pan reinstallation guidance)\n  \u2022 Transmission wire connector bolt: 5.4 N\u00b7m (for securing the transmission wire harness)\n  \u2022 Any other bolts referenced in these steps should be torqued to their respective values per the manual when reassembling the related components.\n\nIf you\u2019d like, I can adjust the work order for a different labor rate, tax rate, or include additional items (e.g., wheel alignment, battery/systems checks, or a formal DTC clear report).",
+    "checks": [
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Work order missing gasket \u2014 oil pan removal always needs new gasket",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Work order missing O-ring for oil strainer",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Work order missing transmission oil filter/strainer",
+        "evidence": "",
+        "fix_hint": ""
+      }
+    ],
+    "error": "",
+    "duration_s": 98.62259531021118
+  },
+  {
+    "test_id": "p2714_work_order_labor",
+    "name": "P2714 work order has detailed labor breakdown",
+    "status": "FAIL",
+    "turns": [
+      "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+    ],
+    "final_output": "WORK ORDER \u2014 2017 GX460 \u2014 P2714 Shift Solenoid Stuck Off\n====================================================\n\nTASK BREAKDOWN\n--------------\n\n1. Transmission Access & Preparation \u2014 1.0 hrs\n   \u2022 Raise vehicle on lift (15 min)\n   \u2022 Remove underbody shields/covers to access transmission area (10 min)\n   \u2022 Drain ATF from transmission (15 min)\n   \u2022 Remove transmission oil pan to access valve body (20 min)\n\n2. Shift Solenoid S2 Removal & Bench Testing \u2014 0.7 hrs\n   \u2022 Remove shift solenoid valve S2 from valve body (15 min)\n   \u2022 Measure S2 resistance (5 min)\n   \u2022 Apply 12 V to S2 and verify it moves and makes an operating noise (5 min)\n   \u2022 If defective, replace shift solenoid valve S2 (15 min)\n\n3. Valve Body Access, Reassembly & S2 Reinstallation \u2014 0.9 hrs\n   \u2022 Reinstall shift solenoid valve S2 into valve body (15 min)\n   \u2022 Reinstall valve body assembly with associated gaskets/seals (20 min)\n   \u2022 Reinstall transmission oil pan sub-assembly with new gasket and bolts (20 min)\n\n4. ATF Refill \u2014 1.0 hrs\n   \u2022 Refill ATF WS to proper level using overflow-fill method (20 min)\n   \u2022 Confirm fluid level and top off as needed (15 min)\n   \u2022 Check for leaks and secure lines/hoses (10 min)\n   \u2022 Verify ATF temperature/flow condition and finalize fill (15 min)\n\n5. Final System Check & Test Drive \u2014 0.5 hrs\n   \u2022 Start engine, cycle through gears, and verify shift pattern in D/S positions (10 min)\n   \u2022 Road test to confirm normal operation and absence of slipping/harsh shifts (15 min)\n   \u2022 Clear codes (if any) and confirm no MIL illumination (5 min)\n   \u2022 Post-test data check and final documentation (5 min)\n\nPARTS REQUIRED\n--------------\n  Part Description          | OEM Part #     | Qty | Unit Price  | Total\n  \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n  Automatic Transmission Control Solenoid (Shift Solenoid S2) | 3529034010 | 1 | $293.23 | $293.23\n  Gasket, Automatic Transmission Oil Pan | 3516860010 | 1 | $35.58  | $35.58\n  Ring, O For Oil Strainer | 9030131014 | 1 | $4.81   | $4.81\n  Transmission Oil Filter | 3533060070 | 1 | $67.51  | $67.51\n  (Notes: ATF WS is required for refill but is not listed in catalog data here. If you supply ATF WS separately, add it as a separate line item with the OEM spec and price.)\n\nSUMMARY\n-------\n Labour:\n   Transmission Access & Preparation      1.0 hrs\n   Shift Solenoid S2 Removal & Bench Test  0.7 hrs\n   Valve Body Access & Reassembly          0.9 hrs\n   ATF Refill                               1.0 hrs\n   Final Check & Test Drive                 0.5 hrs\n   \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   Total Labour                          4.1 hrs \u00d7 $100.00/hr = $410.00\n\n Parts:\n   Automatic Transmission Control Solenoid    $293.23\n   Oil Pan Gasket                               $35.58\n   Oil Strainer O-Ring                           $4.81\n   Transmission Oil Filter                        $67.51\n   Subtotal                                      $401.13\n\n  Subtotal                                              $811.13\n  Tax (13%)                                             $105.45\n  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  TOTAL                                                 $916.58\n\nNotes and assumptions:\n- This work order targets addressing a suspected S2 solenoid fault contributing to a P2714-like condition by replacing the shift solenoid S2 and reseating the valve body as needed per service procedures.\n- ATF drain is performed in the Access & Preparation group; ATF refill is a separate group per guidelines.\n- Torque figures explicitly used from service manual context where applicable:\n  \u2022 Oil Pan bolts: install with 7.0 N\u00b7m torque (per oil pan reinstallation guidance)\n  \u2022 Transmission wire connector bolt: 5.4 N\u00b7m (for securing the transmission wire harness)\n  \u2022 Any other bolts referenced in these steps should be torqued to their respective values per the manual when reassembling the related components.\n\nIf you\u2019d like, I can adjust the work order for a different labor rate, tax rate, or include additional items (e.g., wheel alignment, battery/systems checks, or a formal DTC clear report).",
+    "checks": [
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing vehicle lift step \u2014 transmission work requires raised vehicle",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing oil pan removal step",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": false,
+        "message": "Missing harness/connector disconnect step",
+        "evidence": "Pattern not found: (?i)(?:remove|disconnect).*(?:harness|connector|wire)",
+        "fix_hint": "diagnostic_engine.py, prompts.py",
+        "failure_type": "code"
+      },
+      {
+        "check_type": "llm_judge",
+        "passed": false,
+        "message": "Labor breakdown is missing detail or has unrealistic times",
+        "evidence": "The work order does not break labor into at least 3 task groups with individual subtask minute estimates; the total minutes do not sum properly to match each task group time; and the total labor hours (4.1) fall within the specified range, but the breakdown requirements are not fully met.",
+        "fix_hint": "prompts.py (system prompt rules), diagnostic_engine.py (context/search queries)",
+        "failure_type": "code"
+      }
+    ],
+    "error": "",
+    "duration_s": 98.62259531021118
+  },
+  {
+    "test_id": "p2714_work_order_format",
+    "name": "P2714 work order follows the required format",
+    "status": "PASS",
+    "turns": [
+      "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+    ],
+    "final_output": "WORK ORDER \u2014 2017 GX460 \u2014 P2714 Shift Solenoid Stuck Off\n====================================================\n\nTASK BREAKDOWN\n--------------\n\n1. Transmission Access & Preparation \u2014 1.0 hrs\n   \u2022 Raise vehicle on lift (15 min)\n   \u2022 Remove underbody shields/covers to access transmission area (10 min)\n   \u2022 Drain ATF from transmission (15 min)\n   \u2022 Remove transmission oil pan to access valve body (20 min)\n\n2. Shift Solenoid S2 Removal & Bench Testing \u2014 0.7 hrs\n   \u2022 Remove shift solenoid valve S2 from valve body (15 min)\n   \u2022 Measure S2 resistance (5 min)\n   \u2022 Apply 12 V to S2 and verify it moves and makes an operating noise (5 min)\n   \u2022 If defective, replace shift solenoid valve S2 (15 min)\n\n3. Valve Body Access, Reassembly & S2 Reinstallation \u2014 0.9 hrs\n   \u2022 Reinstall shift solenoid valve S2 into valve body (15 min)\n   \u2022 Reinstall valve body assembly with associated gaskets/seals (20 min)\n   \u2022 Reinstall transmission oil pan sub-assembly with new gasket and bolts (20 min)\n\n4. ATF Refill \u2014 1.0 hrs\n   \u2022 Refill ATF WS to proper level using overflow-fill method (20 min)\n   \u2022 Confirm fluid level and top off as needed (15 min)\n   \u2022 Check for leaks and secure lines/hoses (10 min)\n   \u2022 Verify ATF temperature/flow condition and finalize fill (15 min)\n\n5. Final System Check & Test Drive \u2014 0.5 hrs\n   \u2022 Start engine, cycle through gears, and verify shift pattern in D/S positions (10 min)\n   \u2022 Road test to confirm normal operation and absence of slipping/harsh shifts (15 min)\n   \u2022 Clear codes (if any) and confirm no MIL illumination (5 min)\n   \u2022 Post-test data check and final documentation (5 min)\n\nPARTS REQUIRED\n--------------\n  Part Description          | OEM Part #     | Qty | Unit Price  | Total\n  \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n  Automatic Transmission Control Solenoid (Shift Solenoid S2) | 3529034010 | 1 | $293.23 | $293.23\n  Gasket, Automatic Transmission Oil Pan | 3516860010 | 1 | $35.58  | $35.58\n  Ring, O For Oil Strainer | 9030131014 | 1 | $4.81   | $4.81\n  Transmission Oil Filter | 3533060070 | 1 | $67.51  | $67.51\n  (Notes: ATF WS is required for refill but is not listed in catalog data here. If you supply ATF WS separately, add it as a separate line item with the OEM spec and price.)\n\nSUMMARY\n-------\n Labour:\n   Transmission Access & Preparation      1.0 hrs\n   Shift Solenoid S2 Removal & Bench Test  0.7 hrs\n   Valve Body Access & Reassembly          0.9 hrs\n   ATF Refill                               1.0 hrs\n   Final Check & Test Drive                 0.5 hrs\n   \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   Total Labour                          4.1 hrs \u00d7 $100.00/hr = $410.00\n\n Parts:\n   Automatic Transmission Control Solenoid    $293.23\n   Oil Pan Gasket                               $35.58\n   Oil Strainer O-Ring                           $4.81\n   Transmission Oil Filter                        $67.51\n   Subtotal                                      $401.13\n\n  Subtotal                                              $811.13\n  Tax (13%)                                             $105.45\n  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  TOTAL                                                 $916.58\n\nNotes and assumptions:\n- This work order targets addressing a suspected S2 solenoid fault contributing to a P2714-like condition by replacing the shift solenoid S2 and reseating the valve body as needed per service procedures.\n- ATF drain is performed in the Access & Preparation group; ATF refill is a separate group per guidelines.\n- Torque figures explicitly used from service manual context where applicable:\n  \u2022 Oil Pan bolts: install with 7.0 N\u00b7m torque (per oil pan reinstallation guidance)\n  \u2022 Transmission wire connector bolt: 5.4 N\u00b7m (for securing the transmission wire harness)\n  \u2022 Any other bolts referenced in these steps should be torqued to their respective values per the manual when reassembling the related components.\n\nIf you\u2019d like, I can adjust the work order for a different labor rate, tax rate, or include additional items (e.g., wheel alignment, battery/systems checks, or a formal DTC clear report).",
+    "checks": [
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing WORK ORDER header",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing TASK BREAKDOWN section",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing PARTS REQUIRED section",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Missing SUMMARY section",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "No dollar amounts found \u2014 prices missing",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "min_lines",
+        "passed": true,
+        "message": "Work order too short \u2014 expected detailed breakdown",
+        "evidence": "",
+        "fix_hint": ""
+      }
+    ],
+    "error": "",
+    "duration_s": 98.62259531021118
+  },
+  {
+    "test_id": "p2714_work_order_torque",
+    "name": "P2714 work order includes torque specs from manual",
+    "status": "PASS",
+    "turns": [
+      "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+    ],
+    "final_output": "WORK ORDER \u2014 2017 GX460 \u2014 P2714 Shift Solenoid Stuck Off\n====================================================\n\nTASK BREAKDOWN\n--------------\n\n1. Transmission Access & Preparation \u2014 1.0 hrs\n   \u2022 Raise vehicle on lift (15 min)\n   \u2022 Remove underbody shields/covers to access transmission area (10 min)\n   \u2022 Drain ATF from transmission (15 min)\n   \u2022 Remove transmission oil pan to access valve body (20 min)\n\n2. Shift Solenoid S2 Removal & Bench Testing \u2014 0.7 hrs\n   \u2022 Remove shift solenoid valve S2 from valve body (15 min)\n   \u2022 Measure S2 resistance (5 min)\n   \u2022 Apply 12 V to S2 and verify it moves and makes an operating noise (5 min)\n   \u2022 If defective, replace shift solenoid valve S2 (15 min)\n\n3. Valve Body Access, Reassembly & S2 Reinstallation \u2014 0.9 hrs\n   \u2022 Reinstall shift solenoid valve S2 into valve body (15 min)\n   \u2022 Reinstall valve body assembly with associated gaskets/seals (20 min)\n   \u2022 Reinstall transmission oil pan sub-assembly with new gasket and bolts (20 min)\n\n4. ATF Refill \u2014 1.0 hrs\n   \u2022 Refill ATF WS to proper level using overflow-fill method (20 min)\n   \u2022 Confirm fluid level and top off as needed (15 min)\n   \u2022 Check for leaks and secure lines/hoses (10 min)\n   \u2022 Verify ATF temperature/flow condition and finalize fill (15 min)\n\n5. Final System Check & Test Drive \u2014 0.5 hrs\n   \u2022 Start engine, cycle through gears, and verify shift pattern in D/S positions (10 min)\n   \u2022 Road test to confirm normal operation and absence of slipping/harsh shifts (15 min)\n   \u2022 Clear codes (if any) and confirm no MIL illumination (5 min)\n   \u2022 Post-test data check and final documentation (5 min)\n\nPARTS REQUIRED\n--------------\n  Part Description          | OEM Part #     | Qty | Unit Price  | Total\n  \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n  Automatic Transmission Control Solenoid (Shift Solenoid S2) | 3529034010 | 1 | $293.23 | $293.23\n  Gasket, Automatic Transmission Oil Pan | 3516860010 | 1 | $35.58  | $35.58\n  Ring, O For Oil Strainer | 9030131014 | 1 | $4.81   | $4.81\n  Transmission Oil Filter | 3533060070 | 1 | $67.51  | $67.51\n  (Notes: ATF WS is required for refill but is not listed in catalog data here. If you supply ATF WS separately, add it as a separate line item with the OEM spec and price.)\n\nSUMMARY\n-------\n Labour:\n   Transmission Access & Preparation      1.0 hrs\n   Shift Solenoid S2 Removal & Bench Test  0.7 hrs\n   Valve Body Access & Reassembly          0.9 hrs\n   ATF Refill                               1.0 hrs\n   Final Check & Test Drive                 0.5 hrs\n   \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   Total Labour                          4.1 hrs \u00d7 $100.00/hr = $410.00\n\n Parts:\n   Automatic Transmission Control Solenoid    $293.23\n   Oil Pan Gasket                               $35.58\n   Oil Strainer O-Ring                           $4.81\n   Transmission Oil Filter                        $67.51\n   Subtotal                                      $401.13\n\n  Subtotal                                              $811.13\n  Tax (13%)                                             $105.45\n  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  TOTAL                                                 $916.58\n\nNotes and assumptions:\n- This work order targets addressing a suspected S2 solenoid fault contributing to a P2714-like condition by replacing the shift solenoid S2 and reseating the valve body as needed per service procedures.\n- ATF drain is performed in the Access & Preparation group; ATF refill is a separate group per guidelines.\n- Torque figures explicitly used from service manual context where applicable:\n  \u2022 Oil Pan bolts: install with 7.0 N\u00b7m torque (per oil pan reinstallation guidance)\n  \u2022 Transmission wire connector bolt: 5.4 N\u00b7m (for securing the transmission wire harness)\n  \u2022 Any other bolts referenced in these steps should be torqued to their respective values per the manual when reassembling the related components.\n\nIf you\u2019d like, I can adjust the work order for a different labor rate, tax rate, or include additional items (e.g., wheel alignment, battery/systems checks, or a formal DTC clear report).",
+    "checks": [
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "No torque specifications found \u2014 manual has torque values that should be included",
+        "evidence": "",
+        "fix_hint": ""
+      }
+    ],
+    "error": "",
+    "duration_s": 98.62259531021118
+  },
+  {
+    "test_id": "p2714_work_order_atf_no_double_drain",
+    "name": "P2714 work order does not double-count ATF drain in refill-only line item",
+    "status": "PASS",
+    "turns": [
+      "2017 Lexus GX460 P2714 shift solenoid stuck off, can you get me a work order"
+    ],
+    "final_output": "WORK ORDER \u2014 2017 GX460 \u2014 P2714 Shift Solenoid Stuck Off\n====================================================\n\nTASK BREAKDOWN\n--------------\n\n1. Transmission Access & Preparation \u2014 1.0 hrs\n   \u2022 Raise vehicle on lift (15 min)\n   \u2022 Remove underbody shields/covers to access transmission area (10 min)\n   \u2022 Drain ATF from transmission (15 min)\n   \u2022 Remove transmission oil pan to access valve body (20 min)\n\n2. Shift Solenoid S2 Removal & Bench Testing \u2014 0.7 hrs\n   \u2022 Remove shift solenoid valve S2 from valve body (15 min)\n   \u2022 Measure S2 resistance (5 min)\n   \u2022 Apply 12 V to S2 and verify it moves and makes an operating noise (5 min)\n   \u2022 If defective, replace shift solenoid valve S2 (15 min)\n\n3. Valve Body Access, Reassembly & S2 Reinstallation \u2014 0.9 hrs\n   \u2022 Reinstall shift solenoid valve S2 into valve body (15 min)\n   \u2022 Reinstall valve body assembly with associated gaskets/seals (20 min)\n   \u2022 Reinstall transmission oil pan sub-assembly with new gasket and bolts (20 min)\n\n4. ATF Refill \u2014 1.0 hrs\n   \u2022 Refill ATF WS to proper level using overflow-fill method (20 min)\n   \u2022 Confirm fluid level and top off as needed (15 min)\n   \u2022 Check for leaks and secure lines/hoses (10 min)\n   \u2022 Verify ATF temperature/flow condition and finalize fill (15 min)\n\n5. Final System Check & Test Drive \u2014 0.5 hrs\n   \u2022 Start engine, cycle through gears, and verify shift pattern in D/S positions (10 min)\n   \u2022 Road test to confirm normal operation and absence of slipping/harsh shifts (15 min)\n   \u2022 Clear codes (if any) and confirm no MIL illumination (5 min)\n   \u2022 Post-test data check and final documentation (5 min)\n\nPARTS REQUIRED\n--------------\n  Part Description          | OEM Part #     | Qty | Unit Price  | Total\n  \u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\u2014\n  Automatic Transmission Control Solenoid (Shift Solenoid S2) | 3529034010 | 1 | $293.23 | $293.23\n  Gasket, Automatic Transmission Oil Pan | 3516860010 | 1 | $35.58  | $35.58\n  Ring, O For Oil Strainer | 9030131014 | 1 | $4.81   | $4.81\n  Transmission Oil Filter | 3533060070 | 1 | $67.51  | $67.51\n  (Notes: ATF WS is required for refill but is not listed in catalog data here. If you supply ATF WS separately, add it as a separate line item with the OEM spec and price.)\n\nSUMMARY\n-------\n Labour:\n   Transmission Access & Preparation      1.0 hrs\n   Shift Solenoid S2 Removal & Bench Test  0.7 hrs\n   Valve Body Access & Reassembly          0.9 hrs\n   ATF Refill                               1.0 hrs\n   Final Check & Test Drive                 0.5 hrs\n   \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n   Total Labour                          4.1 hrs \u00d7 $100.00/hr = $410.00\n\n Parts:\n   Automatic Transmission Control Solenoid    $293.23\n   Oil Pan Gasket                               $35.58\n   Oil Strainer O-Ring                           $4.81\n   Transmission Oil Filter                        $67.51\n   Subtotal                                      $401.13\n\n  Subtotal                                              $811.13\n  Tax (13%)                                             $105.45\n  \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\n  TOTAL                                                 $916.58\n\nNotes and assumptions:\n- This work order targets addressing a suspected S2 solenoid fault contributing to a P2714-like condition by replacing the shift solenoid S2 and reseating the valve body as needed per service procedures.\n- ATF drain is performed in the Access & Preparation group; ATF refill is a separate group per guidelines.\n- Torque figures explicitly used from service manual context where applicable:\n  \u2022 Oil Pan bolts: install with 7.0 N\u00b7m torque (per oil pan reinstallation guidance)\n  \u2022 Transmission wire connector bolt: 5.4 N\u00b7m (for securing the transmission wire harness)\n  \u2022 Any other bolts referenced in these steps should be torqued to their respective values per the manual when reassembling the related components.\n\nIf you\u2019d like, I can adjust the work order for a different labor rate, tax rate, or include additional items (e.g., wheel alignment, battery/systems checks, or a formal DTC clear report).",
+    "checks": [
+      {
+        "check_type": "llm_judge",
+        "passed": true,
+        "message": "Work order double-counts ATF drain \u2014 drain labor appears in multiple task groups",
+        "evidence": "",
+        "fix_hint": ""
+      }
+    ],
+    "error": "",
+    "duration_s": 98.62259531021118
+  },
+  {
+    "test_id": "p2714_diagnosis_basic",
+    "name": "P2714 diagnosis starts correctly",
+    "status": "PASS",
+    "turns": [
+      "2017 Lexus GX460 throwing P2714, shift solenoid SLT performance issue"
+    ],
+    "final_output": "According to the service manual, P2714 points to a fault in shift solenoid valve SLT. The first diagnostic step is to test SLT resistance (between terminals 1 and 2) at 20\u00b0C; the spec is 5.0 to 5.6 \u03a9. Have you performed this SLT resistance test, and if so, what resistance did you read?",
+    "checks": [
+      {
+        "check_type": "regex_present",
+        "passed": true,
+        "message": "Response doesn't acknowledge the P2714 DTC",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "regex_absent",
+        "passed": true,
+        "message": "System claims to have no info on P2714 \u2014 graph search failed",
+        "evidence": "",
+        "fix_hint": ""
+      },
+      {
+        "check_type": "min_lines",
+        "passed": true,
+        "message": "Response too short for a diagnostic start",
+        "evidence": "",
+        "fix_hint": ""
+      }
+    ],
+    "error": "",
+    "duration_s": 14.702761173248291
+  }
+]

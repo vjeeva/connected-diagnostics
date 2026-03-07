@@ -19,6 +19,8 @@ pydantic-settings = "^2.0"
 rich = "^13.0"
 click = "^8.0"
 alembic = "^1.13"
+requests = "^2.31"
+beautifulsoup4 = "^4.12"
 
 [build-system]
 requires = ["poetry-core"]
